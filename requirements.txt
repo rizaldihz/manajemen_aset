@@ -1,0 +1,24 @@
+Jadi intinya bisa :
+1. Monitorin kondisi, lokasi, ketersediaan, pengondisian berkala, lokasi, penanggung jawab aset
+2. Monitor Aset
+3. Pemberitahuan alarm kebutuhan stoknya
+4. Generate QR Code
+5. Detail
+6. Report peminjaman
+7. Ganti warna 
+
+==========================================
+
+1. Create Update Delete Read Stock
+2. Create Update Delete Read audit
+3. Create Update Delete Read peminjaman
+4. Create QR Code
+5. Stock warning
+
+1. Setup PGSql
+2. Migrate DB
+3. php artisan key:generate
+3. Run php artisan storage:link
+4. composer install : composer require goldspecdigital/laravel-eloquent-uuid:^8.0
+5. composer require yajra/laravel-datatables-oracle:"~9.0", https://github.com/yajra/laravel-datatables
+6. php artisan vendor:publish --tag=datatables

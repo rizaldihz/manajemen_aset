@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" dir="">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Data Peminjaman</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,600,700,800,900" rel="stylesheet" />
+    <link href="../../dist-assets/css/themes/lite-purple.min.css" rel="stylesheet" />
+    <link href="../../dist-assets/css/plugins/perfect-scrollbar.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../dist-assets/css/plugins/datatables.min.css" />
+</head>
+
+<body class="text-left">
+    <div class="app-admin-wrap layout-sidebar-large">
+        <div class="main-header">
+            <!-- <div class="logo">
+               
+            </div> -->
+            <div class="menu-toggle">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div style="margin: auto"></div>
+        </div>
+        <div class="side-content-wrap">
+            <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
+                <ul class="navigation-left">
+                    <li class="nav-item" data-item="extrakits"><a class="nav-item-hold" href="daftar-aset.html"><i class="nav-icon i-Dropbox"></i><span class="nav-text">Cek Aset</span></a>
+                        <div class="triangle"></div>
+                    </li>
+                    <li class="nav-item" data-item="charts"><a class="nav-item-hold" href="#"><i class="nav-icon i-Letter-Open"></i><span class="nav-text">Peminjaman</span></a>
+                        <div class="triangle"></div>
+                    </li>
+                    <li class="nav-item" data-item="forms"><a class="nav-item-hold" href="#"><i class="nav-icon i-Calendar-4"></i><span class="nav-text">Jadwal Audit</span></a>
+                        <div class="triangle"></div>
+                    </li>
+                </ul>
+            </div>
+            <!-- <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
+                <ul class="childNav" data-parent="dashboard">
+                    <li class="nav-item"><a href="dashboard1.html"><i class="nav-icon i-Clock-3"></i><span class="item-name">Version 1</span></a></li>
+                    <li class="nav-item"><a href="dashboard2.html"><i class="nav-icon i-Clock-4"></i><span class="item-name">Version 2</span></a></li>
+                    <li class="nav-item"><a href="dashboard3.html"><i class="nav-icon i-Over-Time"></i><span class="item-name">Version 3</span></a></li>
+                    <li class="nav-item"><a href="dashboard4.html"><i class="nav-icon i-Clock"></i><span class="item-name">Version 4</span></a></li>
+                </ul>
+                <ul class="childNav" data-parent="forms">
+                    <li class="nav-item"><a href="form.basic.html"><i class="nav-icon i-File-Clipboard-Text--Image"></i><span class="item-name">Basic Elements</span></a></li>
+                    <li class="nav-item"><a href="form.layouts.html"><i class="nav-icon i-Split-Vertical"></i><span class="item-name">Form Layouts</span></a></li>
+                    <li class="nav-item"><a href="form.input.group.html"><i class="nav-icon i-Receipt-4"></i><span class="item-name">Input Groups</span></a></li>
+                    <li class="nav-item"><a href="form.validation.html"><i class="nav-icon i-Close-Window"></i><span class="item-name">Form Validation</span></a></li>
+                    <li class="nav-item"><a href="smart.wizard.html"><i class="nav-icon i-Width-Window"></i><span class="item-name">Smart Wizard</span></a></li>
+                    <li class="nav-item"><a href="tag.input.html"><i class="nav-icon i-Tag-2"></i><span class="item-name">Tag Input</span></a></li>
+                    <li class="nav-item"><a href="editor.html"><i class="nav-icon i-Pen-2"></i><span class="item-name">Rich Editor</span></a></li>
+                </ul>
+                <ul class="childNav" data-parent="apps">
+                    <li class="nav-item"><a href="invoice.html"><i class="nav-icon i-Add-File"></i><span class="item-name">Invoice</span></a></li>
+                    <li class="nav-item"><a href="inbox.html"><i class="nav-icon i-Email"></i><span class="item-name">Inbox</span></a></li>
+                    <li class="nav-item"><a href="chat.html"><i class="nav-icon i-Speach-Bubble-3"></i><span class="item-name">Chat</span></a></li>
+                </ul>
+                <ul class="childNav" data-parent="widgets">
+                    <li class="nav-item"><a href="widget-card.html"><i class="nav-icon i-Receipt-4"></i><span class="item-name">widget card</span></a></li>
+                    <li class="nav-item"><a href="widget-statistics.html"><i class="nav-icon i-Receipt-4"></i><span class="item-name">widget statistics</span></a></li>
+                    <li class="nav-item"><a href="widget-list.html"><i class="nav-icon i-Receipt-4"></i><span class="item-name">Widget List <span class="ml-2 badge badge-pill badge-danger">New</span></span></a></li>
+                    <li class="nav-item"><a href="widget-app.html"><i class="nav-icon i-Receipt-4"></i><span class="item-name">Widget App <span class="ml-2 badge badge-pill badge-danger"> New</span></span></a></li>
+                    <li class="nav-item"><a href="weather-card.html"><i class="nav-icon i-Receipt-4"></i><span class="item-name">Weather App <span class="ml-2 badge badge-pill badge-danger"> New</span></span></a></li>
+                </ul>
+            </div> -->
+            <div class="sidebar-overlay"></div>
+        </div>
+        <!-- =============== Left side End ================-->
+        <div class="main-content-wrap sidenav-open d-flex flex-column">
+            <!-- ============ Body content start ============= -->
+            <div class="main-content">
+                <div class="breadcrumb">
+                    <h1>Manajemen Aset</h1>
+                    <ul>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li>Data Peminjaman</li>
+                    </ul>
+                </div>
+                <div class="separator-breadcrumb border-top"></div>
+                <div class="row mb-4">
+                    <div class="col-md-3 col-6 mb-1">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Pinjam Aset</button>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-12 mb-4">
+                        <div class="card text-left">
+                            <div class="card-body">
+                                <!-- <h4 class="card-title mb-3">Zero configuration</h4>
+                                <p>DataTables has most features enabled by default, so all you need to do to use it with your own ables is to call the construction function: $().DataTable();.</p> -->
+                                <div class="table-responsive">
+                                    <table class="display table table-striped table-bordered" id="zero_configuration_table" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Aset</th>
+                                                <th>Status</th>
+                                                <th>Tanggal Kembali</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><a href="#" data-toggle="modal" data-target="#exampleModal2">Monitor Apple</a></td>
+                                                <td><span class="badge badge-warning">Sedang Dipinjam</span></td>
+                                                <td>22 November 2020</td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of col-->
+                    <!-- end of col-->
+                </div>
+                <!-- end of row-->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Pinjam Aset</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div id="qr-reader" style="width: 300px;"></div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Peminjam</label>
+                                        <input class="form-control" type="text" value="Mas Adam Febriansyah" disabled/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Tanggal Pengembalian</label>
+                                        <input class="form-control" type="text" value="21 November 2020" disabled/>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                                <button class="btn btn-primary ml-2" type="button">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Peminjaman P301</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <img class="rounded mb-2" src="../../dist-assets/images/photo-wide-2.jpg" alt="">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Nama Aset</label>
+                                        <input class="form-control" type="text" value="Monitor Apple" disabled/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Peminjam</label>
+                                        <input class="form-control" type="text" value="Mas Adam Febriansyah" disabled/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Tgl Pinjam</label>
+                                        <input class="form-control" type="text" value="11 November 2020" disabled/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Tgl Kembali</label>
+                                        <input class="form-control" type="text" value="21 November 2020" disabled/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Status</label>
+                                        <span class="badge badge-warning">Sedang Dipinjam</span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                                <button class="btn btn-primary ml-2" type="button">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of main-content -->
+            </div><!-- Footer Start -->
+            <div class="flex-grow-1"></div>
+            <div class="app-footer">
+                <div class="footer-bottom border-top pt-3 d-flex flex-column flex-sm-row align-items-center">
+                    <span class="flex-grow-1"></span>
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <p class="m-0">&copy; 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- fotter end -->
+        </div>
+    </div>
+    <script src="../../dist-assets/js/plugins/jquery-3.3.1.min.js"></script>
+    <script src="../../dist-assets/js/plugins/bootstrap.bundle.min.js"></script>
+    <script src="../../dist-assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="../../dist-assets/js/scripts/script.min.js"></script>
+    <script src="../../dist-assets/js/scripts/sidebar.large.script.min.js"></script>
+    <script src="../../dist-assets/js/plugins/datatables.min.js"></script>
+    <script src="../../dist-assets/js/scripts/datatables.script.min.js"></script>
+    <script src="../../dist-assets/js/scripts/customizer.script.min.js"></script>
+    <script src="./html5-qrcode.min.js"></script>
+    <script>
+        function docReady(fn) {
+            // see if DOM is already available
+            if (document.readyState === "complete" || document.readyState === "interactive") {
+                // call on next available tick
+                setTimeout(fn, 1);
+            } else {
+                document.addEventListener("DOMContentLoaded", fn);
+            }
+        } 
+
+        docReady(function() {
+            var resultContainer = document.getElementById('qr-reader-results');
+            var lastResult, countResults = 0;
+            
+            var html5QrcodeScanner = new Html5QrcodeScanner(
+                "qr-reader", { fps: 10, qrbox: 250 });
+            
+            function onScanSuccess(qrCodeMessage) {
+                if (qrCodeMessage !== lastResult) {
+                    ++countResults;
+                    lastResult = qrCodeMessage;
+                    resultContainer.innerHTML += `<div>[${countResults}] - ${qrCodeMessage}</div>`;
+                    
+                    // Optional: To close the QR code scannign after the result is found
+                    html5QrcodeScanner.clear();
+                }
+            }
+            
+            // Optional callback for error, can be ignored.
+            function onScanError(qrCodeError) {
+                // This callback would be called in case of qr code scan error or setup error.
+                // You can avoid this callback completely, as it can be very verbose in nature.
+            }
+            
+            html5QrcodeScanner.render(onScanSuccess, onScanError);
+        });
+    </script>
+</body>
+
+</html>
