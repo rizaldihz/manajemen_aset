@@ -19,3 +19,5 @@ Route::post('jenis-asset/create', 'App\Http\Controllers\AssetController@jenis_as
 Route::post('asset/create', 'App\Http\Controllers\AssetController@asset_create');
 Route::post('asset/get', 'App\Http\Controllers\AssetController@asset_get');
 Route::post('asset/delete', 'App\Http\Controllers\AssetController@asset_delete');
+Route::get('asset/code/{id}', 'App\Http\Controllers\AssetController@asset_qrcode');
+Route::get('peminjaman', 'App\Http\Controllers\PeminjamanController@peminjaman_view');

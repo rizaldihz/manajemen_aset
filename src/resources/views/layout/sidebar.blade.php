@@ -69,7 +69,7 @@
             <br>
             <ul class="childNav">
                 <li class="nav-item">
-                    <a href="peminjaman.html">
+                    <a href="{{url('peminjaman')}}">
                         <i class="nav-icon i-Line-Chart-2"></i>
                         <span class="item-name">Peminjaman Aset</span>
                     </a>

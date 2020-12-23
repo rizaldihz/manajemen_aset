@@ -3,6 +3,7 @@
 @section('moreCSS')
 <link rel="stylesheet" href="{{asset('assets/css/plugins/datatables.min.css')}}" />
 <link rel="stylesheet" href="{{asset('assets/css/plugins/sweetalert2.min.css')}}" />
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 @endsection
 
 @section('content')
@@ -63,9 +64,11 @@
                     <div class="form-group">
                         <label class="col-form-label">Jenis Asset</label>
                         <select class="form-control" name='jenis_asset'>
-                            @foreach($jenisAssets as $jenisAsset)
-                            <option value="{{$jenisAsset->id}}">{{$jenisAsset->nama}}</option>
-                            @endforeach
+                            @if(!$jenisAssets->isEmpty())
+                                @foreach($jenisAssets as $jenisAsset)
+                                <option value="{{$jenisAsset->id}}">{{$jenisAsset->nama}}</option>
+                                @endforeach
+                            @endif
                         </select>
                     </div>
                     <div class="form-group">
@@ -85,7 +88,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalDetailAset">Detail Aset</h5>
+                <h5 class="modal-title">Detail Aset</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
@@ -133,9 +136,9 @@
         serverSide: true,
         ajax: "{{ url('daftar-aset') }}",
         columns: [
-            {data: 'kode_aset', name: 'kode aset'},
-            {data: 'nama', name: 'nama aset'},
-            {data: 'jenis_aset', name: 'jenis aset'},
+            {data: 'kode_aset', name: 'kode_aset'},
+            {data: 'nama', name: 'nama'},
+            {data: 'jenis_aset', name: 'jenis_aset'},
             {data: 'lokasi', name: 'lokasi'},
             {data: 'status', name: 'status'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
@@ -150,12 +153,14 @@
                 type: 'post',
                 data: {id: params, tipe:'modal', _token: "{{ csrf_token() }}",},
                 success: function(response){ 
+                    $('#modalDetailAset .modal-title').html("Detail Aset")
                     $('#modalDetailAset .modal-body').html(response.data);
                     $('#modalDetailAset').modal('show'); 
                 }
             });
         }
         else{
+            $('#modalDetailAset .modal-title').html("Detail Aset")
             $('#modalDetailAset').modal('show');
         }
     }
@@ -174,6 +179,12 @@
                 table.ajax.reload();
             }
         });
+    }
+    function toggleCode(params)
+    {
+        $('#modalDetailAset .modal-title').html("QR Code")
+        $('#modalDetailAset .modal-body').html("<div class='row'><div class='col-12'><img src='{{url('/')}}/asset/code/"+params+"'></div></div>");
+        $('#modalDetailAset').modal('show'); 
     }
 </script>
 @endsection

@@ -8,6 +8,7 @@ use App\Services\AssetService;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Datatables;
+use QrCode;
 
 class AssetController extends Controller
 {
@@ -35,6 +36,7 @@ class AssetController extends Controller
                     })
                     ->addColumn('action', function($row){
                         $btn = '<a class="text-info mr-2" href="javascript:toggleModalDetail(\''.$row->id.'\')"><i class="nav-icon i-Monitor-5 font-weight-bold "></i></a>
+                        <a class="text-info mr-2 " href="javascript:toggleCode(\''.$row->id.'\')"><i class="nav-icon fas fa-qrcode font-weight-bold "></i></a>
                         <a class="text-success mr-2 " href="javascript:showEdit(\''.$row->id.'\')" onClick><i class="nav-icon i-Pen-2 font-weight-bold "></i></a>
                         <a class="text-danger mr-2 " href="javascript:showDelete(\''.$row->id.'\')"><i class="nav-icon i-Close-Window font-weight-bold "></i></a>';
                         return $btn;
@@ -132,5 +134,9 @@ class AssetController extends Controller
         $dataAsset = $this->assetService->deleteById($request->post('id'));
         
         return response()->json(['data' => 'sukses']);
+    }
+    public function asset_qrcode(Request $request,$id)
+    {
+        return QrCode::size(300)->format('png')->generate($id);
     }
 }
