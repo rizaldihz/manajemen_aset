@@ -57,7 +57,7 @@ class AssetController extends Controller
         $this->jenisAssetService->saveData([
             'nama' => $request->post('nama'),
         ]);
-        return view('dashboard.daftar-aset',[]);
+        return redirect('daftar-aset');
     }
     public function asset_create(Request $request)
     {
