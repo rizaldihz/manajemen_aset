@@ -150,7 +150,7 @@
                 <div class="ul-widget-body">
                     <div class="ul-widget3">
                         <div class="ul-widget6__item--table">
-                            <table class="display table table-striped table-bordered" id="alternative_pagination_table" style="width:100%">
+                            <table class="display table table-striped table-bordered" id="" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th scope="col">No</th>

@@ -16,7 +16,7 @@
 </head>
 
 <body class="text-left">
-    <div class="app-admin-wrap layout-sidebar-compact sidebar-dark-purple sidenav-open clearfix">
+    <div class="app-admin-wrap layout-sidebar-compact sidebar-dark-purple clearfix">
         @include('layout.sidebar')
         <!--=============== Left side End ================-->
         <div class="main-content-wrap d-flex flex-column">
@@ -50,7 +50,7 @@
              </li>
  
              <li class="nav-item">
-                 <a href="{{url('daftar-aset')}}" class="nav-link">
+                 <a href="{{url('data-aset')}}" class="nav-link">
                      <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor"
                          class="bi bi-folder" viewBox="0 0 16 16">
                          <path

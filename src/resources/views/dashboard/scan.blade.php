@@ -7,20 +7,19 @@
 @endsection
 
 @section('content')
-<div class="main-content">
-    <div class="breadcrumb">
-        <h1>Scan Barang</h1>
-    </div>
-    <!--  end of col -->
-    <br>
-    <div id="reader"></div>
-    <br>
-    <br>
-    <br>
+<div class="breadcrumb">
+    <h1>Scan Barang</h1>
+</div>
+<!--  end of col -->
+<br>
+<div id="reader"></div>
+<br>
+<br>
+<br>
 
-    <a href="detailaset_peminjaman.html" class="btn btn-primary btn-rounded">Scanning...</a>
+<a href="detailaset_peminjaman.html" class="btn btn-primary btn-rounded">Scanning...</a>
 
-    <!-- fotter end -->
+<!-- fotter end -->
 </div>
 <br>
 <br>
