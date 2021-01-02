@@ -5,43 +5,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Sistem Informasi Manajemen Asset | Unit Pendidikan dan Pelatihan Petrokimia Gresik</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="css/themes/lite-purple.min.css" rel="stylesheet" />
-    <link href="css/plugins/perfect-scrollbar.min.css" rel="stylesheet" />
+    <title>
+        Sistem Informasi Manajemen Asset | Unit Pendidikan dan Pelatihan
+        Petrokimia Gresik
+    </title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="css/themes/lite-purple.min.css" rel="stylesheet"/>
+    <link href="css/plugins/perfect-scrollbar.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="css/plugins/datatables.min.css" />
+    <link rel="stylesheet" href="css/plugins/bootstrap-nav-tab-scrollable.css"/>
+    <link rel="stylesheet" href="css/plugins/demo.css"/>
+    <style>
+        
+    </style>
 </head>
 
 <body class="text-left">
-    <div class="app-admin-wrap layout-sidebar-compact sidebar-dark-purple sidenav-open clearfix">
+    <div class="app-admin-wrap layout-sidebar-compact sidebar-dark-purple clearfix">
         <div class="side-content-wrap">
             <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar data-suppress-scroll-x="true">
                 <ul class="navigation-left">
                     <li class="nav-item" data-item="dashboard">
                         <a class="nav-item-hold" href="#">
-                            <i class="nav-icon i-Home-2" style="color: #c9c9c9;"></i>
+                            <i class="nav-icon i-Duplicate-Window" style="color: #c9c9c9"></i>
                             <span class="nav-text">Beranda</span>
                         </a>
                         <div class="triangle"></div>
                     </li>
                     <li class="nav-item" data-item="peminjaman">
                         <a class="nav-item-hold" href="#">
-                            <i class="nav-icon i-Library" style="color: #c9c9c9;"></i>
+                            <i class="nav-icon i-Library" style="color: #c9c9c9"></i>
                             <span class="nav-text">Peminjaman</span>
                         </a>
                         <div class="triangle"></div>
                     </li>
                     <li class="nav-item" data-item="admin">
                         <a class="nav-item-hold" href="#">
-                            <i class="nav-icon i-Checked-User" style="color: #c9c9c9;"></i>
+                            <i class="nav-icon i-Checked-User" style="color: #c9c9c9"></i>
                             <span class="nav-text">Menu Admin</span>
-                        </a>
-                        <div class="triangle"></div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-item-hold" href="http://demos.ui-lib.com/gull-html-doc/" target="_blank">
-                            <i class="nav-icon i-Safe-Box1"></i>
-                            <span class="nav-text">Doc</span>
                         </a>
                         <div class="triangle"></div>
                     </li>
@@ -51,28 +58,33 @@
                 <i class="sidebar-close i-Close" (click)="toggelSidebar()"></i>
                 <header>
                     <div class="logo">
-                        <img src="images/logoo.png" alt="" style="height: 44px;">a
+                        <img src="images/logoo.png" alt="" style="height: 44px" />
                     </div>
                 </header>
                 <!-- Submenu Dashboards -->
                 <div class="submenu-area" data-parent="dashboard">
                     <header>
-                        <h6><strong>Beranda</strong>
-                        </h6>
+                        <h6><strong>Fitur Utama</strong></h6>
                         <p>Sistem Informasi Manajemen Asset.</p>
                     </header>
                     <br>
                     <ul class="childNav">
                         <li class="nav-item">
-                            <a href="dashboard.html">
-                                <i class="nav-icon i-Line-Chart-2"></i>
-                                <span class="item-name">Dashboard</span>
+                            <a href="beranda.html">
+                                <i class="nav-icon i-Home-2"></i>
+                                <span class="item-name">Beranda</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="index.html">
                                 <i class="nav-icon i-Folder-With-Document"></i>
-                                <span class="item-name">Data Aset Diklat</span>
+                                <span class="item-name">Data Aset</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="report.html">
+                                <i class="nav-icon i-File-Horizontal-Text"></i>
+                                <span class="item-name">Data Report Aset</span>
                             </a>
                         </li>
                     </ul>
@@ -82,18 +94,12 @@
                         <h6><strong>Penggunaan Aset</strong></h6>
                         <p>Sistem Informasi Manajemen Asset.</p>
                     </header>
-                    <br>
+                    <br />
                     <ul class="childNav">
                         <li class="nav-item">
-                            <a href="peminjaman.html">
-                                <i class="nav-icon i-Line-Chart-2"></i>
-                                <span class="item-name">Peminjaman Aset</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pengembalian.html">
-                                <i class="nav-icon i-Folder-With-Document"></i>
-                                <span class="item-name">Pengembalian Aset</span>
+                            <a href="scan.html">
+                                <i class="nav-icon i-File-Clipboard-Text--Image"></i>
+                                <span class="item-name">Scan</span>
                             </a>
                         </li>
                     </ul>
@@ -103,18 +109,12 @@
                         <h6><strong>Menu Admin</strong></h6>
                         <p>Sistem Informasi Manajemen Asset.</p>
                     </header>
-                    <br>
+                    <br />
                     <ul class="childNav">
                         <li class="nav-item">
-                            <a href="peminjaman.html">
-                                <i class="nav-icon i-Speach-Bubble"></i>
-                                <span class="item-name">Menu Admin 1</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pengembalian.html">
-                                <i class="nav-icon i-Speach-Bubble-10"></i>
-                                <span class="item-name">Menu Admin 2</span>
+                            <a href="profile.html">
+                                <i class="nav-icon i-Checked-User"></i>
+                                <span class="item-name">Kelola Pengguna</span>
                             </a>
                         </li>
                     </ul>
@@ -123,9 +123,9 @@
         </div>
         <!--=============== Left side End ================-->
         <div class="main-content-wrap d-flex flex-column">
-            <div class="main-header">
+            <div class="main-header fixed-top" style="box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); position: fixed; top: 0; right: 0; left: 0; z-index: 1030;">
                 <div class="logo">
-                    <img src="images/logoo.png" alt="">
+                    <img src="images/logoo.png" alt="" />
                 </div>
                 <div class="menu-toggle">
                     <div></div>
@@ -133,97 +133,89 @@
                     <div></div>
                 </div>
                 <div class="d-flex align-items-center">
-
-                    <div class="search-bar">
-                        <input type="text" placeholder="Search">
-                        <i class="search-icon text-muted i-Magnifi-Glass1"></i>
+                    <div>
+                        <h5 style="margin-top: 12px" class="d-flex justify-content-center">
+                            <strong>SIM Aset Diklat</strong>
+                        </h5>
                     </div>
                 </div>
-                <div style="margin: auto"></div>
+
                 <div class="header-part-right">
                     <!-- Full screen toggle -->
                     <i class="i-Full-Screen header-icon d-none d-sm-inline-block" data-fullscreen></i>
                     <!-- Notificaiton -->
                     <div class="dropdown">
-                        <div class="badge-top-container" role="button" id="dropdownNotification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="badge-top-container" role="button" id="dropdownNotification" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
                             <span class="badge badge-primary">3</span>
                             <i class="i-Bell text-muted header-icon"></i>
                         </div>
                         <!-- Notification dropdown -->
-                        <div class="dropdown-menu dropdown-menu-right notification-dropdown rtl-ps-none" aria-labelledby="dropdownNotification" data-perfect-scrollbar data-suppress-scroll-x="true">
-                            <div class="dropdown-item d-flex">
+                        <div class="dropdown-menu dropdown-menu-right notification-dropdown rtl-ps-none"
+                            aria-labelledby="dropdownNotification" data-perfect-scrollbar data-suppress-scroll-x="true">
+                            <div class="dropdown-item d-flex" style="height: 88px;">
                                 <div class="notification-icon">
-                                    <i class="i-Speach-Bubble-6 text-primary mr-1"></i>
+                                    <i class="i-Empty-Box text-primary mr-1"></i>
                                 </div>
                                 <div class="notification-details flex-grow-1">
-                                    <p class="m-0 d-flex align-items-center">
-                                        <span>New message</span>
-                                        <span class="badge badge-pill badge-primary ml-1 mr-1">new</span>
+                                    <p class="m-0 d-flex align-items-center mb-2">
+                                        <span>"Nama Barang"</span>
                                         <span class="flex-grow-1"></span>
-                                        <span class="text-small text-muted ml-auto">10 sec ago</span>
+                                        <span class="badge badge-pill badge-primary ml-1 mr-1">Peminjaman</span>
                                     </p>
-                                    <p class="text-small text-muted m-0">James: Hey! are you busy?</p>
+                    
+                                    <p class="text-primary mb-0 mt-2" style="font-size: 11px;"><i class="i-MaleFemale mr-2"></i>Pak Rizaldi</p>
+                                    <p class="text-primary mb-1" style="font-size: 11px;"><i class="i-Calendar mr-2"></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
                                 </div>
                             </div>
-                            <div class="dropdown-item d-flex">
+                            <div class="dropdown-item d-flex" style="height: 88px;">
                                 <div class="notification-icon">
-                                    <i class="i-Receipt-3 text-success mr-1"></i>
+                                    <i class="i-Empty-Box text-success mr-1"></i>
                                 </div>
                                 <div class="notification-details flex-grow-1">
-                                    <p class="m-0 d-flex align-items-center">
-                                        <span>New order received</span>
-                                        <span class="badge badge-pill badge-success ml-1 mr-1">new</span>
+                                    <p class="m-0 d-flex align-items-center mb-2">
+                                        <span>"Nama Barang"</span>
                                         <span class="flex-grow-1"></span>
-                                        <span class="text-small text-muted ml-auto">2 hours ago</span>
+                                        <span class="badge badge-pill badge-success ml-1 mr-1">Pengembalian</span>
                                     </p>
-                                    <p class="text-small text-muted m-0">1 Headphone, 3 iPhone x</p>
+                    
+                                    <p class="text-success mb-0 mt-2" style="font-size: 11px;"><i class="i-MaleFemale mr-2"></i>Pak Rizaldi</p>
+                                    <p class="text-success mb-1" style="font-size: 11px;"><i class="i-Calendar mr-2"></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
                                 </div>
                             </div>
-                            <div class="dropdown-item d-flex">
+                            <div class="dropdown-item d-flex" style="height: 88px;">
                                 <div class="notification-icon">
-                                    <i class="i-Empty-Box text-danger mr-1"></i>
+                                    <i class="i-Empty-Box text-primary mr-1"></i>
                                 </div>
                                 <div class="notification-details flex-grow-1">
-                                    <p class="m-0 d-flex align-items-center">
-                                        <span>Product out of stock</span>
-                                        <span class="badge badge-pill badge-danger ml-1 mr-1">3</span>
+                                    <p class="m-0 d-flex align-items-center mb-2">
+                                        <span>"Nama Barang"</span>
                                         <span class="flex-grow-1"></span>
-                                        <span class="text-small text-muted ml-auto">10 hours ago</span>
+                                        <span class="badge badge-pill badge-primary ml-1 mr-1">Peminjaman</span>
                                     </p>
-                                    <p class="text-small text-muted m-0">Headphone E67, R98, XL90, Q77</p>
+                    
+                                    <p class="text-primary mb-0 mt-2" style="font-size: 11px;"><i class="i-MaleFemale mr-2"></i>Pak Rizaldi</p>
+                                    <p class="text-primary mb-1" style="font-size: 11px;"><i class="i-Calendar mr-2"></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
                                 </div>
                             </div>
-                            <div class="dropdown-item d-flex">
+                            <div class="dropdown-item d-flex" style="height: 88px;">
                                 <div class="notification-icon">
-                                    <i class="i-Data-Power text-success mr-1"></i>
+                                    <i class="i-Empty-Box text-primary mr-1"></i>
                                 </div>
                                 <div class="notification-details flex-grow-1">
-                                    <p class="m-0 d-flex align-items-center">
-                                        <span>Server Up!</span>
-                                        <span class="badge badge-pill badge-success ml-1 mr-1">3</span>
+                                    <p class="m-0 d-flex align-items-center mb-2">
+                                        <span>"Nama Barang"</span>
                                         <span class="flex-grow-1"></span>
-                                        <span class="text-small text-muted ml-auto">14 hours ago</span>
+                                        <span class="badge badge-pill badge-primary ml-1 mr-1">Peminjaman</span>
                                     </p>
-                                    <p class="text-small text-muted m-0">Server rebooted successfully</p>
+                    
+                                    <p class="text-primary mb-0 mt-2" style="font-size: 11px;"><i class="i-MaleFemale mr-2"></i>Pak Rizaldi</p>
+                                    <p class="text-primary mb-1" style="font-size: 11px;"><i class="i-Calendar mr-2"></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Notificaiton End -->
-                    <!-- User avatar dropdown -->
-                    <div class="dropdown">
-                        <div class="user col align-self-end">
-                            <img src="images/faces/1.jpg" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                                <div class="dropdown-header">
-                                    <i class="i-Lock-User mr-1"></i> Timothy Carlson
-                                </div>
-                                <a class="dropdown-item">Account settings</a>
-                                <a class="dropdown-item">Billing history</a>
-                                <a class="dropdown-item" href="signin.html">Sign out</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <!-- ============ Body content start ============= -->
@@ -232,331 +224,222 @@
                     <h1>Data Aset Diklat</h1>
                 </div>
                 <!--  end of col -->
+                
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item"><a class="nav-link active" id="home-basic-tab" data-toggle="tab" href="#homeBasic" role="tab" aria-controls="homeBasic" aria-selected="true">Jenis 1</a>
+                    <li class="nav-item">
+                        <a class="nav-link active" id="ruang1-basic-tab" data-toggle="tab" href="#ruang1Basic"
+                            role="tab" aria-controls="ruang1Basic" aria-selected="true">Proyektor</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" id="profile-basic-tab" data-toggle="tab" href="#profileBasic" role="tab" aria-controls="profileBasic" aria-selected="false">Jenis
-                            2</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="ruang3-basic-tab" data-toggle="tab" href="#ruang3Basic" role="tab"
+                            aria-controls="ruang3Basic" aria-selected="false">Laptop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="ruang1-basic-tab" data-toggle="tab" href="#ruang1Basic" role="tab"
+                            aria-controls="ruang1Basic" aria-selected="false">Tripod</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="ruang3-basic-tab" data-toggle="tab" href="#ruang3Basic" role="tab"
+                            aria-controls="ruang3Basic" aria-selected="false">Camera</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="ruang1-basic-tab" data-toggle="tab" href="#ruang1Basic" role="tab"
+                            aria-controls="ruang1Basic" aria-selected="false">HandyCam</a>
+                    </li>
                 </ul>
                 <br>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="homeBasic" role="tabpanel" aria-labelledby="home-basic-tab">
-                        <!-- right control icon-->
-                        <div class="accordion" id="accordionRightIcon">
-                            <div class="card">
-                                <div class="card-header header-elements-inline d-flex justify-content-start align-items-start">
-                                    <p class="card-title ul-collapse__icon--size ul-collapse__right-icon mb-0" style="font-size: 14px; font-weight: 500;">
-                                        <a class="text-default collapsed my-2" data-toggle="collapse" href="#accordion-item-icons-1" aria-expanded="false">1. Nama Asset</a></p>
-                                    <span class="badge badge-pill badge-secondary lg p-2 mx-3">12</span>
-                                </div>
-                                <div class="collapse" id="accordion-item-icons-1" data-parent="#accordionRightIcon">
-                                    <div class="card-body">
-                                        <h4 class="card-title mb-2">List With Badges</h4>
-                                        <p>
-                                            Add .list-group-flush to remove some borders and rounded corners to render list group items edge-to-edge in a parent container
-                                        </p>
-                                        <ul class="list-group">
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                Cras justo odio<span class="badge badge-primary badge-pill">4</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                Dapibus ac facilisis in
-                                                <span class="badge badge-info badge-pill">2</span></li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                Morbi leo risus<span class="badge badge-success badge-pill">1</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                Morbi leo risus<span class="badge badge-warning badge-pill">1</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                Morbi leo risus<span class="badge badge-danger badge-pill">1</span></li>
-                                        </ul>
+                    <div class="tab-pane fade show active" style="margin-bottom: 36px" id="ruang1Basic" role="tabpanel"
+                        aria-labelledby="ruang1-basic-tab">
+                        <!-- end of col-->
+                        <div>
+                            <div class="card mb-4">
+                                <div class="card-header">010203-Kode Asset</div>
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Nama Aset</h5>
+                                    <div class="row">
+                                        <div class="col-xs-6 ml-3 mb-2">
+                                            <p class="text-primary mb-1"><i class="i-Home1 mr-2"
+                                                    style="font-size: 12px;"></i>Lokasi</p>
+                                            <p class="text-sm lh-150" style="font-size: 12px">Ruang Administrasi</p>
+                                        </div>
+                                        <div class="col-xs-6 mb-2 ml-3">
+                                            <p class="text-primary mb-1"><i class="i-Map mr-2"
+                                                    style="font-size: 12px;"></i>Status</p>
+                                            <span class="badge badge-pill badge-outline-warning p-2 m-1 ml-3"
+                                                style="font-size: 11px;">Tidak Tersedia</span>
+                                        </div>
                                     </div>
+                                    <a class="btn btn-primary btn-rounded" style="font-size: 11px;"
+                                        href="detailaset.html">Selengkapnya</a>
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-header header-elements-inline d-flex justify-content-start align-items-start">
-                                    <p class="card-title ul-collapse__icon--size ul-collapse__right-icon mb-0" style="font-size: 14px; font-weight: 500;">
-                                        <a class="text-default collapsed my-2" data-toggle="collapse" href="#accordion-item-icons-1" aria-expanded="false">2. Nama Asset</a></p>
-                                    <span class="badge badge-pill badge-secondary lg p-2 mx-3">12</span>
-                                </div>
-                                <div class="collapse" id="accordion-item-icons-1" data-parent="#accordionRightIcon">
-                                    <div class="card-body">
-                                        <h4 class="card-title mb-2">List With Badges</h4>
-                                        <p>
-                                            Add .list-group-flush to remove some borders and rounded corners to render list group items edge-to-edge in a parent container
-                                        </p>
-                                        <ul class="list-group">
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                Cras justo odio<span class="badge badge-primary badge-pill">4</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                Dapibus ac facilisis in
-                                                <span class="badge badge-info badge-pill">2</span></li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                Morbi leo risus<span class="badge badge-success badge-pill">1</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                Morbi leo risus<span class="badge badge-warning badge-pill">1</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                Morbi leo risus<span class="badge badge-danger badge-pill">1</span></li>
-                                        </ul>
+                            <div class="card mb-4">
+                                <div class="card-header">010203-Kode Asset</div>
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Nama Aset</h5>
+                                    <div class="row">
+                                        <div class="col-xs-6 ml-3 mb-2">
+                                            <p class="text-primary mb-1"><i class="i-Home1 mr-2"
+                                                    style="font-size: 12px;"></i>Lokasi</p>
+                                            <p class="text-sm lh-150" style="font-size: 12px">Ruang Administrasi</p>
+                                        </div>
+                                        <div class="col-xs-6 mb-2 ml-3">
+                                            <p class="text-primary mb-1"><i class="i-Map mr-2"
+                                                    style="font-size: 12px;"></i>Status</p>
+                                            <span class="badge badge-pill badge-outline-success p-2 m-1 ml-3"
+                                                style="font-size: 11px;">Tersedia</span>
+                                        </div>
                                     </div>
+                                    <a class="btn btn-primary btn-rounded" style="font-size: 11px;"
+                                        href="detailaset.html">Selengkapnya</a>
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-header header-elements-inline d-flex justify-content-start align-items-start">
-                                    <p class="card-title ul-collapse__icon--size ul-collapse__right-icon mb-0" style="font-size: 14px; font-weight: 500;">
-                                        <a class="text-default collapsed my-2" data-toggle="collapse" href="#accordion-item-icons-1" aria-expanded="false">3. Nama Asset</a></p>
-                                    <span class="badge badge-pill badge-secondary lg p-2 mx-3">12</span>
-                                </div>
-                                <div class="collapse" id="accordion-item-icons-1" data-parent="#accordionRightIcon">
-                                    <div class="card-body">
-                                        <h4 class="card-title mb-2">List With Badges</h4>
-                                        <p>
-                                            Add .list-group-flush to remove some borders and rounded corners to render list group items edge-to-edge in a parent container
-                                        </p>
-                                        <ul class="list-group">
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                Cras justo odio<span class="badge badge-primary badge-pill">4</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                Dapibus ac facilisis in
-                                                <span class="badge badge-info badge-pill">2</span></li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                Morbi leo risus<span class="badge badge-success badge-pill">1</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                Morbi leo risus<span class="badge badge-warning badge-pill">1</span>
-                                            </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                Morbi leo risus<span class="badge badge-danger badge-pill">1</span></li>
-                                        </ul>
+                            <div class="card mb-4">
+                                <div class="card-header">010203-Kode Asset</div>
+                                <div class="card-body">
+                                    <h5 class="card-title mb-3">Nama Aset</h5>
+                                    <div class="row">
+                                        <div class="col-xs-6 ml-3 mb-2">
+                                            <p class="text-primary mb-1"><i class="i-Home1 mr-2"
+                                                    style="font-size: 12px;"></i>Lokasi</p>
+                                            <p class="text-sm lh-150" style="font-size: 12px">Ruang Administrasi</p>
+                                        </div>
+                                        <div class="col-xs-6 mb-2 ml-3">
+                                            <p class="text-primary mb-1"><i class="i-Map mr-2"
+                                                    style="font-size: 12px;"></i>Status</p>
+                                            <span class="badge badge-pill badge-outline-success p-2 m-1 ml-3"
+                                                style="font-size: 11px;">Tersedia</span>
+                                        </div>
                                     </div>
+                                    <a class="btn btn-primary btn-rounded" style="font-size: 11px;"
+                                        href="detailaset.html">Selengkapnya</a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="profileBasic" role="tabpanel" aria-labelledby="profile-basic-tab">
-                        <div class="table-responsive ">
-                            <table class="display table table-striped table-bordered" id="alternative_pagination_table" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Kode Aset</th>
-                                        <th>Nama Aset</th>
-                                        <th>Jenis Aset</th>
-                                        <th>Lokasi</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td><span class="badge badge-success ">Tersedia</span></td>
-                                        <td><a class="text-success mr-2 " href="# "><i
-                                                    class="nav-icon i-Pen-2 font-weight-bold "></i></a><a class="text-danger mr-2 " href="# "><i
-                                                    class="nav-icon i-Close-Window font-weight-bold "></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td><span class="badge badge-warning ">Digunakan</span></td>
-                                        <td><a class="text-success mr-2 " href="# "><i
-                                                    class="nav-icon i-Pen-2 font-weight-bold "></i></a><a class="text-danger mr-2 " href="# "><i
-                                                    class="nav-icon i-Close-Window font-weight-bold "></i></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
                         </div>
                         <!-- end of col-->
+                    </div> 
+                    <div class="tab-pane fade show" style="margin-bottom: 36px" id="ruang3Basic" role="tabpanel"
+                    aria-labelledby="ruang3-basic-tab">
+                    <!-- end of col-->
+                    <div>
+                        <div class="card mb-4">
+                            <div class="card-header">010203-Kode Asset</div>
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">Nama Aset</h5>
+                                <div class="row">
+                                    <div class="col-xs-6 ml-3 mb-2">
+                                        <p class="text-primary mb-1"><i class="i-Home1 mr-2"
+                                                style="font-size: 12px;"></i>Lokasi</p>
+                                        <p class="text-sm lh-150" style="font-size: 12px">Ruang Administrasi</p>
+                                    </div>
+                                    <div class="col-xs-6 mb-2 ml-3">
+                                        <p class="text-primary mb-1"><i class="i-Map mr-2"
+                                                style="font-size: 12px;"></i>Status</p>
+                                        <span class="badge badge-pill badge-outline-success p-2 m-1 ml-3"
+                                            style="font-size: 11px;">Tersedia</span>
+                                    </div>
+                                </div>
+                                <a class="btn btn-primary btn-rounded" style="font-size: 11px;"
+                                    href="detailaset.html">Selengkapnya</a>
+                            </div>
+                        </div>
                     </div>
+                    <!-- end of col-->
+                </div> 
                 </div>
                 <br>
+                
+                <br>
+                <br>
+
                 <!-- fotter end -->
             </div>
         </div>
     </div>
-    <!-- ============ Search UI Start ============= -->
-    <div class="search-ui ">
-        <div class="search-header ">
-            <img src="images/logoo.png " alt=" " class="logo ">
-            <button class="search-close btn btn-icon bg-transparent float-right mt-2 ">
-                <i class="i-Close-Window text-22 text-muted "></i>
-            </button>
-        </div>
-        <input type="text " placeholder="Type here " class="search-input " autofocus>
-        <div class="search-title ">
-            <span class="text-muted ">Search results</span>
-        </div>
-        <div class="search-results list-horizontal ">
-            <div class="list-item col-md-12 p-0 ">
-                <div class="card o-hidden flex-row mb-4 d-flex ">
-                    <div class="list-thumb d-flex ">
-                        <!-- TUMBNAIL -->
-                        <img src="images/products/headphone-1.jpg " alt=" ">
-                    </div>
-                    <div class="flex-grow-1 pl-2 d-flex ">
-                        <div class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row ">
-                            <!-- OTHER DATA -->
-                            <a href=" " class="w-40 w-sm-100 ">
-                                <div class="item-title ">Headphone 1</div>
-                            </a>
-                            <p class="m-0 text-muted text-small w-15 w-sm-100 ">Gadget</p>
-                            <p class="m-0 text-muted text-small w-15 w-sm-100 ">$300
-                                <del class="text-secondary ">$400</del>
-                            </p>
-                            <p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges ">
-                                <span class="badge badge-danger ">Sale</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="list-item col-md-12 p-0 ">
-                <div class="card o-hidden flex-row mb-4 d-flex ">
-                    <div class="list-thumb d-flex ">
-                        <!-- TUMBNAIL -->
-                        <img src="images/products/headphone-2.jpg " alt=" ">
-                    </div>
-                    <div class="flex-grow-1 pl-2 d-flex ">
-                        <div class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row ">
-                            <!-- OTHER DATA -->
-                            <a href=" " class="w-40 w-sm-100 ">
-                                <div class="item-title ">Headphone 1</div>
-                            </a>
-                            <p class="m-0 text-muted text-small w-15 w-sm-100 ">Gadget</p>
-                            <p class="m-0 text-muted text-small w-15 w-sm-100 ">$300
-                                <del class="text-secondary ">$400</del>
-                            </p>
-                            <p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges ">
-                                <span class="badge badge-primary ">New</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="list-item col-md-12 p-0 ">
-                <div class="card o-hidden flex-row mb-4 d-flex ">
-                    <div class="list-thumb d-flex ">
-                        <!-- TUMBNAIL -->
-                        <img src="images/products/headphone-3.jpg " alt=" ">
-                    </div>
-                    <div class="flex-grow-1 pl-2 d-flex ">
-                        <div class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row ">
-                            <!-- OTHER DATA -->
-                            <a href=" " class="w-40 w-sm-100 ">
-                                <div class="item-title ">Headphone 1</div>
-                            </a>
-                            <p class="m-0 text-muted text-small w-15 w-sm-100 ">Gadget</p>
-                            <p class="m-0 text-muted text-small w-15 w-sm-100 ">$300
-                                <del class="text-secondary ">$400</del>
-                            </p>
-                            <p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges ">
-                                <span class="badge badge-primary ">New</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="list-item col-md-12 p-0 ">
-                <div class="card o-hidden flex-row mb-4 d-flex ">
-                    <div class="list-thumb d-flex ">
-                        <!-- TUMBNAIL -->
-                        <img src="images/products/headphone-4.jpg " alt=" ">
-                    </div>
-                    <div class="flex-grow-1 pl-2 d-flex ">
-                        <div class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center flex-lg-row ">
-                            <!-- OTHER DATA -->
-                            <a href=" " class="w-40 w-sm-100 ">
-                                <div class="item-title ">Headphone 1</div>
-                            </a>
-                            <p class="m-0 text-muted text-small w-15 w-sm-100 ">Gadget</p>
-                            <p class="m-0 text-muted text-small w-15 w-sm-100 ">$300
-                                <del class="text-secondary ">$400</del>
-                            </p>
-                            <p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges ">
-                                <span class="badge badge-primary ">New</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- PAGINATION CONTROL -->
-        <div class="col-md-12 mt-5 text-center ">
-            <nav aria-label="Page navigation example ">
-                <ul class="pagination d-inline-flex ">
-                    <li class="page-item ">
-                        <a class="page-link " href="# " aria-label="Previous ">
-                            <span aria-hidden="true ">&laquo;</span>
-                            <span class="sr-only ">Previous</span>
-                        </a>
-                    </li>
-                    <li class="page-item "><a class="page-link " href="# ">1</a></li>
-                    <li class="page-item "><a class="page-link " href="# ">2</a></li>
-                    <li class="page-item "><a class="page-link " href="# ">3</a></li>
-                    <li class="page-item ">
-                        <a class="page-link " href="# " aria-label="Next ">
-                            <span aria-hidden="true ">&raquo;</span>
-                            <span class="sr-only ">Next</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+    <div class="action" onclick="actionToggle();">
+        <span>+</span>
+        <ul>
+            <li><img src="images/folder.png"><a href="tambah_asset.html">
+                    <h5 style="font-weight: 700;">Tambah Data Aset</h5>
+                </a></li>
+            <li><img src="images/folderss.png"><a href="tambah_jenis_asset.html">
+                    <h5 style="font-weight: 700;">Tambah Jenis Aset</h5>
+                </a></li>
+        </ul>
     </div>
-    <!-- ============ Search UI End ============= -->
-    <div class="customizer ">
-        <div class="handle "><i class="i-Gear spin "></i></div>
-        <div class="customizer-body " data-perfect-scrollbar=" " data-suppress-scroll-x="true ">
-            <div class="accordion " id="accordionCustomizer ">
-                <div class="card ">
-                    <div class="card-header " id="headingOne ">
-                        <p class="mb-0 ">Sidebar Colors</p>
-                    </div>
-                    <div class="collapse show " id="collapseOne " aria-labelledby="headingOne " data-parent="#accordionCustomizer ">
-                        <div class="card-body ">
-                            <div class="colors sidebar-colors "><a class="color gradient-purple-indigo " data-sidebar-class="sidebar-gradient-purple-indigo "><i class="i-Eye "></i></a><a class="color gradient-black-blue " data-sidebar-class="sidebar-gradient-black-blue "><i class="i-Eye "></i></a>
-                                <a class="color gradient-black-gray " data-sidebar-class="sidebar-gradient-black-gray "><i class="i-Eye "></i></a><a class="color gradient-steel-gray " data-sidebar-class="sidebar-gradient-steel-gray "><i class="i-Eye "></i></a>
-                                <a class="color dark-purple active " data-sidebar-class="sidebar-dark-purple "><i
-                                        class="i-Eye "></i></a><a class="color slate-gray " data-sidebar-class="sidebar-slate-gray "><i class="i-Eye "></i></a>
-                                <a class="color midnight-blue " data-sidebar-class="sidebar-midnight-blue "><i
-                                        class="i-Eye "></i></a><a class="color blue " data-sidebar-class="sidebar-blue "><i class="i-Eye "></i></a><a class="color indigo " data-sidebar-class="sidebar-indigo "><i
-                                        class="i-Eye "></i></a><a class="color pink " data-sidebar-class="sidebar-pink "><i class="i-Eye "></i></a>
-                                <a class="color red " data-sidebar-class="sidebar-red "><i class="i-Eye "></i></a><a class="color purple " data-sidebar-class="sidebar-purple "><i
-                                        class="i-Eye "></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card ">
-                    <div class="card-header " id="headingOne ">
-                        <p class="mb-0 ">RTL</p>
-                    </div>
-                    <div class="collapse show " id="collapseTwo " aria-labelledby="headingTwo " data-parent="#accordionCustomizer ">
-                        <div class="card-body ">
-                            <label class="checkbox checkbox-primary ">
-                                <input id="rtl-checkbox " type="checkbox " /><span>Enable RTL</span><span
-                                    class="checkmark "></span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <br>
+    <br>
+    <br>
+
+    <!-- Bottom Navbar -->
+    <nav class="navbar navbar-dark bg-primary navbar-expand fixed-bottom d-md-none d-lg-none d-xl-none mt-3" style="
+    border-top: 1px solid #d3d3d3;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+    padding-top: 1.5px;
+    padding-bottom: 0.25px;
+  ">
+        <ul class="navbar-nav nav-justified w-100">
+            <li class="nav-item">
+                <a href="beranda.html" class="nav-link">
+                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-house" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                        <path fill-rule="evenodd"
+                            d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                    </svg><br>
+                    <span style="font-size: 10px">Beranda</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor"
+                        class="bi bi-folder" viewBox="0 0 16 16">
+                        <path
+                            d="M.54 3.87L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z" />
+                    </svg><br>
+                    <span style="font-size: 10px">Data Aset</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="scan.html" class="nav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" fill="currentColor"
+                        class="bi bi-upc-scan" viewBox="0 0 16 16">
+                        <path
+                            d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5zM3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-7zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7z" />
+                    </svg><br>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="report.html" class="nav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor"
+                        class="bi bi-layout-text-window-reverse" viewBox="0 0 16 16">
+                        <path
+                            d="M13 6.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z" />
+                        <path
+                            d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM2 1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zM1 4v10a1 1 0 0 0 1 1h2V4H1zm4 0v11h9a1 1 0 0 0 1-1V4H5z" />
+                    </svg><br>
+                    <span style="font-size: 10px">Report</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="profile.html" class="nav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor"
+                        class="bi bi-person" viewBox="0 0 16 16">
+                        <path
+                            d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                    </svg><br>
+                    <span style="font-size: 10px">Profil</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
     <script src="js/plugins/jquery-3.3.1.min.js "></script>
     <script src="js/plugins/bootstrap.bundle.min.js "></script>
     <script src="js/plugins/perfect-scrollbar.min.js "></script>
@@ -565,6 +448,36 @@
     <script src="js/scripts/customizer.script.min.js "></script>
     <script src="js/plugins/datatables.min.js "></script>
     <script src="js/scripts/datatables.script.min.js "></script>
+    <script src="js/plugins/jquery.mousewheel.js"></script>
+    <script src="js/plugins/jquery.scrolltabs.js"></script>
+
+    <script type="text/javascript">
+        function actionToggle() {
+            var action = document.querySelector('.action');
+            action.classList.toggle('active')
+        }
+    </script>
+    <script type="text/javascript">
+        var tabs3 = null;
+        var tabs4 = null;
+        var tabs5 = null;
+        var tabs6 = null;
+        var tabs7 = null;
+        $(document).ready(function () {
+            $('#tabs1').scrollTabs();
+            $('#tabs2').scrollTabs();
+            tabs3 = $('#tabs3').scrollTabs();
+            tabs4 = $('#tabs4').scrollTabs();
+            tabs5 = $('#tabs5').scrollTabs();
+            tabs6 = $('#tabs6').scrollTabs();
+            tabs7 = $('#tabs7').scrollTabs();
+        });
+    </script>
+
+    <script type="text/JavaScript">
+        $("#js_image_selection").horizontalTabs();
+    </script>
+
 </body>
 
 </html>

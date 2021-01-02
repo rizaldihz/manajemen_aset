@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" dir="">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>
+        Sistem Informasi Manajemen Asset | Unit Pendidikan dan Pelatihan
+        Petrokimia Gresik
+    </title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <link href="css/themes/lite-purple.min.css" rel="stylesheet" />
+    <link href="css/plugins/perfect-scrollbar.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/plugins/datatables.min.css" />
+</head>
+
+<body class="text-left">
+    <div class="app-admin-wrap layout-sidebar-compact sidebar-dark-purple clearfix">
+        <div class="side-content-wrap">
+            <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar data-suppress-scroll-x="true">
+                <ul class="navigation-left">
+                    <li class="nav-item" data-item="dashboard">
+                        <a class="nav-item-hold" href="#">
+                            <i class="nav-icon i-Duplicate-Window" style="color: #c9c9c9"></i>
+                            <span class="nav-text">Beranda</span>
+                        </a>
+                        <div class="triangle"></div>
+                    </li>
+                    <li class="nav-item" data-item="peminjaman">
+                        <a class="nav-item-hold" href="#">
+                            <i class="nav-icon i-Library" style="color: #c9c9c9"></i>
+                            <span class="nav-text">Peminjaman</span>
+                        </a>
+                        <div class="triangle"></div>
+                    </li>
+                    <li class="nav-item" data-item="admin">
+                        <a class="nav-item-hold" href="#">
+                            <i class="nav-icon i-Checked-User" style="color: #c9c9c9"></i>
+                            <span class="nav-text">Menu Admin</span>
+                        </a>
+                        <div class="triangle"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar data-suppress-scroll-x="true">
+                <i class="sidebar-close i-Close" (click)="toggelSidebar()"></i>
+                <header>
+                    <div class="logo">
+                        <img src="images/logoo.png" alt="" style="height: 44px" />
+                    </div>
+                </header>
+                <!-- Submenu Dashboards -->
+                <div class="submenu-area" data-parent="dashboard">
+                    <header>
+                        <h6><strong>Fitur Utama</strong></h6>
+                        <p>Sistem Informasi Manajemen Asset.</p>
+                    </header>
+                    <br>
+                    <ul class="childNav">
+                        <li class="nav-item">
+                            <a href="beranda.html">
+                                <i class="nav-icon i-Home-2"></i>
+                                <span class="item-name">Beranda</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.html">
+                                <i class="nav-icon i-Folder-With-Document"></i>
+                                <span class="item-name">Data Aset</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="report.html">
+                                <i class="nav-icon i-File-Horizontal-Text"></i>
+                                <span class="item-name">Data Report Aset</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="submenu-area" data-parent="peminjaman">
+                    <header>
+                        <h6><strong>Penggunaan Aset</strong></h6>
+                        <p>Sistem Informasi Manajemen Asset.</p>
+                    </header>
+                    <br />
+                    <ul class="childNav">
+                        <li class="nav-item">
+                            <a href="scan.html">
+                                <i class="nav-icon i-File-Clipboard-Text--Image"></i>
+                                <span class="item-name">Scan</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="submenu-area" data-parent="admin">
+                    <header>
+                        <h6><strong>Menu Admin</strong></h6>
+                        <p>Sistem Informasi Manajemen Asset.</p>
+                    </header>
+                    <br />
+                    <ul class="childNav">
+                        <li class="nav-item">
+                            <a href="profile.html">
+                                <i class="nav-icon i-Checked-User"></i>
+                                <span class="item-name">Kelola Pengguna</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--=============== Left side End ================-->
+        <div class="main-content-wrap d-flex flex-column">
+            <div class="main-header" style="box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2)">
+                <div class="logo">
+                    <img src="images/logoo.png" alt="" />
+                </div>
+                <div class="menu-toggle">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div>
+                        <h5 style="margin-top: 12px" class="d-flex justify-content-center">
+                            <strong>SIM Aset Diklat</strong>
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="header-part-right">
+                    <!-- Full screen toggle -->
+                    <i class="i-Full-Screen header-icon d-none d-sm-inline-block" data-fullscreen></i>
+                    <!-- Notificaiton -->
+                    <div class="dropdown">
+                        <div class="badge-top-container" role="button" id="dropdownNotification" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <span class="badge badge-primary">3</span>
+                            <i class="i-Bell text-muted header-icon"></i>
+                        </div>
+                        <!-- Notification dropdown -->
+                        <div class="dropdown-menu dropdown-menu-right notification-dropdown rtl-ps-none"
+                            aria-labelledby="dropdownNotification" data-perfect-scrollbar data-suppress-scroll-x="true">
+                            <div class="dropdown-item d-flex" style="height: 88px;">
+                                <div class="notification-icon">
+                                    <i class="i-Empty-Box text-primary mr-1"></i>
+                                </div>
+                                <div class="notification-details flex-grow-1">
+                                    <p class="m-0 d-flex align-items-center mb-2">
+                                        <span>"Nama Barang"</span>
+                                        <span class="flex-grow-1"></span>
+                                        <span class="badge badge-pill badge-primary ml-1 mr-1">Peminjaman</span>
+                                    </p>
+                    
+                                    <p class="text-primary mb-0 mt-2" style="font-size: 11px;"><i class="i-MaleFemale mr-2"></i>Pak Rizaldi</p>
+                                    <p class="text-primary mb-1" style="font-size: 11px;"><i class="i-Calendar mr-2"></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
+                                </div>
+                            </div>
+                            <div class="dropdown-item d-flex" style="height: 88px;">
+                                <div class="notification-icon">
+                                    <i class="i-Empty-Box text-success mr-1"></i>
+                                </div>
+                                <div class="notification-details flex-grow-1">
+                                    <p class="m-0 d-flex align-items-center mb-2">
+                                        <span>"Nama Barang"</span>
+                                        <span class="flex-grow-1"></span>
+                                        <span class="badge badge-pill badge-success ml-1 mr-1">Pengembalian</span>
+                                    </p>
+                    
+                                    <p class="text-success mb-0 mt-2" style="font-size: 11px;"><i class="i-MaleFemale mr-2"></i>Pak Rizaldi</p>
+                                    <p class="text-success mb-1" style="font-size: 11px;"><i class="i-Calendar mr-2"></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
+                                </div>
+                            </div>
+                            <div class="dropdown-item d-flex" style="height: 88px;">
+                                <div class="notification-icon">
+                                    <i class="i-Empty-Box text-primary mr-1"></i>
+                                </div>
+                                <div class="notification-details flex-grow-1">
+                                    <p class="m-0 d-flex align-items-center mb-2">
+                                        <span>"Nama Barang"</span>
+                                        <span class="flex-grow-1"></span>
+                                        <span class="badge badge-pill badge-primary ml-1 mr-1">Peminjaman</span>
+                                    </p>
+                    
+                                    <p class="text-primary mb-0 mt-2" style="font-size: 11px;"><i class="i-MaleFemale mr-2"></i>Pak Rizaldi</p>
+                                    <p class="text-primary mb-1" style="font-size: 11px;"><i class="i-Calendar mr-2"></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
+                                </div>
+                            </div>
+                            <div class="dropdown-item d-flex" style="height: 88px;">
+                                <div class="notification-icon">
+                                    <i class="i-Empty-Box text-primary mr-1"></i>
+                                </div>
+                                <div class="notification-details flex-grow-1">
+                                    <p class="m-0 d-flex align-items-center mb-2">
+                                        <span>"Nama Barang"</span>
+                                        <span class="flex-grow-1"></span>
+                                        <span class="badge badge-pill badge-primary ml-1 mr-1">Peminjaman</span>
+                                    </p>
+                    
+                                    <p class="text-primary mb-0 mt-2" style="font-size: 11px;"><i class="i-MaleFemale mr-2"></i>Pak Rizaldi</p>
+                                    <p class="text-primary mb-1" style="font-size: 11px;"><i class="i-Calendar mr-2"></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Notificaiton End -->
+                </div>
+            </div>
+            <!-- ============ Body content start ============= -->
+            <div class="main-content">
+                <div class="row">
+                    <a href="beranda.html" class="nav-link"><img src="images/previous.png" height="20px"
+                            height="20px"></a>
+                    <div class="breadcrumb pt-2 ml-2">
+                        <h1>Pengembalian Aset</h1>
+                    </div>
+                </div>
+                <!--  end of col -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row px-3 py-3">
+                                    <div class="col-lg-3">
+                                        <!-- Product image -->
+                                        <a href="javascript: void(0);" class="text-center d-block mb-4">
+                                            <img src="images/qr.png" class="img-thumbnail img-preview"
+                                                style="max-width: 280px;" alt="Product-img" />
+                                        </a>
+                                        <br>
+                                    </div>
+                                    <!-- end col -->
+                                    <div class="col-lg-9">
+                                        <form class="pl-lg-4">
+                                            <!-- Product title -->
+                                            <br>
+                                            <h3 class="mt-0"><strong>Nama Asset</strong><a href="javascript: void(0);"
+                                                    class="text-muted"><i
+                                                        class="mdi mdi-square-edit-outline ml-2"></i></a> </h3>
+                                            <h6 class="mb-1" style="font-size: 18px;">010203-Kode Asset</h6>
+                                            <p class="font-16">
+                                                <span class="text-warning mdi mdi-star"></span>
+                                                <span class="text-warning mdi mdi-star"></span>
+                                                <span class="text-warning mdi mdi-star"></span>
+                                                <span class="text-warning mdi mdi-star"></span>
+                                                <span class="text-warning mdi mdi-star"></span>
+                                            </p>
+
+                                            <!-- Waktu Peminjaman -->
+                                            <div class="mt-4">
+                                                <p class="text-primary mb-1"><i
+                                                        class="i-Calendar text-16 mr-2 "></i>Waktu Peminjaman</p>
+                                                <span><strong>27 Januari 2020</strong></span> | 13.29 WIB
+                                            </div>
+                                            <br>
+                                            <div class="bordered_1px"></div>
+
+                                            <!-- Aset information -->
+                                            <div class="mt-4">
+                                                <div class="row">
+                                                    <div class="col-md-4 mb-3">
+                                                        <h6 class="font-14">Status:</h6>
+                                                        <span class="badge badge-pill badge-outline-success p-2 m-1"
+                                                            style="font-size: 14px;">Tersedia</span>
+                                                        <span class="badge badge-pill badge-outline-warning p-2 m-1"
+                                                            style="font-size: 14px;">Tidak Tersedia</span>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <h6 class="font-14">Jenis Aset:</h6>
+                                                        <p class="text-sm lh-150" style="font-size: 16px;">Nama Jenis Aset</p>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <h6 class="font-14">Satuan:</h6>
+                                                        <p class="text-sm lh-150" style="font-size: 16px;">Unit</p>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <h6 class="font-14">Lokasi:</h6>
+                                                        <p class="text-sm lh-150" style="font-size: 16px">Lemari - Ruang Administrasi</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- end col -->
+                                </div>
+                                <!-- end row-->
+                            </div>
+                            <!-- end card-body-->
+                        </div>
+                        <!-- end card-->
+                    </div>
+                    <!-- end col-->
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <!-- fotter end -->
+            </div>
+        </div>
+    </div>
+    <!-- Bottom Navbar -->
+    <nav class="navbar navbar-dark bg-primary navbar-expand fixed-bottom d-md-none d-lg-none d-xl-none mt-3" style="
+   border-top: 1px solid #d3d3d3;
+   box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+   padding-top: 1.5px;
+   padding-bottom: 0.25px;
+ ">
+        <ul class="navbar-nav nav-justified w-100" > 
+
+            <li class="nav-item" >
+                <a href="scan.html" class="nav-link" style="height: 2.75em; font-size: 18px; color: rgb(255, 255, 255, 0,75);">
+                    <button type="button" class="btn btn-primary" data-whatever="@mdo" style="color: rgb(255, 255, 255, 0.7); font-size: 14px;">Kembalikan Aset</button>
+                    <img src="images/next.png" width="18px" height="18px" style="opacity: 0.7;">
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <script src="js/plugins/jquery-3.3.1.min.js "></script>
+    <script src="js/plugins/bootstrap.bundle.min.js "></script>
+    <script src="js/plugins/perfect-scrollbar.min.js "></script>
+    <script src="js/scripts/script.min.js "></script>
+    <script src="js/scripts/sidebar.compact.script.min.js "></script>
+    <script src="js/scripts/customizer.script.min.js "></script>
+    <script src="js/plugins/datatables.min.js "></script>
+    <script src="js/scripts/datatables.script.min.js "></script>
+    <script type="text/javascript">
+        function actionToggle() {
+            var action = document.querySelector('.action');
+            action.classList.toggle('active')
+        }
+    </script>
+</body>
+
+</html>

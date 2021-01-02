@@ -125,6 +125,7 @@ class AssetController extends Controller
                         </tbody>
                     </table>
                 </div>
+                
             </div>
         </div>",url(Storage::url($dataAsset->foto)),$dataAsset->kode_aset,$dataAsset->nama,$dataAsset->jenisasset->nama,$dataAsset->lokasi,$statusStr);
         return response()->json(['data' => $modal]);

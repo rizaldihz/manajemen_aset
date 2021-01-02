@@ -1,31 +1,24 @@
 <div class="side-content-wrap">
     <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar data-suppress-scroll-x="true">
         <ul class="navigation-left">
-            <li class="nav-item active" data-item="dashboard">
+            <li class="nav-item" data-item="dashboard">
                 <a class="nav-item-hold" href="#">
-                    <i class="nav-icon i-Home-2" style="color: #c9c9c9;"></i>
+                    <i class="nav-icon i-Duplicate-Window" style="color: #c9c9c9"></i>
                     <span class="nav-text">Beranda</span>
                 </a>
                 <div class="triangle"></div>
             </li>
             <li class="nav-item" data-item="peminjaman">
                 <a class="nav-item-hold" href="#">
-                    <i class="nav-icon i-Library" style="color: #c9c9c9;"></i>
+                    <i class="nav-icon i-Library" style="color: #c9c9c9"></i>
                     <span class="nav-text">Peminjaman</span>
                 </a>
                 <div class="triangle"></div>
             </li>
             <li class="nav-item" data-item="admin">
                 <a class="nav-item-hold" href="#">
-                    <i class="nav-icon i-Checked-User" style="color: #c9c9c9;"></i>
+                    <i class="nav-icon i-Checked-User" style="color: #c9c9c9"></i>
                     <span class="nav-text">Menu Admin</span>
-                </a>
-                <div class="triangle"></div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-item-hold" href="http://demos.ui-lib.com/gull-html-doc/" target="_blank">
-                    <i class="nav-icon i-Safe-Box1"></i>
-                    <span class="nav-text">Doc</span>
                 </a>
                 <div class="triangle"></div>
             </li>
@@ -41,22 +34,27 @@
         <!-- Submenu Dashboards -->
         <div class="submenu-area" data-parent="dashboard">
             <header>
-                <h6><strong>Beranda</strong>
-                </h6>
+                <h6><strong>Fitur Utama</strong></h6>
                 <p>Sistem Informasi Manajemen Asset.</p>
             </header>
             <br>
             <ul class="childNav">
                 <li class="nav-item">
-                    <a href="{{url('')}}">
-                        <i class="nav-icon i-Line-Chart-2"></i>
-                        <span class="item-name">Dashboard</span>
+                    <a href="{{url('beranda')}}">
+                        <i class="nav-icon i-Home-2"></i>
+                        <span class="item-name">Beranda</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('daftar-aset')}}">
+                    <a href="{{url('data-aset')}}">
                         <i class="nav-icon i-Folder-With-Document"></i>
-                        <span class="item-name">Data Aset Diklat</span>
+                        <span class="item-name">Data Aset</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('report')}}">
+                        <i class="nav-icon i-File-Horizontal-Text"></i>
+                        <span class="item-name">Data Report Aset</span>
                     </a>
                 </li>
             </ul>
@@ -66,18 +64,12 @@
                 <h6><strong>Penggunaan Aset</strong></h6>
                 <p>Sistem Informasi Manajemen Asset.</p>
             </header>
-            <br>
+            <br />
             <ul class="childNav">
                 <li class="nav-item">
-                    <a href="{{url('peminjaman')}}">
-                        <i class="nav-icon i-Line-Chart-2"></i>
-                        <span class="item-name">Peminjaman Aset</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pengembalian.html">
-                        <i class="nav-icon i-Folder-With-Document"></i>
-                        <span class="item-name">Pengembalian Aset</span>
+                    <a href="{{url('scan')}}">
+                        <i class="nav-icon i-File-Clipboard-Text--Image"></i>
+                        <span class="item-name">Scan</span>
                     </a>
                 </li>
             </ul>
@@ -87,18 +79,12 @@
                 <h6><strong>Menu Admin</strong></h6>
                 <p>Sistem Informasi Manajemen Asset.</p>
             </header>
-            <br>
+            <br />
             <ul class="childNav">
                 <li class="nav-item">
-                    <a href="peminjaman.html">
-                        <i class="nav-icon i-Speach-Bubble"></i>
-                        <span class="item-name">Menu Admin 1</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pengembalian.html">
-                        <i class="nav-icon i-Speach-Bubble-10"></i>
-                        <span class="item-name">Menu Admin 2</span>
+                    <a href="{{url('kelola-pengguna')}}">
+                        <i class="nav-icon i-Checked-User"></i>
+                        <span class="item-name">Kelola Pengguna</span>
                     </a>
                 </li>
             </ul>

@@ -1,0 +1,70 @@
+.horizontal-scrollable-tabs {
+  min-height: 50px;
+}
+
+.horizontal-scrollable-tabs .arrow-right {
+  float: right;
+}
+.horizontal-scrollable-tabs .arrow-left {
+  float: left;
+}
+/* Customize your arrows here */
+.horizontal-scrollable-tabs .scroller {
+  font-size: 18px;
+  color: rgb(120, 36, 36);
+  padding: 10px 10px; 
+  display: none;
+}
+
+.horizontal-scrollable-tabs .scroller.disabled {
+  color: gray;
+}
+
+.horizontal-scrollable-tabs .nav-tabs {
+  border: 0;
+  font-size: 12px;
+  overflow-x: visible;
+  overflow-y: hidden;
+  display: -webkit-box;
+  display: -moz-box;
+}
+
+.horizontal-scrollable-tabs .nav-tabs .nav-item .nav-link {
+  border: 0;
+  padding: 0.75rem;
+  float: none;
+}
+
+.horizontal-scrollable-tabs .nav-tabs .nav-item .nav-link:not(.disabled) {
+  color: inherit;
+  padding: 0.75rem;
+  float: none;
+}
+
+.horizontal-scrollable-tabs .nav-tabs .nav-item .nav-link.active {
+  border-bottom: 2px solid #e97d23;
+  background: rgba(102, 51, 153, 0.1);
+}
+
+.horizontal-scrollable-tabs .nav-tabs .nav-item .dropdown-toggle:after {
+  position: absolute;
+  top: calc(50% - 2px);
+  right: 6px !important;
+}
+
+.horizontal-scrollable-tabs .horizontal-tabs .nav-tabs-horizontal {
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: -webkit-box;
+  display: -moz-box;
+}
+/* As it has a mobile focus the scrollbar is removed */
+.horizontal-scrollable-tabs .horizontal-tabs .nav-tabs-horizontal::-webkit-scrollbar {
+  width: 0 !important;
+}
+/* It's good to add a min-width so that the items have the same width */
+.horizontal-scrollable-tabs .horizontal-tabs .nav-tabs-horizontal > li {
+  float: none;
+  min-width: 50px;
+  text-align: center;
+}

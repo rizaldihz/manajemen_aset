@@ -33413,7 +33413,7 @@ p.ul-widget7__big-dot {
 
 .ul-vertical-line {
     height: 100%;
-    width: 7px;
+    width: 2px;
     display: inline-block;
     vertical-align: middle;
 }
@@ -34950,4 +34950,9 @@ blockquote {
     color: #c2c6dc;
     text-decoration: none;
     background-color: #10163a;
+}
+
+.bordered_1px {
+    border-top: 1px solid #e0e0e0;
+    padding-bottom: 0px;
 }
