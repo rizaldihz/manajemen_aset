@@ -52,7 +52,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{url('report')}}">
+                    <a href="{{url('daftar-aset')}}">
                         <i class="nav-icon i-File-Horizontal-Text"></i>
                         <span class="item-name">Data Report Aset</span>
                     </a>

@@ -121,10 +121,10 @@
 <div class="action" onclick="actionToggle();">
     <span>+</span>
     <ul>
-        <li><img src="images/folder.png"><a href="tambah_asset.html">
+        <li><img src="{{asset('assets/images/folder.png')}}"><a href="tambah_asset.html">
                 <h5 style="font-weight: 700;">Tambah Data Aset</h5>
             </a></li>
-        <li><img src="images/folderss.png"><a href="tambah_jenis_asset.html">
+        <li><img src="{{asset('assets/images/folderss.png')}}"><a href="tambah_jenis_asset.html">
                 <h5 style="font-weight: 700;">Tambah Jenis Aset</h5>
             </a></li>
     </ul>
@@ -139,6 +139,12 @@
 <script src=" {{asset('assets/js/scripts/datatables.script.min.js')}} "></script>
 <script src=" {{asset('assets/js/plugins/sweetalert2.min.js')}}"></script>
 <script src=" {{asset('assets/js/scripts/sweetalert.script.min.js')}}"></script>
+<script type="text/javascript">
+    function actionToggle() {
+        var action = document.querySelector('.action');
+        action.classList.toggle('active')
+    }
+</script>
 <script>
     var table = $('#asset_table').DataTable({
         processing: true,
