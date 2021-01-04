@@ -27,3 +27,7 @@ Route::get('scan', 'App\Http\Controllers\ScanController@scan_view');
 Route::get('report', 'App\Http\Controllers\ReportController@report_view');
 Route::get('profile', 'App\Http\Controllers\ProfileController@profile_view');
 Route::get('data-aset', 'App\Http\Controllers\DataAssetController@dataasset_view');
+
+Route::get('detail-asset', 'App\Http\Controllers\DetailAssetController@detail_asset_view');
+Route::get('detail-peminjaman', 'App\Http\Controllers\DetailAssetPeminjamanController@detail_asset_peminjaman_view');
+Route::get('detail-pengembalian', 'App\Http\Controllers\DetailAssetPengembalianController@detail_asset_pengembalian_view');
