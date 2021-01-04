@@ -7,82 +7,111 @@
 @endsection
 
 @section('content')
-<div class="breadcrumb">
-    <h1>Data Aset Diklat</h1>
+<div class="fixed-top px-4" style="
+              top: 70px;
+              background: #fff;
+              z-index: 3;
+              box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+            ">
+    <div class="breadcrumb pt-4">
+        <h1>Data Aset Diklat</h1>
+    </div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="ruang1-basic-tab" data-toggle="tab" href="#ruang1Basic" role="tab" aria-controls="ruang1Basic" aria-selected="true">Proyektor</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="ruang3-basic-tab" data-toggle="tab" href="#ruang3Basic" role="tab" aria-controls="ruang3Basic" aria-selected="false">Laptop</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="ruang1-basic-tab" data-toggle="tab" href="#ruang1Basic" role="tab" aria-controls="ruang1Basic" aria-selected="false">Tripod</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="ruang3-basic-tab" data-toggle="tab" href="#ruang3Basic" role="tab" aria-controls="ruang3Basic" aria-selected="false">Camera</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="ruang1-basic-tab" data-toggle="tab" href="#ruang1Basic" role="tab" aria-controls="ruang1Basic" aria-selected="false">HandyCam</a>
+        </li>
+    </ul>
 </div>
 <!--  end of col -->
 
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" id="ruang1-basic-tab" data-toggle="tab" href="#ruang1Basic" role="tab" aria-controls="ruang1Basic" aria-selected="true">Proyektor</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="ruang3-basic-tab" data-toggle="tab" href="#ruang3Basic" role="tab" aria-controls="ruang3Basic" aria-selected="false">Laptop</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="ruang1-basic-tab" data-toggle="tab" href="#ruang1Basic" role="tab" aria-controls="ruang1Basic" aria-selected="false">Tripod</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="ruang3-basic-tab" data-toggle="tab" href="#ruang3Basic" role="tab" aria-controls="ruang3Basic" aria-selected="false">Camera</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="ruang1-basic-tab" data-toggle="tab" href="#ruang1Basic" role="tab" aria-controls="ruang1Basic" aria-selected="false">HandyCam</a>
-    </li>
-</ul>
 <br>
-<div class="tab-content" id="myTabContent">
+<br>
+<br>
+<br>
+<br>
+<div class="tab-content mt-1" id="myTabContent">
     <div class="tab-pane fade show active" style="margin-bottom: 36px" id="ruang1Basic" role="tabpanel" aria-labelledby="ruang1-basic-tab">
         <!-- end of col-->
-        <div>
-            <div class="card mb-4">
-                <div class="card-header">010203-Kode Asset</div>
-                <div class="card-body">
-                    <h5 class="card-title mb-3">Nama Aset</h5>
-                    <div class="row">
-                        <div class="col-xs-6 ml-3 mb-2">
-                            <p class="text-primary mb-1"><i class="i-Home1 mr-2" style="font-size: 12px;"></i>Lokasi</p>
-                            <p class="text-sm lh-150" style="font-size: 12px">Ruang Administrasi</p>
-                        </div>
-                        <div class="col-xs-6 mb-2 ml-3">
-                            <p class="text-primary mb-1"><i class="i-Map mr-2" style="font-size: 12px;"></i>Status</p>
-                            <span class="badge badge-pill badge-outline-warning p-2 m-1 ml-3" style="font-size: 11px;">Tidak Tersedia</span>
-                        </div>
+
+        <div class="annotated-list form-group mb-3" id="assets">
+            <input class="search form-control form-control-rounded" style="width: 100%; height: 3.25em;" placeholder="Search by name" />
+            <button class="sort btn btn-light btn-rounded btn-sm mt-1 mr-1" data-sort="name" style="font-size: 12px;">Sort by Nama
+                Aset</button>
+            <button class="sort btn btn-light btn-rounded btn-sm mt-1 ml-1" data-sort="status" style="font-size: 12px;">Sort by
+                Status Aset</button>
+
+            <div class="list">
+                <div class="card mb-3">
+                    <div class="card-header d-flex justify-content-between">
+                        <p style="font-size: 12px" class="align-self-center">
+                            010203-Kode Asset
+                        </p>
+                        <a class="btn btn-primary btn-rounded" href="detailaset.html" style="font-size: 9px">Selengkapnya</a>
                     </div>
-                    <a class="btn btn-primary btn-rounded" style="font-size: 11px;" href="detailaset.html">Selengkapnya</a>
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 name" style="font-size: 22px">
+                            Nama Aset 5
+                        </h5>
+                        <p class="text-secondary mb-1 text-16">
+                            <i class="i-Home1 mr-3" style="font-size: 14px; font-weight: 600"></i>Ruang
+                            Administrasi
+                        </p>
+                        <p class="text-secondary status">
+                            <span class="badge badge-primary" style="font-size: 16px">Tidak Tersedia</span>
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="card mb-4">
-                <div class="card-header">010203-Kode Asset</div>
-                <div class="card-body">
-                    <h5 class="card-title mb-3">Nama Aset</h5>
-                    <div class="row">
-                        <div class="col-xs-6 ml-3 mb-2">
-                            <p class="text-primary mb-1"><i class="i-Home1 mr-2" style="font-size: 12px;"></i>Lokasi</p>
-                            <p class="text-sm lh-150" style="font-size: 12px">Ruang Administrasi</p>
-                        </div>
-                        <div class="col-xs-6 mb-2 ml-3">
-                            <p class="text-primary mb-1"><i class="i-Map mr-2" style="font-size: 12px;"></i>Status</p>
-                            <span class="badge badge-pill badge-outline-success p-2 m-1 ml-3" style="font-size: 11px;">Tersedia</span>
-                        </div>
+                <div class="card mb-3">
+                    <div class="card-header d-flex justify-content-between">
+                        <p style="font-size: 12px" class="align-self-center">
+                            010203-Kode Asset
+                        </p>
+                        <a class="btn btn-primary btn-rounded" href="detailaset.html" style="font-size: 9px">Selengkapnya</a>
                     </div>
-                    <a class="btn btn-primary btn-rounded" style="font-size: 11px;" href="detailaset.html">Selengkapnya</a>
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 name" style="font-size: 22px">
+                            Nama Aset 3
+                        </h5>
+                        <p class="text-secondary mb-1 text-16">
+                            <i class="i-Home1 mr-3" style="font-size: 14px; font-weight: 600"></i>Ruang
+                            Administrasi
+                        </p>
+                        <p class="text-secondary status">
+                            <span class="badge badge-success" style="font-size: 16px">Tersedia</span>
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="card mb-4">
-                <div class="card-header">010203-Kode Asset</div>
-                <div class="card-body">
-                    <h5 class="card-title mb-3">Nama Aset</h5>
-                    <div class="row">
-                        <div class="col-xs-6 ml-3 mb-2">
-                            <p class="text-primary mb-1"><i class="i-Home1 mr-2" style="font-size: 12px;"></i>Lokasi</p>
-                            <p class="text-sm lh-150" style="font-size: 12px">Ruang Administrasi</p>
-                        </div>
-                        <div class="col-xs-6 mb-2 ml-3">
-                            <p class="text-primary mb-1"><i class="i-Map mr-2" style="font-size: 12px;"></i>Status</p>
-                            <span class="badge badge-pill badge-outline-success p-2 m-1 ml-3" style="font-size: 11px;">Tersedia</span>
-                        </div>
+                <div class="card mb-3">
+                    <div class="card-header d-flex justify-content-between">
+                        <p style="font-size: 12px" class="align-self-center">
+                            010203-Kode Asset
+                        </p>
+                        <a class="btn btn-primary btn-rounded" href="detailaset.html" style="font-size: 9px">Selengkapnya</a>
                     </div>
-                    <a class="btn btn-primary btn-rounded" style="font-size: 11px;" href="detailaset.html">Selengkapnya</a>
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 name" style="font-size: 22px">
+                            Nama Aset 2
+                        </h5>
+                        <p class="text-secondary mb-1 text-16">
+                            <i class="i-Home1 mr-3" style="font-size: 14px; font-weight: 600"></i>Ruang
+                            Administrasi
+                        </p>
+                        <p class="text-secondary status">
+                            <span class="badge badge-success" style="font-size: 16px">Tersedia</span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -90,22 +119,73 @@
     </div>
     <div class="tab-pane fade show" style="margin-bottom: 36px" id="ruang3Basic" role="tabpanel" aria-labelledby="ruang3-basic-tab">
         <!-- end of col-->
-        <div>
-            <div class="card mb-4">
-                <div class="card-header">010203-Kode Asset</div>
-                <div class="card-body">
-                    <h5 class="card-title mb-3">Nama Aset</h5>
-                    <div class="row">
-                        <div class="col-xs-6 ml-3 mb-2">
-                            <p class="text-primary mb-1"><i class="i-Home1 mr-2" style="font-size: 12px;"></i>Lokasi</p>
-                            <p class="text-sm lh-150" style="font-size: 12px">Ruang Administrasi</p>
-                        </div>
-                        <div class="col-xs-6 mb-2 ml-3">
-                            <p class="text-primary mb-1"><i class="i-Map mr-2" style="font-size: 12px;"></i>Status</p>
-                            <span class="badge badge-pill badge-outline-success p-2 m-1 ml-3" style="font-size: 11px;">Tersedia</span>
-                        </div>
+        <div class="annotated-list form-group mb-3" id="assets2">
+            <input class="search form-control form-control-rounded" style="width: 100%; height: 3em;" placeholder="Search by name" />
+            <button class="sort btn btn-light btn-rounded btn-sm mt-1 mr-1" data-sort="name" style="font-size: 12px;">Sort by Nama
+                Aset</button>
+            <button class="sort btn btn-light btn-rounded btn-sm mt-1 ml-1" data-sort="status" style="font-size: 12px;">Sort by
+                Status Aset</button>
+
+            <div class="list">
+                <div class="card mb-3">
+                    <div class="card-header d-flex justify-content-between">
+                        <p style="font-size: 12px" class="align-self-center">
+                            010203-Kode Asset
+                        </p>
+                        <a class="btn btn-primary btn-rounded" href="detailaset.html" style="font-size: 9px">Selengkapnya</a>
                     </div>
-                    <a class="btn btn-primary btn-rounded" style="font-size: 11px;" href="detailaset.html">Selengkapnya</a>
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 name" style="font-size: 22px">
+                            Nama Aset 2
+                        </h5>
+                        <p class="text-secondary mb-1 text-16">
+                            <i class="i-Home1 mr-3" style="font-size: 14px; font-weight: 600"></i>Ruang
+                            Administrasi
+                        </p>
+                        <p class="text-secondary status">
+                            <span class="badge badge-success" style="font-size: 16px">Tersedia</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-header d-flex justify-content-between">
+                        <p style="font-size: 12px" class="align-self-center">
+                            010203-Kode Asset
+                        </p>
+                        <a class="btn btn-primary btn-rounded" href="detailaset.html" style="font-size: 9px">Selengkapnya</a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 name" style="font-size: 22px">
+                            Nama Aset 5
+                        </h5>
+                        <p class="text-secondary mb-1 text-16">
+                            <i class="i-Home1 mr-3" style="font-size: 14px; font-weight: 600"></i>Ruang
+                            Administrasi
+                        </p>
+                        <p class="text-secondary status">
+                            <span class="badge badge-primary" style="font-size: 16px">Tidak Tersedia</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-header d-flex justify-content-between">
+                        <p style="font-size: 12px" class="align-self-center">
+                            010203-Kode Asset
+                        </p>
+                        <a class="btn btn-primary btn-rounded" href="detailaset.html" style="font-size: 9px">Selengkapnya</a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 name" style="font-size: 22px">
+                            Nama Aset 3
+                        </h5>
+                        <p class="text-secondary mb-1 text-16">
+                            <i class="i-Home1 mr-3" style="font-size: 14px; font-weight: 600"></i>Ruang
+                            Administrasi
+                        </p>
+                        <p class="text-secondary status">
+                            <span class="badge badge-success" style="font-size: 16px; margin-bottom: 2px;">Tersedia</span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -114,9 +194,8 @@
 </div>
 <br>
 <br>
-<br>
-
 <!-- fotter end -->
+
 </div>
 <div class="action" onclick="actionToggle();">
     <span>+</span>
@@ -228,4 +307,20 @@
         $('#modalDetailAset').modal('show');
     }
 </script>
+
+<script>
+        var options = {
+            valueNames: ['name', 'status']
+        };
+
+        var userList = new List('assets', options);
+    </script>
+    <script>
+        var options2 = {
+            valueNames: ['name', 'status']
+        };
+
+        var userList = new List('assets2', options2);
+    </script>
+    
 @endsection

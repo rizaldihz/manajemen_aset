@@ -6,19 +6,17 @@
 
 @section('content')
 <div class="breadcrumb">
-    <h1>Aset yang Dipinjam </h1>
+    <h1>Aset yang Dipinjam</h1>
 </div>
-
 <div>
     <div class="card mb-4">
-        <div class="card-header">010203-Kode Asset</div>
+        <div class="card-header d-flex justify-content-between mb-1">
+            <p style="font-size: 12px;" class="align-self-center mb-0"> 010203-Kode Asset</p>
+            <a class="btn btn-primary btn-rounded" href="{{url('detail-aset')}}" style="font-size: 9px;">Selengkapnya</a>
+        </div>
         <div class="card-body">
-            <h5 class="card-title">Nama Aset</h5>
-            <p class="text-primary mb-1"><i class="i-Calendar text-16 mr-2 "></i>Waktu Peminjaman</p>
-            <span><strong>27 Januari 2020</strong></span> | 13.29 WIB
-            <br>
-            <br>
-            <a class="btn btn-primary btn-rounded" href="detailaset.html" style="font-size: 12px;">Selengkapnya</a>
+            <h5 class="card-title text-20" style="font-size: 20px; font-weight: 700;">Nama Aset</h5>
+            <p class="text-secondary mb-1 text-14"><i class="i-Calendar text-20 mr-2 mt-2"></i><span class="text-16"><strong>27 Januari 2020</strong> | 13.29 WIB </span></p>
         </div>
     </div>
 </div>
@@ -28,55 +26,59 @@
 </div>
 <div>
     <div class="card mb-4">
-        <div class="card-header">010203-Kode Asset</div>
+        <div class="card-header d-flex justify-content-between mb-1">
+            <p style="font-size: 12px;" class="align-self-center mb-0"> 010203-Kode Asset</p>
+            <a class="btn btn-primary btn-rounded" href="{{url('detail-aset')}}" style="font-size: 9px;">Selengkapnya</a>
+        </div>
         <div class="card-body">
-            <h5 class="card-title">Nama Aset</h5>
-            <p class="text-primary mb-1"><i class="i-MaleFemale text-16 mr-2"></i>Pak Rizaldi</p>
-            <p class="text-primary mb-1"><i class="i-Calendar text-16 mr-2 "></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
-            <br>
-            <a class="btn btn-primary btn-rounded" href="detailaset.html" style="font-size: 12px;">Selengkapnya</a>
+            <h5 class="card-title" style="font-size: 20px; font-weight: 700;">Nama Aset</h5>
+            <p class="text-secondary mb-1 text-16"><i class="i-MaleFemale text-16 mr-2"></i>Pak Rizaldi</p>
+            <p class="text-secondary mb-1 text-14"><i class="i-Calendar text-16 mr-2 "></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
         </div>
     </div>
 </div>
 <div>
     <div class="card mb-4">
-        <div class="card-header">010203-Kode Asset</div>
+        <div class="card-header d-flex justify-content-between mb-1">
+            <p style="font-size: 12px;" class="align-self-center mb-0"> 010203-Kode Asset</p>
+            <a class="btn btn-primary btn-rounded" href="{{url('detail-aset')}}" style="font-size: 9px;">Selengkapnya</a>
+        </div>
         <div class="card-body">
-            <h5 class="card-title">Nama Aset</h5>
-            <p class="text-primary mb-1"><i class="i-MaleFemale text-16 mr-2"></i>Pak Rizaldi</p>
-            <p class="text-primary mb-1"><i class="i-Calendar text-16 mr-2 "></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
-            <br>
-            <a class="btn btn-primary btn-rounded" href="detailaset.html" style="font-size: 12px;">Selengkapnya</a>
+            <h5 class="card-title" style="font-size: 20px; font-weight: 700;">Nama Aset</h5>
+            <p class="text-secondary mb-1 text-16"><i class="i-MaleFemale text-16 mr-2"></i>Pak Rizaldi</p>
+            <p class="text-secondary mb-1 text-14"><i class="i-Calendar text-16 mr-2 "></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
         </div>
     </div>
 </div>
 <div>
     <div class="card mb-4">
-        <div class="card-header">010203-Kode Asset</div>
+        <div class="card-header d-flex justify-content-between mb-1">
+            <p style="font-size: 12px;" class="align-self-center mb-0"> 010203-Kode Asset</p>
+            <a class="btn btn-primary btn-rounded" href="{{url('detail-aset')}}" style="font-size: 9px;">Selengkapnya</a>
+        </div>
         <div class="card-body">
-            <h5 class="card-title">Nama Aset</h5>
-            <p class="text-primary mb-1"><i class="i-MaleFemale text-16 mr-2"></i>Pak Rizaldi</p>
-            <p class="text-primary mb-1"><i class="i-Calendar text-16 mr-2 "></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
-            <br>
-            <a class="btn btn-primary btn-rounded" href="detailaset.html" style="font-size: 12px;">Selengkapnya</a>
+            <h5 class="card-title" style="font-size: 20px; font-weight: 700;">Nama Aset</h5>
+            <p class="text-secondary mb-1 text-16"><i class="i-MaleFemale text-16 mr-2"></i>Pak Rizaldi</p>
+            <p class="text-secondary mb-1 text-14"><i class="i-Calendar text-16 mr-2 "></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
         </div>
     </div>
 </div>
 <div>
     <div class="card mb-4">
-        <div class="card-header">010203-Kode Asset</div>
+        <div class="card-header d-flex justify-content-between mb-1">
+            <p style="font-size: 12px;" class="align-self-center mb-0"> 010203-Kode Asset</p>
+            <a class="btn btn-primary btn-rounded" href="{{url('detail-aset')}}" style="font-size: 9px;">Selengkapnya</a>
+        </div>
         <div class="card-body">
-            <h5 class="card-title">Nama Aset</h5>
-            <p class="text-primary mb-1"><i class="i-MaleFemale text-16 mr-2"></i>Pak Rizaldi</p>
-            <p class="text-primary mb-1"><i class="i-Calendar text-16 mr-2 "></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
-            <br>
-            <a class="btn btn-primary btn-rounded" href="detailaset.html" style="font-size: 12px;">Selengkapnya</a>
+            <h5 class="card-title" style="font-size: 20px; font-weight: 700;">Nama Aset</h5>
+            <p class="text-secondary mb-1 text-16"><i class="i-MaleFemale text-16 mr-2"></i>Pak Rizaldi</p>
+            <p class="text-secondary mb-1 text-14"><i class="i-Calendar text-16 mr-2 "></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
         </div>
     </div>
 </div>
+<br>
+<br>
 
-<br>
-<br>
 <div class="breadcrumb">
     <h1>Dashboard</h1>
 </div>
@@ -698,7 +700,7 @@
                         <div class="ul-widget5">
                             <div class="ul-widget-s5__item mb-5">
                                 <div class="ul-widget-s5__content">
-                                    <div class="ul-widget-s5__pic"><img id="userDropdown" src="images/faces/1.jpg" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" /></div>
+                                    <div class="ul-widget-s5__pic"><img id="userDropdown" src=" {{asset('assets/images/faces/1.jpg')}} " alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" /></div>
                                     <div class="ul-widget-s5__section"><a class="ul-widget4__title" href="#">Great Logo Designn</a>
                                         <p class="ul-widget-s5__desc">UI LIb admin themes.</p>
                                     </div>
@@ -715,7 +717,7 @@
                             </div>
                             <div class="ul-widget-s5__item mb-5">
                                 <div class="ul-widget-s5__content">
-                                    <div class="ul-widget-s5__pic"><img id="userDropdown" src="images/faces/2.jpg" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" /></div>
+                                    <div class="ul-widget-s5__pic"><img id="userDropdown" src=" {{asset('assets/images/faces/2.jpg')}} " alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" /></div>
                                     <div class="ul-widget-s5__section"><a class="ul-widget4__title" href="#">Great Logo Designn</a>
                                         <p class="ul-widget-s5__desc">UI LIb admin themes.</p>
                                     </div>
@@ -732,7 +734,7 @@
                             </div>
                             <div class="ul-widget-s5__item mb-5">
                                 <div class="ul-widget-s5__content">
-                                    <div class="ul-widget-s5__pic"><img id="userDropdown" src="images/faces/3.jpg" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" /></div>
+                                    <div class="ul-widget-s5__pic"><img id="userDropdown" src=" {{asset('assets/images/faces/3.jpg')}} " alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" /></div>
                                     <div class="ul-widget-s5__section"><a class="ul-widget4__title" href="#">Frontend Developer</a>
                                         <p class="ul-widget-s5__desc">UI LIb admin themes.</p>
                                     </div>

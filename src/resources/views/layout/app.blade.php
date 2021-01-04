@@ -109,6 +109,7 @@
     <script src=" {{asset('assets/js/scripts/card.metrics.script.min.js')}} "></script>
     <script src=" {{asset('assets/js/scripts/widgets-statistics.min.js')}} "></script>
     <script src=" {{asset('assets/js/scripts/apexColumnChart.script.min.js')}} "></script>
+    <script src=" {{asset('assets/js/plugins/list.min.js')}} "></script>
     @yield('moreJS')
 </body>
 
