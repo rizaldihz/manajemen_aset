@@ -86,32 +86,4 @@
 <script src=" {{asset('assets/js/scripts/html5-qrcode.min.js')}}"></script>
 <script src=" https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
 <script src=" {{asset('assets/js/qrcodescan.js')}} "></script>
-<script>
-    function toggleModalDetail(params)
-    {
-        if(lastdata != params){
-            $.ajax({
-                url: '{{url("asset/get")}}',
-                type: 'post',
-                data: {id: params, tipe:'modal', _token: "{{ csrf_token() }}",},
-                success: function(response){ 
-                    $('#modalDetailAset .modal-title').html("Detail Aset")
-                    $('#modalDetailAset .modal-body').html(response.data);
-                    $('#modalDetailAset').modal('show'); 
-                }
-            });
-        }
-        else{
-            $('#modalDetailAset .modal-title').html("Detail Aset")
-            $('#modalDetailAset').modal('show');
-        }
-    }
-    function toggleCode(params)
-    {
-        $('#modalDetailAset .modal-title').html("QR Code")
-        $('#modalDetailAset .modal-body').html("<div class='row'><div class='col-12'><img src='{{url('/')}}/asset/code/"+params+"'></div></div>");
-        $('#modalDetailAset').modal('show'); 
-    }
-    
-</script>
 @endsection

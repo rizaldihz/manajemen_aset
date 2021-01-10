@@ -64,71 +64,39 @@ class AssetController extends Controller
         $this->validate($request, [
             'foto' => 'required|file|max:5000', // max 2MB
         ]);
-        if($request->has('foto')){
-            $image = $request->file('foto');
-            $name = Str::slug($request->input('nama')).'_'.time();
-            $imgName = $name.'.'.$image->getClientOriginalExtension();
-            $path = Storage::putFileAs('public/images', $request->file('foto'), $imgName);
-            $postData = [
-                'kode_aset' => $request->post('kode_aset'),
-                'nama' => $request->post('nama'),
-                'lokasi' => $request->post('lokasi'),
-                'stok' => $request->post('stok'),
-                'jenis_asset_id' => $request->post('jenis_asset'),
-                'status' => 0,
-                'foto' => $path
-            ];
-            $this->assetService->saveData($postData);
-        }
+        $this->assetService->saveData($request);
         return redirect('daftar-aset');
     }
     public function asset_get(Request $request)
     {
-        $dataAsset = $this->assetService->findById($request->post('id'));
-        $statusStr = NULL;
-        if($dataAsset->status) $statusStr = '<span class="badge badge-warning ">Digunakan</span>';
-        else $statusStr = '<span class="badge badge-success ">Tersedia</span>';
-        $modal = sprintf("
-        <div class='row'>
-            <div class='col-12'>
-                <img src='%s'>
-            </div>
-            <div class='col-12'>
-                <div class='table-responsive'>
-                    <table class='table table-borderless'>
-                        <tbody>
-                            <tr>
-                                <th scope='row'>Kode Aset</th>
-                                <td>:</td>
-                                <td>%s</td>
-                            </tr>
-                            <tr>
-                                <th scope='row'>Nama Aset</th>
-                                <td>:</td>
-                                <td>%s</td>
-                            </tr>
-                            <tr>
-                                <th scope='row'>Jenis Aset</th>
-                                <td>:</td>
-                                <td>%s</td>
-                            </tr>
-                            <tr>
-                                <th scope='row'>Lokasi Terakhir</th>
-                                <td>:</td>
-                                <td>%s</td>
-                            </tr>
-                            <tr>
-                                <th scope='row'>Status</th>
-                                <td>:</td>
-                                <td>%s</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-            </div>
-        </div>",url(Storage::url($dataAsset->foto)),$dataAsset->kode_aset,$dataAsset->nama,$dataAsset->jenisasset->nama,$dataAsset->lokasi,$statusStr);
-        return response()->json(['data' => $modal]);
+        if($request->ajax()){
+            try {
+                $dataAsset = $this->assetService->findById($request->post('id'));
+                if($request->post('tipe')=='populate'){
+                    $dataAsset['jenis'] = $dataAsset->jenisasset->nama;
+                    $dataAsset['imgurl'] = url(Storage::url($dataAsset->foto));
+                    $dataAsset['tanggal_pinjam'] = \Carbon\Carbon::now()->isoFormat('dddd, D MMMM Y HH:mm');
+                    $dataAsset['tanggal_kembali'] = \Carbon\Carbon::now()->addWeeks(1)->isoFormat('dddd, D MMMM Y HH:mm');
+                    return response()->json(['data' => $dataAsset]);
+                }
+                if($request->post('tipe')=='modal'){
+                    $statusStr = NULL;
+                    if($dataAsset->status) $statusStr = '<span class="badge badge-warning ">Digunakan</span>';
+                    else $statusStr = '<span class="badge badge-success ">Tersedia</span>';
+                    $modal = sprintf("<div class='row'><div class='col-12'><img src='%s'></div><div class='col-12'>
+                            <div class='table-responsive'><table class='table table-borderless'><tbody>
+                            <tr><th scope='row'>Kode Aset</th><td>:</td><td>%s</td></tr>
+                            <tr><th scope='row'>Nama Aset</th><td>:</td><td>%s</td></tr>
+                            <tr><th scope='row'>Jenis Aset</th><td>:</td><td>%s</td></tr>
+                            <tr><th scope='row'>Lokasi Terakhir</th><td>:</td><td>%s</td></tr>
+                            <tr><th scope='row'>Status</th><td>:</td><td>%s</td></tr></tbody></table></div></div></div>",
+                        url(Storage::url($dataAsset->foto)),$dataAsset->kode_aset,$dataAsset->nama,$dataAsset->jenisasset->nama,$dataAsset->lokasi,$statusStr);
+                    return response()->json(['data' => $modal]);
+                }
+            }catch(\Illuminate\Database\QueryException $e) {
+                return response()->json(['data' => 'Data tidak ditemukan!','msg'=>$e],404);
+            }
+        }
     }
     public function asset_delete(Request $request)
     {

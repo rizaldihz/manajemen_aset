@@ -37,4 +37,10 @@ class AssetRepository
         Storage::delete($toDelete->foto);
         return $toDelete->delete();
     }
+    
+    public function updateById($params,$id)
+    {
+        $asset = $this->find($id);
+        return $asset->update($params);
+    }
 }

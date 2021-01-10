@@ -12,6 +12,7 @@
     <link href="{{asset('assets/css/themes/lite-purple.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/plugins/perfect-scrollbar.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/plugins/datatables.min.css')}}" rel="stylesheet">
+    <link rel="icon" href="{{asset('assets/images/1.jpg')}}" sizes="16x16" type="image/png">
     @yield('moreCSS')
 </head>
 

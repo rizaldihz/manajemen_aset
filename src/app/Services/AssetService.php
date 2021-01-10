@@ -19,9 +19,23 @@ class AssetService
     }
     public function saveData($data)
     {
-        $result = $this->assetRepository->create($data);
-
-        return $result;
+        $postData = NULL;
+        if($data->has('foto')){
+            $image = $data->file('foto');
+            $name = Str::slug($data->input('nama')).'_'.time();
+            $imgName = $name.'.'.$image->getClientOriginalExtension();
+            $path = Storage::putFileAs('public/images', $data->file('foto'), $imgName);
+            $postData = [
+                'kode_aset' => $data->post('kode_aset'),
+                'nama' => $data->post('nama'),
+                'lokasi' => $data->post('lokasi'),
+                'stok' => $data->post('stok'),
+                'jenis_asset_id' => $data->post('jenis_asset'),
+                'status' => 0,
+                'foto' => $path
+            ];
+        }
+        return $this->assetRepository->create($postData);
     }
     public function getAll()
     {
@@ -34,5 +48,10 @@ class AssetService
     public function deleteById($params)
     {
         return $this->assetRepository->delete($params);
+    }
+    public function updateById($params,$id)
+    {
+        return $this->assetRepository->updateById($params,$id);
+
     }
 }

@@ -17,4 +17,8 @@ class Asset extends Model
     {
         return $this->belongsTo('App\Models\JenisAsset', 'jenis_asset_id');
     }
+    public function peminjaman()
+    {
+        return $this->hasMany('App\Models\Peminjaman', 'asset_id');
+    }
 }
