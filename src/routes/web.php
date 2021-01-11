@@ -33,7 +33,7 @@ Route::post('login', 'App\Http\Controllers\UserController@authenticate');
 Route::post('logout', 'App\Http\Controllers\UserController@logout')->middleware('loggedIn');
 Route::get('profile', 'App\Http\Controllers\UserController@profile_view')->middleware('loggedIn');
 
-Route::get('beranda', 'App\Http\Controllers\BerandaController@beranda_view')->middleware('loggedIn');
+Route::get('beranda', 'App\Http\Controllers\AssetController@dashboard_view')->middleware('loggedIn');
 Route::get('scan', 'App\Http\Controllers\ScanController@scan_view')->middleware('loggedIn');
 Route::get('report', 'App\Http\Controllers\ReportController@report_view')->middleware('loggedIn');
 Route::get('data-aset', 'App\Http\Controllers\DataAssetController@dataasset_view')->middleware('loggedIn');
