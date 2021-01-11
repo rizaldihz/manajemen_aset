@@ -25,3 +25,4 @@ Jadi intinya bisa :
 7. composer require simplesoftwareio/simple-qrcode, docs: https://shouts.dev/generate-qr-code-in-laravel
 8. composer require maatwebsite/excel https://www.malasngoding.com/export-excel-laravel/
 9. php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider"
+10. Masuk ke link 'user/import' untuk mengimport satu data user
