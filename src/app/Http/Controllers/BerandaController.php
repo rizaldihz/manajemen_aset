@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BerandaController extends Controller
+class BerandaController extends BaseController
 {
     public function beranda_view()
     {

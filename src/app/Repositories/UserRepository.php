@@ -30,6 +30,12 @@ class UserRepository
             return $this->user->where($params)->orderBy('created_at', 'DESC')->get();
         return $this->user->orderBy('created_at', 'DESC')->get();
     }
+    public function getFirst($params=NULL)
+    {
+        if($params)
+            return $this->user->where($params)->orderBy('created_at', 'DESC')->first();
+        return $this->user->orderBy('created_at', 'DESC')->first();
+    }
 
     public function delete($id)
     {

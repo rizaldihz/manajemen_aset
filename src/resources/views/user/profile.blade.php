@@ -16,14 +16,15 @@
 <div class="col-xs-12">
     <div class="card card-profile-1 mt-3 mb-4">
         <div class="card-body text-center py-4">
-            <div class="avatar box-shadow-2 mb-4"><img src="{{asset('assets/images/faces/15.jpg')}}" alt="" /></div>
-            <h4 class="m-0 text-20">Rizaldi Gans</h4>
-            <p class="mt-0 text-16">Administrator</p>
+            <div class="avatar box-shadow-2 mb-4"><img src="{{asset('assets/images/1.jpg')}}" alt="" /></div>
+            <h4 class="m-0 text-20">{{session()->get('user')->nama}}</h4>
+            <p class="mt-0 text-16">{{session()->get('user')->unit_kerja}}</p>
             <br>
             <a class="card-link mb-2 text-18" href="edit_profile.html">Edit Profile <i class="i-Add-User"></i></a> <br><br>
-            <a href="signin.html">
-                <button class="btn btn-primary btn-rounded px-4 mb-2 text-18">Log Out</button>
-            </a>
+            <form method="post" action="{{url('logout')}}">
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-primary btn-rounded px-4 mb-2 text-18">Log Out</button>
+            </form>
         </div>
     </div>
 </div>

@@ -36,8 +36,18 @@ class UserService
     }
     public function importRequest($request)
     {
-        set_time_limit(0);
-        Excel::import(new UserImport, public_path("/temp/master-import-manajaset.xls"));
+        if($request->isMethod('post')){
+            set_time_limit(0);
+            return Excel::import(new UserImport, public_path("/temp/master-import-manajaset.xls"));
+        }
+        $data = [
+            'nik' => 'T000000',
+            'nama' => 'IRRIZHAL FIRDIANSYAH',
+            'unit_kerja' => 'Dep Pemeliharaan II',
+            'tipe' => 0,
+            'password' => Hash::make('T000000')
+        ];
+        return $this->userRepository->create($data);
     }
     public function findById($params)
     {
@@ -46,5 +56,19 @@ class UserService
     public function deleteById($params)
     {
         return $this->userRepository->delete($params);
+    }
+    public function authenticate($request)
+    {
+        $user = $this->userRepository->getFirst([['nik','=',$request->post('nik')]]);
+        if($user && $user->passwordMatch($request->post('password'))){
+            $request->session()->put('user', $user);
+            return "Login Success";
+        }
+        return "Login gagal";
+    }
+    public function logOut($request)
+    {
+        $request->session()->flush();
+        return "Logged out";
     }
 }

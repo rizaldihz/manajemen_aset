@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DataAssetController extends Controller
+class DataAssetController extends BaseController
 {
     public function dataasset_view()
     {

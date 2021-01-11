@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 use Datatables;
 use QrCode;
 
-class AssetController extends Controller
+class AssetController extends BaseController
 {
     //
     protected $jenisAssetService;
@@ -23,26 +23,24 @@ class AssetController extends Controller
     public function asset_view(Request $request)
     {
         if ($request->ajax()) {
-            $data = $this->assetService->getAll();
-            return Datatables::of($data)
-                    ->removeColumn('id')
-                    ->removeColumn('jenis_asset_id')
-                    ->addColumn('jenis_aset', function($row) {
-                        return $row->jenisasset->nama;
-                    })
-                    ->editColumn('status', function($row) {
-                        if($row->status) return '<span class="badge badge-warning ">Digunakan</span>';
-                        else return '<span class="badge badge-success ">Tersedia</span>';
-                    })
-                    ->addColumn('action', function($row){
-                        $btn = '<a class="text-info mr-2" href="javascript:toggleModalDetail(\''.$row->id.'\')"><i class="nav-icon i-Monitor-5 font-weight-bold "></i></a>
-                        <a class="text-info mr-2 " href="javascript:toggleCode(\''.$row->id.'\')"><i class="nav-icon fas fa-qrcode font-weight-bold "></i></a>
-                        <a class="text-success mr-2 " href="javascript:showEdit(\''.$row->id.'\')" onClick><i class="nav-icon i-Pen-2 font-weight-bold "></i></a>
-                        <a class="text-danger mr-2 " href="javascript:showDelete(\''.$row->id.'\')"><i class="nav-icon i-Close-Window font-weight-bold "></i></a>';
-                        return $btn;
-                    })
-                    ->rawColumns(['action', 'jenis_aset', 'status'])
-                    ->make(true);
+            try {
+                $data = $this->assetService->getAll();
+                return Datatables::of($data)->removeColumn('id')->removeColumn('jenis_asset_id')
+                        ->addColumn('jenis_aset', function($row) {return $row->jenisasset->nama;})
+                        ->editColumn('status', function($row) {
+                            if($row->status) return '<span class="badge badge-warning ">Digunakan</span>';
+                            else return '<span class="badge badge-success ">Tersedia</span>';
+                        })
+                        ->addColumn('action', function($row){
+                            $btn = '<a class="text-info mr-2" href="javascript:toggleModalDetail(\''.$row->id.'\')"><i class="nav-icon i-Monitor-5 font-weight-bold "></i></a>
+                            <a class="text-info mr-2 " href="javascript:toggleCode(\''.$row->id.'\')"><i class="nav-icon fas fa-qrcode font-weight-bold "></i></a>
+                            <a class="text-success mr-2 " href="javascript:showEdit(\''.$row->id.'\')" onClick><i class="nav-icon i-Pen-2 font-weight-bold "></i></a>
+                            <a class="text-danger mr-2 " href="javascript:showDelete(\''.$row->id.'\')"><i class="nav-icon i-Close-Window font-weight-bold "></i></a>';
+                            return $btn;
+                        })->rawColumns(['action', 'jenis_aset', 'status'])->make(true);
+            } catch (\Throwable $th) {
+                return response()->json(['data' => 'Err']);
+            }   
         }
         return view('dashboard.daftar-aset',[
             'jenisAssets' => $this->jenisAssetService->getAll()
@@ -54,18 +52,26 @@ class AssetController extends Controller
     }
     public function jenis_asset_create(Request $request)
     {
-        $this->jenisAssetService->saveData([
-            'nama' => $request->post('nama'),
-        ]);
-        return redirect('daftar-aset');
+        try {
+            $this->jenisAssetService->saveData([
+                'nama' => $request->post('nama'),
+            ]);
+            return redirect('daftar-aset');
+        } catch (\Throwable $th) {
+            return response()->json(['data' => 'Err']);
+        }
     }
     public function asset_create(Request $request)
     {
-        $this->validate($request, [
-            'foto' => 'required|file|max:5000', // max 2MB
-        ]);
-        $this->assetService->saveData($request);
-        return redirect('daftar-aset');
+        try {
+            $this->validate($request, [
+                'foto' => 'required|file|max:5000', // max 2MB
+            ]);
+            $this->assetService->saveData($request);
+            return redirect('daftar-aset');
+        } catch (\Throwable $th) {
+            return response()->json(['data' => 'Err']);
+        }
     }
     public function asset_get(Request $request)
     {
@@ -100,12 +106,20 @@ class AssetController extends Controller
     }
     public function asset_delete(Request $request)
     {
-        $dataAsset = $this->assetService->deleteById($request->post('id'));
-        
-        return response()->json(['data' => 'sukses']);
+        try {
+            $dataAsset = $this->assetService->deleteById($request->post('id'));
+            return response()->json(['data' => 'sukses']);
+        } catch (\Throwable $th) {
+            return response()->json(['data' => 'Err']);
+        }
     }
     public function asset_qrcode(Request $request,$id)
     {
-        return QrCode::size(300)->format('png')->generate($id);
+        try {
+            return QrCode::size(300)->format('png')->generate($id);
+        } catch (\Throwable $th) {
+            return response()->json(['data' => 'Err']);
+        }
+        
     }
 }
