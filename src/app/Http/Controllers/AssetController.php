@@ -128,4 +128,10 @@ class AssetController extends BaseController
     {
         return view('dashboard.data-aset',['jenis_assets'=>$this->jenisAssetService->getAll()]);
     }
+    public function asset_detail(Request $request,$id)
+    {
+        $asset = $this->assetService->getFirst($id);
+        if($asset)
+            return view('dashboard.detail-aset',['asset'=>$asset]);
+    }
 }

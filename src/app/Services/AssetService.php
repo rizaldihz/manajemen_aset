@@ -62,4 +62,10 @@ class AssetService
                 $asset->url = url('asset/'.$asset->kode_aset);
         return $assets;
     }
+    public function getFirst($data)
+    {
+        $asset = $this->assetRepository->getFirst([['kode_aset','=',$data]]);
+        if($asset) $asset->imgurl = url(Storage::url($asset->foto));
+        return $asset;
+    }
 }

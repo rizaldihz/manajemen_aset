@@ -43,4 +43,10 @@ class AssetRepository
         $asset = $this->find($id);
         return $asset->update($params);
     }
+
+    public function getFirst($params)
+    {
+        $data = $this->asset->where($params)->with('jenisasset:id,nama')->first();
+        return $data;
+    }
 }

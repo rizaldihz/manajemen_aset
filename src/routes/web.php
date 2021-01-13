@@ -22,6 +22,7 @@ Route::post('asset/kembalikan', 'App\Http\Controllers\PeminjamanController@penge
 Route::post('asset/get', 'App\Http\Controllers\AssetController@asset_get')->middleware('loggedIn');
 Route::post('asset/delete', 'App\Http\Controllers\AssetController@asset_delete')->middleware('loggedIn');
 Route::get('asset/code/{id}', 'App\Http\Controllers\AssetController@asset_qrcode')->middleware('loggedIn');
+Route::get('asset/{id}', 'App\Http\Controllers\AssetController@asset_detail')->middleware('loggedIn');
 Route::get('peminjaman', 'App\Http\Controllers\PeminjamanController@peminjaman_view')->middleware('loggedIn');
 Route::get('user', 'App\Http\Controllers\UserController@user_manajemen_view')->middleware('loggedIn');
 Route::get('user/populate-user', 'App\Http\Controllers\UserController@user_populate')->middleware('loggedIn');
@@ -41,6 +42,7 @@ Route::get('data-aset', 'App\Http\Controllers\AssetController@all_asset_view')->
 Route::get('daftar-peminjaman', 'App\Http\Controllers\PeminjamanController@peminjaman_getAll')->middleware('loggedIn');
 Route::get('export-excel', 'App\Http\Controllers\ReportController@export_excel')->middleware('loggedIn');
 
+Route::get('dashboard', 'App\Http\Controllers\AssetController@dashboard_view')->middleware('loggedIn');
 Route::get('beranda', 'App\Http\Controllers\AssetController@dashboard_view')->middleware('loggedIn');
 Route::get('report', 'App\Http\Controllers\ReportController@report_view')->middleware('loggedIn');
 
