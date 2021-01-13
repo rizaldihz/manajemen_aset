@@ -17,24 +17,21 @@
         <h1>Data Aset Diklat</h1>
     </div>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="ruang1-basic-tab" data-toggle="tab" href="#ruang1Basic" role="tab" aria-controls="ruang1Basic" aria-selected="true">Proyektor</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="ruang3-basic-tab" data-toggle="tab" href="#ruang3Basic" role="tab" aria-controls="ruang3Basic" aria-selected="false">Laptop</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="ruang1-basic-tab" data-toggle="tab" href="#ruang1Basic" role="tab" aria-controls="ruang1Basic" aria-selected="false">Tripod</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="ruang3-basic-tab" data-toggle="tab" href="#ruang3Basic" role="tab" aria-controls="ruang3Basic" aria-selected="false">Camera</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="ruang1-basic-tab" data-toggle="tab" href="#ruang1Basic" role="tab" aria-controls="ruang1Basic" aria-selected="false">HandyCam</a>
-        </li>
+        @if($jenis_assets->count())
+        @php
+        $i=0;
+        @endphp
+        @foreach ($jenis_assets as $jenis_asset)
+            <li class="nav-item">
+                <a class="nav-link @if($i==0)active @endif" id="{{strtolower(str_replace(" ", "-",$jenis_asset->nama))}}-basic-tab" data-toggle="tab" href="#{{strtolower(str_replace(" ", "",$jenis_asset->nama))}}Basic" role="tab" aria-controls="{{strtolower(str_replace(" ", "",$jenis_asset->nama))}}Basic" aria-selected="true" onclick="load('{{$jenis_asset->id}}','{{strtolower(str_replace(" ", "",$jenis_asset->nama))}}')">{{$jenis_asset->nama}}</a>
+            </li>
+            @php
+            $i++; 
+            @endphp
+        @endforeach
+        @endif
     </ul>
 </div>
-<!--  end of col -->
 
 <br>
 <br>
@@ -42,9 +39,13 @@
 <br>
 <br>
 <div class="tab-content mt-1" id="myTabContent">
-    <div class="tab-pane fade show active" style="margin-bottom: 36px" id="ruang1Basic" role="tabpanel" aria-labelledby="ruang1-basic-tab">
+    @if($jenis_assets->count())
+    @php
+    $i=0;
+    @endphp
+        @foreach ($jenis_assets as $jenis_asset)
+    <div class="tab-pane fade show @if($i==0)active @endif" style="margin-bottom: 36px" id="{{strtolower(str_replace(" ", "",$jenis_asset->nama))}}Basic" role="tabpanel" aria-labelledby="{{strtolower(str_replace(" ", "-",$jenis_asset->nama))}}-tab">
         <!-- end of col-->
-
         <div class="annotated-list form-group mb-3" id="assets">
             <input class="search form-control form-control-rounded" style="width: 100%; height: 3.25em;" placeholder="Search by name" />
             <button class="sort btn btn-light btn-rounded btn-sm mt-1 mr-1" data-sort="name" style="font-size: 12px;">Sort by Nama
@@ -52,145 +53,16 @@
             <button class="sort btn btn-light btn-rounded btn-sm mt-1 ml-1" data-sort="status" style="font-size: 12px;">Sort by
                 Status Aset</button>
 
-            <div class="list">
-                <div class="card mb-3">
-                    <div class="card-header d-flex justify-content-between">
-                        <p style="font-size: 12px" class="align-self-center">
-                            010203-Kode Asset
-                        </p>
-                        <a class="btn btn-primary btn-rounded" href="detailaset.html" style="font-size: 9px">Selengkapnya</a>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title mb-3 name" style="font-size: 22px">
-                            Nama Aset 5
-                        </h5>
-                        <p class="text-secondary mb-1 text-16">
-                            <i class="i-Home1 mr-3" style="font-size: 14px; font-weight: 600"></i>Ruang
-                            Administrasi
-                        </p>
-                        <p class="text-secondary status">
-                            <span class="badge badge-primary" style="font-size: 16px">Tidak Tersedia</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="card mb-3">
-                    <div class="card-header d-flex justify-content-between">
-                        <p style="font-size: 12px" class="align-self-center">
-                            010203-Kode Asset
-                        </p>
-                        <a class="btn btn-primary btn-rounded" href="detailaset.html" style="font-size: 9px">Selengkapnya</a>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title mb-3 name" style="font-size: 22px">
-                            Nama Aset 3
-                        </h5>
-                        <p class="text-secondary mb-1 text-16">
-                            <i class="i-Home1 mr-3" style="font-size: 14px; font-weight: 600"></i>Ruang
-                            Administrasi
-                        </p>
-                        <p class="text-secondary status">
-                            <span class="badge badge-success" style="font-size: 16px">Tersedia</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="card mb-3">
-                    <div class="card-header d-flex justify-content-between">
-                        <p style="font-size: 12px" class="align-self-center">
-                            010203-Kode Asset
-                        </p>
-                        <a class="btn btn-primary btn-rounded" href="detailaset.html" style="font-size: 9px">Selengkapnya</a>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title mb-3 name" style="font-size: 22px">
-                            Nama Aset 2
-                        </h5>
-                        <p class="text-secondary mb-1 text-16">
-                            <i class="i-Home1 mr-3" style="font-size: 14px; font-weight: 600"></i>Ruang
-                            Administrasi
-                        </p>
-                        <p class="text-secondary status">
-                            <span class="badge badge-success" style="font-size: 16px">Tersedia</span>
-                        </p>
-                    </div>
-                </div>
+            <div class="list" id="to-fill-{{strtolower(str_replace(" ", "",$jenis_asset->nama))}}">
             </div>
         </div>
         <!-- end of col-->
     </div>
-    <div class="tab-pane fade show" style="margin-bottom: 36px" id="ruang3Basic" role="tabpanel" aria-labelledby="ruang3-basic-tab">
-        <!-- end of col-->
-        <div class="annotated-list form-group mb-3" id="assets2">
-            <input class="search form-control form-control-rounded" style="width: 100%; height: 3em;" placeholder="Search by name" />
-            <button class="sort btn btn-light btn-rounded btn-sm mt-1 mr-1" data-sort="name" style="font-size: 12px;">Sort by Nama
-                Aset</button>
-            <button class="sort btn btn-light btn-rounded btn-sm mt-1 ml-1" data-sort="status" style="font-size: 12px;">Sort by
-                Status Aset</button>
-
-            <div class="list">
-                <div class="card mb-3">
-                    <div class="card-header d-flex justify-content-between">
-                        <p style="font-size: 12px" class="align-self-center">
-                            010203-Kode Asset
-                        </p>
-                        <a class="btn btn-primary btn-rounded" href="detailaset.html" style="font-size: 9px">Selengkapnya</a>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title mb-3 name" style="font-size: 22px">
-                            Nama Aset 2
-                        </h5>
-                        <p class="text-secondary mb-1 text-16">
-                            <i class="i-Home1 mr-3" style="font-size: 14px; font-weight: 600"></i>Ruang
-                            Administrasi
-                        </p>
-                        <p class="text-secondary status">
-                            <span class="badge badge-success" style="font-size: 16px">Tersedia</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="card mb-3">
-                    <div class="card-header d-flex justify-content-between">
-                        <p style="font-size: 12px" class="align-self-center">
-                            010203-Kode Asset
-                        </p>
-                        <a class="btn btn-primary btn-rounded" href="detailaset.html" style="font-size: 9px">Selengkapnya</a>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title mb-3 name" style="font-size: 22px">
-                            Nama Aset 5
-                        </h5>
-                        <p class="text-secondary mb-1 text-16">
-                            <i class="i-Home1 mr-3" style="font-size: 14px; font-weight: 600"></i>Ruang
-                            Administrasi
-                        </p>
-                        <p class="text-secondary status">
-                            <span class="badge badge-primary" style="font-size: 16px">Tidak Tersedia</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="card mb-3">
-                    <div class="card-header d-flex justify-content-between">
-                        <p style="font-size: 12px" class="align-self-center">
-                            010203-Kode Asset
-                        </p>
-                        <a class="btn btn-primary btn-rounded" href="detailaset.html" style="font-size: 9px">Selengkapnya</a>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title mb-3 name" style="font-size: 22px">
-                            Nama Aset 3
-                        </h5>
-                        <p class="text-secondary mb-1 text-16">
-                            <i class="i-Home1 mr-3" style="font-size: 14px; font-weight: 600"></i>Ruang
-                            Administrasi
-                        </p>
-                        <p class="text-secondary status">
-                            <span class="badge badge-success" style="font-size: 16px; margin-bottom: 2px;">Tersedia</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end of col-->
-    </div>
+            @php
+            $i++; 
+            @endphp
+        @endforeach
+    @endif
 </div>
 <br>
 <br>
@@ -200,13 +72,85 @@
 <div class="action" onclick="actionToggle();">
     <span>+</span>
     <ul>
-        <li><img src="{{asset('assets/images/folder.png')}}"><a href="tambah_asset.html">
+        <li><img src="{{asset('assets/images/folder.png')}}"><a data-toggle="modal" data-target="#modalTambahAset">
                 <h5 style="font-weight: 700;">Tambah Data Aset</h5>
             </a></li>
-        <li><img src="{{asset('assets/images/folderss.png')}}"><a href="tambah_jenis_asset.html">
+        <li><img src="{{asset('assets/images/folderss.png')}}"><a data-toggle="modal" data-target="#modalTambahJenis">
                 <h5 style="font-weight: 700;">Tambah Jenis Aset</h5>
             </a></li>
     </ul>
+</div>
+<div class="modal fade" id="modalTambahAset" tabindex="-1" role="dialog" aria-labelledby="modalTambahAset" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTambahAset">Tambah Aset</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <form method='post' action='{{url("asset/create")}}' enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-form-label">Kode Asset</label>
+                        <input class="form-control" type="text" name='kode_aset' />
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Nama Asset</label>
+                        <input class="form-control" type="text" name='nama' />
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Lokasi</label>
+                        <input class="form-control" type="text" name='lokasi' />
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Stok</label>
+                        <input class="form-control" type="text" name='stok' />
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Jenis Asset</label>
+                        <select class="form-control" name='jenis_asset'>
+                            @if(!$jenis_assets->isEmpty())
+                            @foreach($jenis_assets as $jenis_asset)
+                            <option value="{{$jenis_asset->id}}">{{$jenis_asset->nama}}</option>
+                            @endforeach
+                            @endif
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Foto</label>
+                        <input class="form-control" type="file" name="foto" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <button class="btn btn-primary ml-2" type="submit">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalTambahJenis" tabindex="-1" role="dialog" aria-labelledby="modalTambahJenis" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTambahJenis">Tambah Jenis Aset</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <form method="post" action="{{url('jenis-asset/create')}}">
+                {{ csrf_field() }}
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-form-label">Nama Jenis Asset</label>
+                        <input class="form-control" type="text" name="nama" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <button class="btn btn-primary ml-2" type="submit">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 <br>
 <br>
@@ -225,102 +169,78 @@
     }
 </script>
 <script>
-    var table = $('#asset_table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: "{{ url('daftar-aset') }}",
-        columns: [{
-                data: 'kode_aset',
-                name: 'kode_aset'
-            },
-            {
-                data: 'nama',
-                name: 'nama'
-            },
-            {
-                data: 'jenis_aset',
-                name: 'jenis_aset'
-            },
-            {
-                data: 'lokasi',
-                name: 'lokasi'
-            },
-            {
-                data: 'status',
-                name: 'status'
-            },
-            {
-                data: 'action',
-                name: 'action',
-                orderable: false,
-                searchable: false
-            },
-        ]
-    });
-    var lastdata = NULL;
-
-    function toggleModalDetail(params) {
-        if (lastdata != params) {
+    var lastdata = [];
+    function load(id,name){
+        if(!lastdata.includes(name))
             $.ajax({
                 url: '{{url("asset/get")}}',
                 type: 'post',
                 data: {
-                    id: params,
-                    tipe: 'modal',
-                    _token: "{{ csrf_token() }}",
+                    tipe: 'getall',
+                    "_token": "{{ csrf_token() }}",
+                    id: id
                 },
                 success: function(response) {
-                    $('#modalDetailAset .modal-title').html("Detail Aset")
-                    $('#modalDetailAset .modal-body').html(response.data);
-                    $('#modalDetailAset').modal('show');
-                }
+                    lastdata.push(name)
+                    console.log(response['data'].length);
+                    if(response['data'].length === 0)
+                    {
+                        $("#to-fill-"+name).html("<p class='text-secondary mb-1 text-14'>Tidak Ada Asset yang terdaftar</p>");
+                    }
+                    else{
+                        var toadd='';
+                        data = response;
+                        $.each(data,function(i,member){
+                            for(var i in member){
+                                status_tag = ""
+                                if(member[i].status == 0){
+                                    status_tag = "<span class='badge badge-success' style='font-size: 16px'>Tersedia</span>"
+                                }else{
+                                    status_tag = "<span class='badge badge-primary' style='font-size: 16px'>Tidak Tersedia</span>"
+                                }
+                                toadd = toadd+"<div class='card mb-3'>\
+                                                    <div class='card-header d-flex justify-content-between'>\
+                                                        <p style='font-size: 12px' class='align-self-center'>"+member[i].kode_aset+"</p>\
+                                                        <a class='btn btn-primary btn-rounded' href='"+member[i].url+"' style='font-size: 9px'>Selengkapnya</a>\
+                                                    </div>\
+                                                    <div class='card-body'>\
+                                                        <h5 class='card-title mb-3 name' style='font-size: 22px'>"+member[i].nama+"</h5>\
+                                                        <p class='text-secondary mb-1 text-16'>\
+                                                            <i class='i-Home1 mr-3' style='font-size: 14px; font-weight: 600'></i>"+member[i].lokasi+"</p>\
+                                                        <p class='text-secondary status'>"+status_tag+"</p>\
+                                                    </div>\
+                                                </div>";
+                                $("#to-fill-"+name).html(toadd);
+                            }
+                        });
+                    }
+                },
+                error: function (request, error) {
+                    swal(
+                        'Mohon maaf :(',
+                        'Data tidak ditemukan!',
+                        'error'
+                    );
+                },
             });
-        } else {
-            $('#modalDetailAset .modal-title').html("Detail Aset")
-            $('#modalDetailAset').modal('show');
-        }
     }
-
-    function showDelete(params) {
-        $.ajax({
-            url: '{{url("asset/delete")}}',
-            type: 'post',
-            data: {
-                id: params,
-                tipe: 'modal',
-                _token: "{{ csrf_token() }}",
-            },
-            success: function(response) {
-                swal(
-                    'Sukses',
-                    'Data Berhasil dihapus!',
-                    'success'
-                );
-                table.ajax.reload();
-            }
-        });
-    }
-
-    function toggleCode(params) {
-        $('#modalDetailAset .modal-title').html("QR Code")
-        $('#modalDetailAset .modal-body').html("<div class='row'><div class='col-12'><img src='{{url('/')}}/asset/code/" + params + "'></div></div>");
-        $('#modalDetailAset').modal('show');
-    }
+    @if($jenis_assets->count())
+    load('{{$jenis_assets[0]->id}}','{{strtolower(str_replace(" ", "",$jenis_assets[0]->nama))}}');
+    @endif
 </script>
-
 <script>
-        var options = {
-            valueNames: ['name', 'status']
-        };
+    // var options = {
+    //     valueNames: ['name', 'status']
+    // };
 
-        var userList = new List('assets', options);
-    </script>
-    <script>
-        var options2 = {
-            valueNames: ['name', 'status']
-        };
+    // var userList = new List('assets', options);
+</script>
+<script>
+    // var options2 = {
+    //     valueNames: ['name', 'status']
+    // };
 
-        var userList = new List('assets2', options2);
-    </script>
+    // var userList = new List('assets2', options2);
+</script>
     
 @endsection

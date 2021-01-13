@@ -13,13 +13,8 @@ class User extends Model
     use Uuid;
     protected $table = 'users';
     public $incrementing = false;
-    protected $fillable = [
-        'nama',
-        'unit_kerja',
-        'nik',
-        'tipe',
-        'password',
-    ];
+    protected $fillable = ['nama','unit_kerja','nik','tipe','password',];
+    protected $keyType = 'string';
     public function peminjaman()
     {
         return $this->hasMany('App\Models\Peminjaman', 'user_id');
@@ -27,5 +22,9 @@ class User extends Model
     public function passwordMatch(string $password):bool
     {
         return Hash::check($password, $this->password);
+    }
+    public function isAdmin():bool
+    {
+        return !$this->tipe;
     }
 }

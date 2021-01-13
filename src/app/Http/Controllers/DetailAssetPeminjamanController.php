@@ -8,6 +8,6 @@ class DetailAssetPeminjamanController extends BaseController
 {
     public function detail_asset_peminjaman_view()
     {
-        return view('dashboard.detail-aset-peminjaman');
+        return view('peminjaman.detail-aset-peminjaman');
     }
 }

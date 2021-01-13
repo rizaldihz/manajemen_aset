@@ -12,6 +12,7 @@ class Asset extends Model
     use Uuid;
     protected $table = 'asset';
     protected $fillable = ['kode_aset','nama','lokasi','status','stok','jenis_asset_id','foto'];
+    protected $keyType = 'string';
     public $incrementing = false;
     public function jenisasset()
     {
@@ -20,5 +21,9 @@ class Asset extends Model
     public function peminjaman()
     {
         return $this->hasMany('App\Models\Peminjaman', 'asset_id');
+    }
+    public function getFotoPath()
+    {
+        return \Illuminate\Support\Facades\Storage::url($this->foto);
     }
 }

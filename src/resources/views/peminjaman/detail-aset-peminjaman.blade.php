@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="row">
-    <a href="{{url('dashboard')}}" class="nav-link"><img src="{{asset('assets/images/previous.png')}}" height="20px" height="20px"></a>
+    <a onclick="window.history.back()" class="nav-link"><img src="{{asset('assets/images/previous.png')}}" height="20px" height="20px"></a>
     <div class="breadcrumb pt-2 ml-2">
         <h1>Peminjaman Aset</h1>
     </div>
@@ -23,7 +23,7 @@
                     <div class="col-lg-3">
                         <!-- Product image -->
                         <a href="javascript: void(0);" class="text-center d-block mb-4">
-                            <img src="{{asset('assets/images/qr.png')}} " class="img-thumbnail img-preview" style="max-width: 280px;" alt="Product-img" />
+                            <img src="{{url(\Illuminate\Support\Facades\Storage::url($peminjaman->asset->foto))}} " class="img-thumbnail img-preview" style="max-width: 280px;" alt="Product-img" />
                         </a>
                         <br>
                     </div>
@@ -32,8 +32,8 @@
                         <form class="pl-lg-4">
                             <!-- Product title -->
                             <br>
-                            <h3 class="mt-0"><strong>Nama Asset</strong><a href="javascript: void(0);" class="text-muted"><i class="mdi mdi-square-edit-outline ml-2"></i></a> </h3>
-                            <h6 class="mb-1" style="font-size: 18px;">010203-Kode Asset</h6>
+                            <h3 class="mt-0"><strong>{{$peminjaman->asset->nama}}</strong><a href="javascript: void(0);" class="text-muted"><i class="mdi mdi-square-edit-outline ml-2"></i></a> </h3>
+                            <h6 class="mb-1" style="font-size: 18px;">{{$peminjaman->kode_peminjaman}}</h6>
                             <p class="font-16">
                                 <span class="text-warning mdi mdi-star"></span>
                                 <span class="text-warning mdi mdi-star"></span>
@@ -45,7 +45,7 @@
                             <!-- Waktu Peminjaman -->
                             <div class="mt-4">
                                 <p class="text-primary mb-1"><i class="i-Calendar text-16 mr-2 "></i>Waktu Peminjaman</p>
-                                <span><strong>27 Januari 2020</strong></span> | 13.29 WIB
+                                <span><strong>{{\Carbon\Carbon::parse($peminjaman->tanggal_pinjam)->isoFormat('dddd, D MMMM Y')}}</strong></span> | {{\Carbon\Carbon::parse($peminjaman->tanggal_pinjam)->isoFormat('HH:mm')}} WIB
                             </div>
                             <br>
                             <div class="bordered_1px"></div>
@@ -55,20 +55,39 @@
                                 <div class="row">
                                     <div class="col-md-4 mb-3">
                                         <h6 class="font-14">Status:</h6>
-                                        <span class="badge badge-pill badge-outline-success p-2 m-1" style="font-size: 14px;">Tersedia</span>
-                                        <span class="badge badge-pill badge-outline-warning p-2 m-1" style="font-size: 14px;">Tidak Tersedia</span>
+                                        @if(\Carbon\Carbon::now() > \Carbon\Carbon::parse($peminjaman->tanggal_kembali))
+                                        <span class="badge badge-pill badge-outline-danger p-2 m-1" style="font-size: 14px;">Terlambat Mengembalikan</span>
+                                        @elseif($peminjaman->status == 'Kembali')
+                                        <span class="badge badge-pill badge-outline-success p-2 m-1" style="font-size: 14px;">Sudah Dikembalikan</span>
+                                        @elseif($peminjaman->status == 'Dipinjam')
+                                        <span class="badge badge-pill badge-outline-warning p-2 m-1" style="font-size: 14px;">Belum Dikembalikan</span>
+                                        @endif
+                                        
+                                        
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6 class="font-14">Peminjam Aset:</h6>
+                                        <p class="text-sm lh-150" style="font-size: 16px;">{{$peminjaman->user->nama}}</p>
                                     </div>
                                     <div class="col-md-4">
                                         <h6 class="font-14">Jenis Aset:</h6>
-                                        <p class="text-sm lh-150" style="font-size: 16px;">Nama Jenis Aset</p>
+                                        <p class="text-sm lh-150" style="font-size: 16px;">{{$peminjaman->asset->jenisasset->nama}}</p>
                                     </div>
-                                    <div class="col-md-4">
+                                    {{-- <div class="col-md-4">
                                         <h6 class="font-14">Satuan:</h6>
                                         <p class="text-sm lh-150" style="font-size: 16px;">Unit</p>
+                                    </div> --}}
+                                    <div class="col-md-4">
+                                        <h6 class="font-14">Lokasi terakhir peminjaman:</h6>
+                                        <p class="text-sm lh-150" style="font-size: 16px">{{$peminjaman->lokasi}}</p>
                                     </div>
                                     <div class="col-md-4">
-                                        <h6 class="font-14">Lokasi:</h6>
-                                        <p class="text-sm lh-150" style="font-size: 16px">Lemari - Ruang Administrasi</p>
+                                        <h6 class="font-14">Tanggal peminjaman:</h6>
+                                        <p class="text-sm lh-150" style="font-size: 16px"><span><strong>{{\Carbon\Carbon::parse($peminjaman->tanggal_pinjam)->isoFormat('dddd, D MMMM Y')}}</strong></span> | {{\Carbon\Carbon::parse($peminjaman->tanggal_pinjam)->isoFormat('HH:mm')}} WIB</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6 class="font-14">Tanggal pengembalian:</h6>
+                                        <p class="text-sm lh-150" style="font-size: 16px"><span><strong>{{\Carbon\Carbon::parse($peminjaman->tanggal_kembali)->isoFormat('dddd, D MMMM Y')}}</strong></span> | {{\Carbon\Carbon::parse($peminjaman->tanggal_kembali)->isoFormat('HH:mm')}} WIB</p>
                                     </div>
                                 </div>
                             </div>
@@ -97,15 +116,27 @@
    padding-bottom: 0.25px;
  ">
     <ul class="navbar-nav nav-justified w-100">
-
         <li class="nav-item">
-            <a href="#" class="nav-link" style="height: 2.75em; font-size: 18px; color: rgb(255, 255, 255, 0,75);">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="color: rgb(255, 255, 255, 0.7); font-size: 14px;">Pinjam Aset</button>
-                <img src="images/next.png" width="18px" height="18px" style="opacity: 0.7;">
+            <a href="{{url('data-aset')}}" class="nav-link">
+                <svg xmlns="http://www.w3.org/2000/svg"width="1.5em" height="1.5em" fill="currentColor" class="bi bi-layout-text-window-reverse" viewBox="0 0 16 16">
+                    <path d="M13 6.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z"/>
+                    <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM2 1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zM1 4v10a1 1 0 0 0 1 1h2V4H1zm4 0v11h9a1 1 0 0 0 1-1V4H5z"/>
+                  </svg><br>
+                <span style="font-size: 10px">Data Aset</span>
             </a>
         </li>
-
-
+        @if($peminjaman->status != 'Kembali')
+        <li class="nav-item">
+            <a href="{{url('scan/kembalikan')}}" class="nav-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor"
+                class="bi bi-upc-scan" viewBox="0 0 16 16">
+                <path
+                    d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5zM3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-7zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7z" />
+                </svg><br>
+                <span style="font-size: 10px">Kembalikan</span>
+            </a>
+        </li>
+        @endif
     </ul>
 </nav>
 
@@ -149,99 +180,4 @@
 <script src=" {{asset('assets/js/plugins/sweetalert2.min.js')}}"></script>
 <script src=" {{asset('assets/js/scripts/sweetalert.script.min.js')}}"></script>
 <script src=" {{asset('assets/js/scripts/html5-qrcode.min.js')}}"></script>
-<script>
-    var table = $('#asset_table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: "{{ url('daftar-aset') }}",
-        columns: [{
-                data: 'kode_aset',
-                name: 'kode_aset'
-            },
-            {
-                data: 'nama',
-                name: 'nama'
-            },
-            {
-                data: 'jenis_aset',
-                name: 'jenis_aset'
-            },
-            {
-                data: 'lokasi',
-                name: 'lokasi'
-            },
-            {
-                data: 'status',
-                name: 'status'
-            },
-            {
-                data: 'action',
-                name: 'action',
-                orderable: false,
-                searchable: false
-            },
-        ]
-    });
-    var lastdata = NULL;
-
-    function toggleModalDetail(params) {
-        if (lastdata != params) {
-            $.ajax({
-                url: '{{url("asset/get")}}',
-                type: 'post',
-                data: {
-                    id: params,
-                    tipe: 'modal',
-                    _token: "{{ csrf_token() }}",
-                },
-                success: function(response) {
-                    $('#modalDetailAset .modal-title').html("Detail Aset")
-                    $('#modalDetailAset .modal-body').html(response.data);
-                    $('#modalDetailAset').modal('show');
-                }
-            });
-        } else {
-            $('#modalDetailAset .modal-title').html("Detail Aset")
-            $('#modalDetailAset').modal('show');
-        }
-    }
-
-    function showDelete(params) {
-        $.ajax({
-            url: '{{url("asset/delete")}}',
-            type: 'post',
-            data: {
-                id: params,
-                tipe: 'modal',
-                _token: "{{ csrf_token() }}",
-            },
-            success: function(response) {
-                swal(
-                    'Sukses',
-                    'Data Berhasil dihapus!',
-                    'success'
-                );
-                table.ajax.reload();
-            }
-        });
-    }
-
-    function toggleCode(params) {
-        $('#modalDetailAset .modal-title').html("QR Code")
-        $('#modalDetailAset .modal-body').html("<div class='row'><div class='col-12'><img src='{{url('/')}}/asset/code/" + params + "'></div></div>");
-        $('#modalDetailAset').modal('show');
-    }
-</script>
-<script>
-    function onScanSuccess(qrCodeMessage) {
-        // handle on success condition with the decoded message
-    }
-
-    var html5QrcodeScanner = new Html5QrcodeScanner(
-        "reader", {
-            fps: 10,
-            qrbox: 250
-        });
-    html5QrcodeScanner.render(onScanSuccess);
-</script>
 @endsection

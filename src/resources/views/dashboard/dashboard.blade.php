@@ -8,77 +8,18 @@
 <div class="breadcrumb">
     <h1>Aset yang Dipinjam</h1>
 </div>
-<div>
-    <div class="card mb-4">
-        <div class="card-header d-flex justify-content-between mb-1">
-            <p style="font-size: 12px;" class="align-self-center mb-0"> 010203-Kode Asset</p>
-            <a class="btn btn-primary btn-rounded" href="{{url('detail-aset')}}" style="font-size: 9px;">Selengkapnya</a>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title text-20" style="font-size: 20px; font-weight: 700;">Nama Aset</h5>
-            <p class="text-secondary mb-1 text-14"><i class="i-Calendar text-20 mr-2 mt-2"></i><span class="text-16"><strong>27 Januari 2020</strong> | 13.29 WIB </span></p>
-        </div>
-    </div>
+<div id="borrowed-card-holder">
 </div>
 <br>
+@if(session()->get('user')->isAdmin())
 <div class="breadcrumb">
     <h1>Data Aset Digunakan</h1>
 </div>
-<div>
-    <div class="card mb-4">
-        <div class="card-header d-flex justify-content-between mb-1">
-            <p style="font-size: 12px;" class="align-self-center mb-0"> 010203-Kode Asset</p>
-            <a class="btn btn-primary btn-rounded" href="{{url('detail-aset')}}" style="font-size: 9px;">Selengkapnya</a>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title" style="font-size: 20px; font-weight: 700;">Nama Aset</h5>
-            <p class="text-secondary mb-1 text-16"><i class="i-MaleFemale text-16 mr-2"></i>Pak Rizaldi</p>
-            <p class="text-secondary mb-1 text-14"><i class="i-Calendar text-16 mr-2 "></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
-        </div>
-    </div>
+<div id="all-borrowed-card-holder"> 
 </div>
-<div>
-    <div class="card mb-4">
-        <div class="card-header d-flex justify-content-between mb-1">
-            <p style="font-size: 12px;" class="align-self-center mb-0"> 010203-Kode Asset</p>
-            <a class="btn btn-primary btn-rounded" href="{{url('detail-aset')}}" style="font-size: 9px;">Selengkapnya</a>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title" style="font-size: 20px; font-weight: 700;">Nama Aset</h5>
-            <p class="text-secondary mb-1 text-16"><i class="i-MaleFemale text-16 mr-2"></i>Pak Rizaldi</p>
-            <p class="text-secondary mb-1 text-14"><i class="i-Calendar text-16 mr-2 "></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
-        </div>
-    </div>
-</div>
-<div>
-    <div class="card mb-4">
-        <div class="card-header d-flex justify-content-between mb-1">
-            <p style="font-size: 12px;" class="align-self-center mb-0"> 010203-Kode Asset</p>
-            <a class="btn btn-primary btn-rounded" href="{{url('detail-aset')}}" style="font-size: 9px;">Selengkapnya</a>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title" style="font-size: 20px; font-weight: 700;">Nama Aset</h5>
-            <p class="text-secondary mb-1 text-16"><i class="i-MaleFemale text-16 mr-2"></i>Pak Rizaldi</p>
-            <p class="text-secondary mb-1 text-14"><i class="i-Calendar text-16 mr-2 "></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
-        </div>
-    </div>
-</div>
-<div>
-    <div class="card mb-4">
-        <div class="card-header d-flex justify-content-between mb-1">
-            <p style="font-size: 12px;" class="align-self-center mb-0"> 010203-Kode Asset</p>
-            <a class="btn btn-primary btn-rounded" href="{{url('detail-aset')}}" style="font-size: 9px;">Selengkapnya</a>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title" style="font-size: 20px; font-weight: 700;">Nama Aset</h5>
-            <p class="text-secondary mb-1 text-16"><i class="i-MaleFemale text-16 mr-2"></i>Pak Rizaldi</p>
-            <p class="text-secondary mb-1 text-14"><i class="i-Calendar text-16 mr-2 "></i> <span><strong>27 Januari 2020</strong></span> | 13.29 WIB</p>
-        </div>
-    </div>
-</div>
+@endif
 <br>
 <br>
-
 <div class="breadcrumb">
     <h1>Dashboard</h1>
 </div>
@@ -89,9 +30,8 @@
 </div>
 <!--  end of col -->
 <br>
-
 <div class="row">
-    <!-- no 13 chart-->
+    {{-- <!-- no 13 chart-->
     <div class="col-md-3 col-lg-3 col-sm-12">
         <div class="card mb-4 o-hidden">
             <div class="card-body">
@@ -291,10 +231,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- end of col-->
 
-    <div class="col-lg-6 col-xl-6 mb-4">
+    {{-- <div class="col-lg-6 col-xl-6 mb-4">
         <div class="card">
             <div class="card-body">
                 <div class="ul-widget__head">
@@ -527,12 +467,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- left-side-->
 </div>
-
 <div class="row">
-
     <!-- left-side-->
     <div class="col-lg-6 col-md-12">
         <div class="row">
@@ -677,7 +615,7 @@
             </div>
         </div>
     </div>
-    <!-- right-side-->
+    {{-- <!-- right-side-->
     <div class="col-lg-6 col-md-12">
         <div class="row">
             <div class="col-md-12">
@@ -756,13 +694,107 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 <!-- fotter end -->
-
 @endsection
 
 @section('moreJS')
 <script src=" {{asset('assets/js/plugins/datatables.min.js')}} "></script>
 <script src=" {{asset('assets/js/scripts/datatables.script.min.js')}} "></script>
+<script>
+@if(session()->get('user')->isAdmin())
+$.ajax({
+        url: '{{url("peminjaman/get")}}',
+        type: 'post',
+        data: {
+            tipe: 'populate',
+            "_token": "{{ csrf_token() }}",
+        },
+        success: function(response) {
+            console.log(response['data'].length);
+            if(response['data'].length === 0)
+            {
+                $("#all-borrowed-card-holder").html("<p class='text-secondary mb-1 text-14'>Sedang tidak meminjam</p>");
+            }
+            else{
+                var toadd='';
+                data = response;
+                $.each(data,function(i,member){
+                    for(var i in member){
+                        time = member[i].tanggal_kembali_raw.split(", ")
+                        toadd = toadd+"<div>\
+                                            <div class='card mb-4'>\
+                                                <div class='card-header d-flex justify-content-between mb-1'>\
+                                                    <p style='font-size: 12px;' class='align-self-center mb-0'>"+member[i].kode_peminjaman+"</p>\
+                                                    <a class='btn btn-primary btn-rounded' href='"+member[i].link+"' style='font-size: 9px;'>Selengkapnya</a>\
+                                                </div>\
+                                                <div class='card-body'>\
+                                                    <h5 class='card-title' style='font-size: 20px; font-weight: 700;'>"+member[i].asset.nama+"</h5>\
+                                                    <p class='text-secondary mb-1 text-16'><i class='i-MaleFemale text-16 mr-2'></i>"+member[i].user.nama+"</p>\
+                                                    <p class='text-secondary mb-1 text-14'><i class='i-Calendar text-16 mr-2 '></i> <span><strong>"+time[0]+", "+time[1]+"</strong></span> | "+time[2]+" WIB</p>\
+                                                </div>\
+                                            </div>\
+                                        </div>";
+                        $("#all-borrowed-card-holder").html(toadd);
+                    }
+                });
+            }
+        },
+        error: function (request, error) {
+            swal(
+                'Mohon maaf :(',
+                'Data tidak ditemukan!',
+                'error'
+            );
+        },
+    });
+@endif
+$.ajax({
+        url: '{{url("peminjaman/get")}}',
+        type: 'post',
+        data: {
+            uid: '{{session()->get("user")->id}}',
+            tipe: 'selfborrowed',
+            "_token": "{{ csrf_token() }}",
+        },
+        success: function(response) {
+            console.log(response['data'].length);
+            if(response['data'].length === 0)
+            {
+                $("#borrowed-card-holder").html("<p class='text-secondary mb-1 text-14'>Sedang tidak meminjam</p>");
+            }
+            else{
+                var toadd='';
+                data = response;
+                $.each(data,function(i,member){
+                    for(var i in member){
+                        time = member[i].tanggal_kembali_raw.split(", ")
+                        toadd = toadd+"<div>\
+                                            <div class='card mb-4'>\
+                                                <div class='card-header d-flex justify-content-between mb-1'>\
+                                                    <p style='font-size: 12px;' class='align-self-center mb-0'>"+member[i].kode_peminjaman+"</p>\
+                                                    <a class='btn btn-primary btn-rounded' href='"+member[i].link+"' style='font-size: 9px;'>Selengkapnya</a>\
+                                                </div>\
+                                                <div class='card-body'>\
+                                                    <h5 class='card-title text-20' style='font-size: 20px; font-weight: 700;'>"+member[i].asset.nama+"</h5>\
+                                                    <p class='text-secondary mb-1 text-14'><i class='i-Calendar text-20 mr-2 mt-2'></i><span class='text-16'><strong>"+time[0]+", "+time[1]+"</strong> | "+time[2]+" WIB </span></p>\
+                                                </div>\
+                                            </div>\
+                                        </div>";
+                        $("#borrowed-card-holder").html(toadd);
+                    }
+                });
+            }
+        },
+        error: function (request, error) {
+            swal(
+                'Mohon maaf :(',
+                'Data tidak ditemukan!',
+                'error'
+            );
+        },
+    });
+    
+</script>
 @endsection

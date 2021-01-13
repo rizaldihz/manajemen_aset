@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 // use InvalidArgumentException;
 
 class AssetService
@@ -52,6 +53,13 @@ class AssetService
     public function updateById($params,$id)
     {
         return $this->assetRepository->updateById($params,$id);
-
+    }
+    public function getFromJenis($request)
+    {
+        $assets = $this->assetRepository->get([['jenis_asset_id','=',$request->post('id')]]);
+        if($assets->count())
+            foreach($assets as $asset)
+                $asset->url = url('asset/'.$asset->kode_aset);
+        return $assets;
     }
 }

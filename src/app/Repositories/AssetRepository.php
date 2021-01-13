@@ -27,8 +27,8 @@ class AssetRepository
     public function get($params=NULL)
     {
         if($params)
-            return $this->asset->where($params)->orderBy('created_at', 'DESC')->get();
-        return $this->asset->orderBy('created_at', 'DESC')->get();
+            return $this->asset->where($params)->orderBy('created_at', 'DESC')->with('jenisasset:id,nama')->get();
+        return $this->asset->orderBy('created_at', 'DESC')->with('jenisasset:id,nama')->get();
     }
 
     public function delete($id)

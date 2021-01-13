@@ -42,9 +42,7 @@ class AssetController extends BaseController
                 return response()->json(['data' => 'Err']);
             }   
         }
-        return view('dashboard.daftar-aset',[
-            'jenisAssets' => $this->jenisAssetService->getAll()
-        ]);
+        return view('dashboard.daftar-aset',['jenisAssets' => $this->jenisAssetService->getAll()]);
     }
     public function dashboard_view()
     {
@@ -68,7 +66,7 @@ class AssetController extends BaseController
                 'foto' => 'required|file|max:5000', // max 2MB
             ]);
             $this->assetService->saveData($request);
-            return redirect('daftar-aset');
+            return redirect('data-aset');
         } catch (\Throwable $th) {
             return response()->json(['data' => 'Err']);
         }
@@ -99,6 +97,10 @@ class AssetController extends BaseController
                         url(Storage::url($dataAsset->foto)),$dataAsset->kode_aset,$dataAsset->nama,$dataAsset->jenisasset->nama,$dataAsset->lokasi,$statusStr);
                     return response()->json(['data' => $modal]);
                 }
+                if($request->post('tipe')=='getall'){
+                    $assets = $this->assetService->getFromJenis($request);
+                    return response()->json(['data' => $assets]);
+                }
             }catch(\Illuminate\Database\QueryException $e) {
                 return response()->json(['data' => 'Data tidak ditemukan!','msg'=>$e],404);
             }
@@ -121,5 +123,9 @@ class AssetController extends BaseController
             return response()->json(['data' => 'Err']);
         }
         
+    }
+    public function all_asset_view(Request $request)
+    {
+        return view('dashboard.data-aset',['jenis_assets'=>$this->jenisAssetService->getAll()]);
     }
 }

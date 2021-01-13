@@ -12,6 +12,7 @@ class JenisAsset extends Model
     use Uuid;
     protected $table = 'jenis_asset';
     protected $fillable = ['nama'];
+    protected $keyType = 'string';
     public $incrementing = false;
     public function asset()
     {

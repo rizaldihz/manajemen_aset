@@ -40,7 +40,7 @@
             <br>
             <ul class="childNav">
                 <li class="nav-item">
-                    <a href="{{url('beranda')}}">
+                    <a href="{{url('')}}">
                         <i class="nav-icon i-Home-2"></i>
                         <span class="item-name">Beranda</span>
                     </a>
@@ -82,7 +82,7 @@
             <br />
             <ul class="childNav">
                 <li class="nav-item">
-                    <a href="{{url('kelola-pengguna')}}">
+                    <a href="{{url('user')}}">
                         <i class="nav-icon i-Checked-User"></i>
                         <span class="item-name">Kelola Pengguna</span>
                     </a>
