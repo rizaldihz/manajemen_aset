@@ -47,7 +47,7 @@
             <button class="btn btn-success mb-1" data-toggle="modal" data-target="#modalTambahJenis">Tambah Jenis Asset</button>
         </div> --}}
         {{-- <div class="col-md-12"> --}}
-            <div class="table-responsive ">
+            <div class="table-responsive my-4">
                 <table class="display table table-striped table-bordered" id="asset_table" style="width:100%">
                     <thead>
                         <tr>
