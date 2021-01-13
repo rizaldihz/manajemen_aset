@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<div class="fixed-top px-4" style="
+<div class="fixed-top px-4 d-" style="
               top: 70px;
               background: #fff;
               z-index: 3;

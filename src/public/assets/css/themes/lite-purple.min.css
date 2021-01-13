@@ -11315,7 +11315,7 @@ a.text-gray-900:focus {
 }
 
 .sidebar-dark-purple .sidebar-left {
-    background: #322740;
+    background: #2d2625;
 }
 
 .dark-purple {
@@ -21403,7 +21403,7 @@ a.typo_link.text-gray-900:after {
 }
 
 .layout-sidebar-compact .main-header {
-    position: fixed !important;
+    position: absolute !important;
     width: 100%;
     top: 0;
     left: 0;
@@ -21414,7 +21414,27 @@ a.typo_link.text-gray-900:after {
     justify-content: space-between;
     background: white;
     z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
     transition: all .24s ease-in-out;
+}
+
+@media screen and (max-width: 468px) {
+    .layout-sidebar-compact .main-header {
+        position: fixed !important;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        box-shadow: none;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        background: white;
+        z-index: 1000;
+        transition: all .24s ease-in-out;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
+    }
 }
 
 .layout-sidebar-compact .main-header .logo {
@@ -21528,6 +21548,7 @@ a.typo_link.text-gray-900:after {
     padding: 0;
     width: 350px;
     max-height: 800px;
+    
     cursor: pointer;
 }
 
@@ -21648,7 +21669,7 @@ a.typo_link.text-gray-900:after {
     top: 0;
     height: 100vh;
     box-shadow: 0 4px 20px 1px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.08);
-    z-index: 101;
+    z-index: 1001;
 }
 
 .layout-sidebar-compact .sidebar-left {
@@ -29524,10 +29545,10 @@ ngb-rating .half {
 .customizer {
     position: fixed;
     z-index: 9999;
-    top: 100px;
+    top: 17em;
     right: -380px;
     transition: .3s all ease-in-out;
-    width: 380px;
+    width: 400px;
 }
 
 .customizer.open {
@@ -29538,15 +29559,16 @@ ngb-rating .half {
     position: absolute;
     display: flex;
     top: 8px;
-    left: -36px;
+    left: -44px;
     background: #e97d23;
     cursor: pointer;
-    padding: 10px 8px;
+    padding: 12px 12px;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     box-shadow: -3px 0px 4px rgba(0, 0, 0, 0.06);
     color: #fff;
-    font-size: 20px;
+    font-size: 28px;
+    border-radius: 0.2em;
     transition: .3s all ease-in-out;
 }
 
@@ -29561,6 +29583,7 @@ ngb-rating .half {
     background: #fff;
     box-shadow: 0 4px 20px 1px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.08);
     max-height: calc(100vh - 140px);
+    min-width: 36rem;
     overflow-y: scroll;
     overflow-x: visible;
 }
@@ -35463,8 +35486,7 @@ ul.scroll_tabs_container {
     padding-top: 20px;
   }
   .annotated-list .list > div {
-    padding: 10px 0;
-    border-top: solid 1px rgba(255, 255, 255, 0.1);
+    padding-bottom: 8px;
   }
   .annotated-list .avatar {
     max-width: 150px;
@@ -35551,4 +35573,12 @@ ul.scroll_tabs_container {
   .calendarsasa{
     width: 0;
   }
-  
+
+  .justbg {
+      top: 70px;
+      position: fixed;
+      background: #fff;
+      z-index: 1;
+      width: 30em;
+      height: 110px;
+  }

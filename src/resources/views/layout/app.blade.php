@@ -22,6 +22,7 @@
         <!--=============== Left side End ================-->
         <div class="main-content-wrap d-flex flex-column">
             @include('layout.header')
+    
             <!-- ============ Body content start ============= -->
             <div class="main-content">
                 @yield('content')

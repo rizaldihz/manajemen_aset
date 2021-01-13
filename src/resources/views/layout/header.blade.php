@@ -1,4 +1,4 @@
-<div class="main-header fixed-top" style="box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); position: fixed; top: 0; right: 0; left: 0; z-index: 1030;">
+<div class="main-header">
     <div class="logo">
         <img src="{{asset('assets/images/logoo.png')}}" alt="" />
     </div>
