@@ -109,5 +109,24 @@
             </div>
         </div>
         <!-- Notificaiton End -->
+
+        <!-- User avatar dropdown -->
+        <div class="dropdown d-none d-sm-block">
+            <div class="user col align-self-end">
+                <img src="{{asset('assets/images/1.jpg')}}" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <div class="dropdown-header">
+                        <i class="i-Lock-User mr-1"></i>{{session()->get('user')->nama}}
+                    </div>
+                    <a class="dropdown-item" href="{{url('profile')}}">Profil Pengguna</a>
+                    <a class="dropdown-item">
+                        <form method="post" action="{{url('logout')}}">
+                            {{ csrf_field() }}
+                            <button class="btn btn-primary btn-rounded text-14" type="submit">Log out</button>
+                        </form>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

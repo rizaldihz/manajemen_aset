@@ -12,7 +12,7 @@
 </div>
 <br>
 @if(session()->get('user')->isAdmin())
-<div class="breadcrumb">
+<div class="breadcrumb my-4">
     <h3>Data Aset Digunakan</h3>
 </div>
 <div id="all-borrowed-card-holder"> 
@@ -20,7 +20,7 @@
 @endif
 <br>
 <br>
-<div class="breadcrumb">
+<div class="breadcrumb my-4">
     <h3>Dashboard</h3>
 </div>
 <div class="text-center">
@@ -512,7 +512,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12 col-xl-12 mb-4">
+            <div class="col-md-6 col-lg-6 mb-4">
                 <div class="card">
                     <div class="card-body">
                         <div class="ul-widget__head">

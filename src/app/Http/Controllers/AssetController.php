@@ -54,7 +54,7 @@ class AssetController extends BaseController
             $this->jenisAssetService->saveData([
                 'nama' => $request->post('nama'),
             ]);
-            return redirect('daftar-aset');
+            return redirect('data-aset');
         } catch (\Throwable $th) {
             return response()->json(['data' => 'Err']);
         }

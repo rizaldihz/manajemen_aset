@@ -14,7 +14,7 @@
               box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
             ">
     <div class="breadcrumb pt-4">
-        <h1>Data Aset Diklat</h1>
+        <h3>Data Aset Diklat</h3>
     </div>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         @if($jenis_assets->count())

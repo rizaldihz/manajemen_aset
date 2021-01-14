@@ -9,7 +9,7 @@
 @section('content')
 
 <div class="breadcrumb">
-    <h1>Data Tabel Aset Diklat</h1>
+    <h3>Data Tabel Aset Diklat</h3>
 </div>
 <!--  end of col -->
 <ul class="nav nav-tabs" id="myTab" role="tablist">

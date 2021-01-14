@@ -10,7 +10,7 @@
 <!-- ============ Body content start ============= -->
 
 <div class="breadcrumb">
-    <h1>Profile</h1>
+    <h3>Profile</h3>
 </div>
 <!--  end of col -->
 <div class="col-xs-12">

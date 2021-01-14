@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="breadcrumb">
-    <h1>Tabel Report Diklat</h1>
+    <h3>Tabel Report Diklat</h3>
 </div>
 
 <div class="row" style="margin-left: 2px; margin-right: 2px;">
