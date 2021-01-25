@@ -114,9 +114,11 @@
 <script src=" {{asset('assets/js/scripts/html5-qrcode.min.js')}}"></script>
 <script>
     function toggleCode(params) {
-        $('#modalDetailAset .modal-title').html("QR Code")
-        $('#modalDetailAset .modal-body').html("<div class='row'><div class='col-12'><img src='{{url('/')}}/asset/code/" + params + "'></div></div>");
-        $('#modalDetailAset').modal('show');
+        // $('#modalDetailAset .modal-title').html("QR Code")
+        // $('#modalDetailAset .modal-body').html("<div class='row'><div class='col-12'><img src='{{url('/')}}/asset/code/" + params + "'></div></div>");
+        // $('#modalDetailAset').modal('show');
+        var win = window.open("{{url('/')}}/asset/code/" + params, '_blank');
+        win.focus();
     }
 </script>
 @endsection

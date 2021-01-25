@@ -79,13 +79,18 @@ class AssetController extends BaseController
             try {
                 $dataAsset = $this->assetService->findById($request->post('id'));
                 if($request->post('tipe')=='populate'){
-                    if($dataAsset->status)
+                    if($dataAsset->status){
                         $peminjaman = $this->peminjamanService->newestFromAsset($request->post('id'));
                         $dataAsset['lokasi'] = $peminjaman->lokasi;
+                        $dataAsset['tanggal_kembali'] = \Carbon\Carbon::parse($peminjaman->tanggal_kembali)->isoFormat('dddd, D MMMM Y HH:mm');
+                        $dataAsset['tanggal_pinjam'] = \Carbon\Carbon::parse($peminjaman->tanggal_pinjam)->isoFormat('dddd, D MMMM Y HH:mm');
+                    }
+                    else{
+                        $dataAsset['tanggal_kembali'] = \Carbon\Carbon::now()->addWeeks(1)->isoFormat('dddd, D MMMM Y HH:mm');
+                        $dataAsset['tanggal_pinjam'] = \Carbon\Carbon::now()->isoFormat('dddd, D MMMM Y HH:mm');
+                    }
                     $dataAsset['jenis'] = $dataAsset->jenisasset->nama;
                     $dataAsset['imgurl'] = url(Storage::url($dataAsset->foto));
-                    $dataAsset['tanggal_pinjam'] = \Carbon\Carbon::now()->isoFormat('dddd, D MMMM Y HH:mm');
-                    $dataAsset['tanggal_kembali'] = \Carbon\Carbon::now()->addWeeks(1)->isoFormat('dddd, D MMMM Y HH:mm');
                     return response()->json(['data' => $dataAsset]);
                 }
                 if($request->post('tipe')=='modal'){
@@ -125,11 +130,11 @@ class AssetController extends BaseController
     public function asset_qrcode(Request $request,$id)
     {
         try {
-            return QrCode::size(300)->format('png')->generate($id);
+            // return QrCode::size(300)->format('png')->generate($id);
+            return QrCode::size(300)->generate($id);
         } catch (\Throwable $th) {
             return response()->json(['data' => 'Err']);
         }
-        
     }
     public function all_asset_view(Request $request)
     {

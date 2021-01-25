@@ -26,7 +26,7 @@ class PeminjamanService
                 'asset_id' => $request->post('id_aset'),
                 'lokasi' => $request->post('lokasi'),
                 'tanggal_pinjam' => \Carbon\Carbon::now(),
-                'tanggal_kembali' => \Carbon\Carbon::now()->addWeeks(1),
+                'tanggal_kembali' => \Carbon\Carbon::createFromFormat('Y/m/d',  $request->post('tanggalkembali_submit')),
                 'status' => 'Dipinjam',
                 'user_id' => $user->id,
                 'kode_peminjaman' => sprintf("P%s%s",$asset->kode_aset,\Carbon\Carbon::now()->format('dmy'))
@@ -104,6 +104,6 @@ class PeminjamanService
     }
     public function newestFromAsset($data)
     {
-        return $this->peminjamanRepository->getFirst([['asset_id','=',$data]]);
+        return $this->peminjamanRepository->getFirst([['asset_id','=',$data],['status','<>','Kembali']]);
     }
 }

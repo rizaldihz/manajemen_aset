@@ -8,7 +8,6 @@
                 </a>
                 <div class="triangle"></div>
             </li>
-            @if(session()->get('user')->isAdmin())
             <li class="nav-item" data-item="peminjaman">
                 <a class="nav-item-hold" href="#">
                     <i class="nav-icon i-Library" style="color: #c9c9c9"></i>
@@ -16,6 +15,7 @@
                 </a>
                 <div class="triangle"></div>
             </li>
+            @if(session()->get('user')->isAdmin())
             <li class="nav-item" data-item="admin">
                 <a class="nav-item-hold" href="#">
                     <i class="nav-icon i-Checked-User" style="color: #c9c9c9"></i>

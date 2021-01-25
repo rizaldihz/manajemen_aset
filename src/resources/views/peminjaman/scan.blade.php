@@ -4,6 +4,8 @@
 <link rel="stylesheet" href="{{asset('assets/css/plugins/datatables.min.css')}}" />
 <link rel="stylesheet" href="{{asset('assets/css/plugins/sweetalert2.min.css')}}" />
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link rel="stylesheet" href="{{asset('assets/js/datepicker/themes/classic.css')}}" />
+<link rel="stylesheet" href="{{asset('assets/js/datepicker/themes/classic.date.css')}}" />
 <style>
 #qr-canvas {
   margin: auto;
@@ -57,27 +59,27 @@
                 </div>
                 <div class="form-group">
                     <label class="col-form-label">Kode Asset</label>
-                    <input id="kode-aset-input" class="form-control" type="text" name='kode_aset' readonly="readonly"/>
+                    <input id="kode-aset-input" class="form-control modal-input" type="text" name='kode_aset' readonly="readonly"/>
                 </div>
                 <div class="form-group">
                     <label class="col-form-label">Nama Asset</label>
-                    <input id="nama-aset-input" class="form-control"type="text" name='nama' readonly="readonly"/>
+                    <input id="nama-aset-input" class="form-control modal-input" type="text" name='nama' readonly="readonly"/>
                 </div>
                 <div class="form-group">
                     <label class="col-form-label">Lokasi</label>
-                    <input id="lokasi-aset-input" class="form-control"type="text" name='lokasi'/>
+                    <input id="lokasi-aset-input" class="form-control modal-input"type="text" name='lokasi'/>
                 </div>
                 <div class="form-group">
                     <label class="col-form-label">Jenis Asset</label>
-                    <input id="jenis-aset-input" class="form-control" type="text" name='jenis' readonly="readonly"/>
+                    <input id="jenis-aset-input" class="form-control modal-input" type="text" name='jenis' readonly="readonly"/>
                 </div>
                 <div class="form-group">
                     <label class="col-form-label">Tanggal Pinjam</label>
-                    <input id="tanggalpinjam-aset-input" class="form-control" type="text" name='tanggalpinjam' readonly="readonly"/>
+                    <input id="tanggalpinjam-aset-input" class="form-control modal-input" type="text" name='tanggalpinjam' readonly="readonly"/>
                 </div>
                 <div class="form-group">
                     <label class="col-form-label">Tanggal Kembali</label>
-                    <input id="tanggalkembali-aset-input" class="form-control" type="text" name='tanggalkembali' readonly="readonly"/>
+                    <input id="tanggalkembali-aset-input" class="form-control modal-input" type="text" name='tanggalkembali'/>
                 </div>
             </div>
             <div class="modal-footer">
@@ -95,6 +97,8 @@
 <script src=" {{asset('assets/js/scripts/datatables.script.min.js')}} "></script>
 <script src=" {{asset('assets/js/plugins/sweetalert2.min.js')}}"></script>
 <script src=" {{asset('assets/js/scripts/sweetalert.script.min.js')}}"></script>
+<script src=" {{asset('assets/js/datepicker/picker.js')}}"></script>
+<script src=" {{asset('assets/js/datepicker/picker.date.js')}}"></script>
 <script src=" {{asset('assets/js/scripts/html5-qrcode.min.js')}}"></script>
 <script src=" https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
 <script>
@@ -120,10 +124,18 @@
                     $('#status-tersedia').show()
                     $('#status-tidaktersedia').hide()
                     $("#pinjam-button").show();
+                    $('#tanggalkembali-aset-input').pickadate({
+                        monthsFull: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agusuts', 'September', 'Oktober', 'November', 'Desember'],
+                        weekdaysShort: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
+                        today: 'Hari ini',
+                        clear: 'Hapus',
+                        formatSubmit: 'yyyy/mm/dd'
+                    });
                 }else{
                     $('#status-tersedia').hide()
                     $('#status-tidaktersedia').show()
                     $("#pinjam-button").hide();
+                    $(".modal-input").attr('readonly','readonly');
                 }
                 $('#modalPinjamAset').modal('show');
             },

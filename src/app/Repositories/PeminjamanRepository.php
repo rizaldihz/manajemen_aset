@@ -30,7 +30,7 @@ class PeminjamanRepository
             foreach($data as $ones)
             {
                 $ones->tanggal_pinjam_raw = $ones->getStrTanggalPinjam();
-                $ones->tanggal_kembali_raw = $ones->getStrTanggalPinjam();
+                $ones->tanggal_kembali_raw = $ones->getStrTanggalKembali();
             } 
         return $data;
     }
@@ -39,7 +39,7 @@ class PeminjamanRepository
         $data = $this->peminjaman->where($params)->with('asset')->with('user:id,nama,nik')->first();
         if($data){
             $data->tanggal_pinjam_raw = $data->getStrTanggalPinjam();
-            $data->tanggal_kembali_raw = $data->getStrTanggalPinjam();
+            $data->tanggal_kembali_raw = $data->getStrTanggalKembali();
         }
         return $data;
     }

@@ -55,10 +55,10 @@
                                 <div class="row">
                                     <div class="col-md-4 mb-3">
                                         <h6 class="font-14">Status:</h6>
-                                        @if(\Carbon\Carbon::now() > \Carbon\Carbon::parse($peminjaman->tanggal_kembali))
-                                        <span class="badge badge-pill badge-outline-danger p-2 m-1" style="font-size: 14px;">Terlambat Mengembalikan</span>
-                                        @elseif($peminjaman->status == 'Kembali')
+                                        @if($peminjaman->status == 'Kembali')
                                         <span class="badge badge-pill badge-outline-success p-2 m-1" style="font-size: 14px;">Sudah Dikembalikan</span>
+                                        @elseif(\Carbon\Carbon::now() > \Carbon\Carbon::parse($peminjaman->tanggal_kembali))
+                                        <span class="badge badge-pill badge-outline-danger p-2 m-1" style="font-size: 14px;">Terlambat Mengembalikan</span>
                                         @elseif($peminjaman->status == 'Dipinjam')
                                         <span class="badge badge-pill badge-outline-warning p-2 m-1" style="font-size: 14px;">Belum Dikembalikan</span>
                                         @endif

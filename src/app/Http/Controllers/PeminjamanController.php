@@ -31,7 +31,7 @@ class PeminjamanController extends BaseController
     }
     public function peminjaman_create(UserService $userService, PeminjamanPostRequest $request)
     {
-        try { 
+        try {
             $user = $request->session()->get('user');
             $asset = $this->assetService->findbyId($request->post('id_aset'));
             $msg = $this->peminjamanService->saveData($request,$user,$asset);
