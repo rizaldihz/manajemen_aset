@@ -7,14 +7,14 @@
 @endsection
 
 @section('content')
-<div class="fixed-top px-4" style="
+<div class="fixed-top px-4 d-" style="
               top: 70px;
               background: #fff;
               z-index: 3;
               box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
             ">
     <div class="breadcrumb pt-4">
-        <h1>Data Aset Diklat</h1>
+        <h3>Data Aset Diklat</h3>
     </div>
     <div class="form-group">
         <label class="col-form-label">Jenis Asset</label>

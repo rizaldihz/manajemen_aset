@@ -1,4 +1,4 @@
-<div class="main-header fixed-top" style="box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); position: fixed; top: 0; right: 0; left: 0; z-index: 1030;">
+<div class="main-header">
     <div class="logo">
         <img src="{{asset('assets/images/logoo.png')}}" alt="" />
     </div>
@@ -109,5 +109,24 @@
             </div>
         </div>
         <!-- Notificaiton End -->
+
+        <!-- User avatar dropdown -->
+        <div class="dropdown d-none d-sm-block">
+            <div class="user col align-self-end">
+                <img src="{{asset('assets/images/1.jpg')}}" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <div class="dropdown-header">
+                        <i class="i-Lock-User mr-1"></i>{{session()->get('user')->nama}}
+                    </div>
+                    <a class="dropdown-item" href="{{url('profile')}}">Profil Pengguna</a>
+                    <a class="dropdown-item">
+                        <form method="post" action="{{url('logout')}}">
+                            {{ csrf_field() }}
+                            <button class="btn btn-primary btn-rounded text-14" type="submit">Log out</button>
+                        </form>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -10,7 +10,7 @@
 <div class="row">
     <a onclick="window.history.back()" class="nav-link"><img src="{{asset('assets/images/previous.png')}}" height="20px" height="20px"></a>
     <div class="breadcrumb pt-2 ml-2">
-        <h1>Peminjaman Aset</h1>
+        <h3>Peminjaman Aset</h3>
     </div>
 </div>
 <!--  end of col -->

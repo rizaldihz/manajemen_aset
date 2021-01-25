@@ -6,22 +6,22 @@
 
 @section('content')
 <div class="breadcrumb">
-    <h1>Aset yang Dipinjam</h1>
+    <h3>Aset yang Dipinjam</h3>
 </div>
 <div id="borrowed-card-holder">
 </div>
 <br>
 @if(session()->get('user')->isAdmin())
-<div class="breadcrumb">
-    <h1>Data Aset Digunakan</h1>
+<div class="breadcrumb my-4">
+    <h3>Data Aset Digunakan</h3>
 </div>
 <div id="all-borrowed-card-holder"> 
 </div>
 @endif
 <br>
 <br>
-<div class="breadcrumb">
-    <h1>Dashboard</h1>
+<div class="breadcrumb my-4">
+    <h3>Dashboard</h3>
 </div>
 <div class="text-center">
     <h6>Development lebih lanjut</h6>
@@ -472,9 +472,9 @@
 </div>
 {{-- <div class="row">
     <!-- left-side-->
-    <div class="col-lg-6 col-md-12">
+    <div class="col-lg-12 col-md-12">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6 col-lg-6">
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="card-title m-0">Network Stats</div>
@@ -512,7 +512,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12 col-xl-12 mb-4">
+            <div class="col-md-6 col-lg-6 mb-4">
                 <div class="card">
                     <div class="card-body">
                         <div class="ul-widget__head">
@@ -715,7 +715,7 @@ $.ajax({
             console.log(response['data'].length);
             if(response['data'].length === 0)
             {
-                $("#all-borrowed-card-holder").html("<p class='text-secondary mb-1 text-14'>Sedang tidak meminjam</p>");
+                $("#all-borrowed-card-holder").html("<p class='text-secondary mb-4 text-13'>Sedang tidak meminjam</p>");
             }
             else{
                 var toadd='';
@@ -762,7 +762,7 @@ $.ajax({
             console.log(response['data'].length);
             if(response['data'].length === 0)
             {
-                $("#borrowed-card-holder").html("<p class='text-secondary mb-1 text-14'>Sedang tidak meminjam</p>");
+                $("#borrowed-card-holder").html("<p class='text-secondary mb-4 text-13'>Sedang tidak meminjam</p>");
             }
             else{
                 var toadd='';

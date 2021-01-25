@@ -17,7 +17,7 @@
 
 @section('content')
 <div class="breadcrumb">
-    <h1>Pengembalian Barang</h1>
+    <h3>Pengembalian Barang</h3>
 </div>
 <!--  end of col -->
 <div class="row">
