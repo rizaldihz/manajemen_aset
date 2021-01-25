@@ -14,6 +14,10 @@ Jadi intinya bisa :
 3. Create Update Delete Read peminjaman
 4. Create QR Code
 5. Stock warning
+6. Set durasi peminjaman
+7. Aset apa aja, total berapa per jenis, lokasi terkini
+8. Siapa saja yang pernah meminjam
+9. Export zip qrcode
 
 1. Setup PGSql
 2. Migrate DB

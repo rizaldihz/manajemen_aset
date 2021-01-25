@@ -43,7 +43,7 @@ class ExcelService
         array_push($toexport[1],['Kode Peminjaman','Nama Asset','Jenis Asset','Nama Peminjam','Lokasi Terakhir','Status','Tanggal Peminjaman','Tanggal Kembali']);
         foreach($peminjaman as $data)
         {
-            if(\Carbon\Carbon::now() > \Carbon\Carbon::parse($data->tanggal_kembali)) $status = 'Terlambat';
+            if(\Carbon\Carbon::now() > \Carbon\Carbon::parse($data->tanggal_kembali) && $data->status != 'Kembali') $status = 'Terlambat';
             else $status = $data->status;
             $temp=[
                 $data->kode_peminjaman,

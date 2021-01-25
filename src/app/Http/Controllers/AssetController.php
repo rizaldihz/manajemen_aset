@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\JenisAssetService;
 use App\Services\AssetService;
+use App\Services\PeminjamanService;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Datatables;
@@ -14,11 +15,12 @@ class AssetController extends BaseController
 {
     //
     protected $jenisAssetService;
-    protected $assetService;
-    public function __construct(JenisAssetService $jenisAssetService, AssetService $assetService)
+    protected $assetService, $peminjamanService;
+    public function __construct(JenisAssetService $jenisAssetService, AssetService $assetService, PeminjamanService $peminjamanService)
     {
         $this->jenisAssetService = $jenisAssetService;
         $this->assetService = $assetService;
+        $this->peminjamanService = $peminjamanService;
     }
     public function asset_view(Request $request)
     {
@@ -77,6 +79,9 @@ class AssetController extends BaseController
             try {
                 $dataAsset = $this->assetService->findById($request->post('id'));
                 if($request->post('tipe')=='populate'){
+                    if($dataAsset->status)
+                        $peminjaman = $this->peminjamanService->newestFromAsset($request->post('id'));
+                        $dataAsset['lokasi'] = $peminjaman->lokasi;
                     $dataAsset['jenis'] = $dataAsset->jenisasset->nama;
                     $dataAsset['imgurl'] = url(Storage::url($dataAsset->foto));
                     $dataAsset['tanggal_pinjam'] = \Carbon\Carbon::now()->isoFormat('dddd, D MMMM Y HH:mm');
@@ -85,8 +90,10 @@ class AssetController extends BaseController
                 }
                 if($request->post('tipe')=='modal'){
                     $statusStr = NULL;
-                    if($dataAsset->status) $statusStr = '<span class="badge badge-warning ">Digunakan</span>';
-                    else $statusStr = '<span class="badge badge-success ">Tersedia</span>';
+                    if($dataAsset->status)
+                        $statusStr = '<span class="badge badge-warning ">Digunakan</span>';
+                    else 
+                        $statusStr = '<span class="badge badge-success ">Tersedia</span>';
                     $modal = sprintf("<div class='row'><div class='col-12'><img src='%s'></div><div class='col-12'>
                             <div class='table-responsive'><table class='table table-borderless'><tbody>
                             <tr><th scope='row'>Kode Aset</th><td>:</td><td>%s</td></tr>

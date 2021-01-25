@@ -470,7 +470,7 @@
     </div> --}}
     <!-- left-side-->
 </div>
-<div class="row">
+{{-- <div class="row">
     <!-- left-side-->
     <div class="col-lg-6 col-md-12">
         <div class="row">
@@ -615,7 +615,7 @@
             </div>
         </div>
     </div>
-    {{-- <!-- right-side-->
+    <!-- right-side-->
     <div class="col-lg-6 col-md-12">
         <div class="row">
             <div class="col-md-12">
@@ -694,8 +694,8 @@
                 </div>
             </div>
         </div>
-    </div> --}}
-</div>
+    </div>
+</div> --}}
 <!-- fotter end -->
 @endsection
 

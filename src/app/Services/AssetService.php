@@ -9,11 +9,12 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use App\Services\PeminjamanService;
 // use InvalidArgumentException;
 
 class AssetService
 {
-    protected $assetRepository;
+    protected $assetRepository, $peminjamanService;
     public function __construct(AssetRepository $assetRepository)
     {
         $this->assetRepository = $assetRepository;

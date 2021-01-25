@@ -82,7 +82,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                <button class="btn btn-primary ml-2" type="submit">Pinjam</button>
+                <button class="btn btn-primary ml-2" type="submit" id="pinjam-button">Pinjam</button>
             </div>
             </form>
         </div>
@@ -119,9 +119,11 @@
                 if(response['data']['status']==0){
                     $('#status-tersedia').show()
                     $('#status-tidaktersedia').hide()
+                    $("#pinjam-button").show();
                 }else{
                     $('#status-tersedia').hide()
                     $('#status-tidaktersedia').show()
+                    $("#pinjam-button").hide();
                 }
                 $('#modalPinjamAset').modal('show');
             },
@@ -166,6 +168,10 @@
     };
 
     btnScanQR.onclick = () => {
+        if(!navigator.mediaDevices){
+            outputData.innerText = "chrome://flags/#unsafely-treat-insecure-origin-as-secure";  
+            qrResult.hidden = false;
+        }
         navigator.mediaDevices
             .getUserMedia({ video: { facingMode: "environment" } })
             .then(function(stream) {

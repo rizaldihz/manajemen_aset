@@ -31,18 +31,17 @@ class PeminjamanController extends BaseController
     }
     public function peminjaman_create(UserService $userService, PeminjamanPostRequest $request)
     {
-        try {
-            $user = $userService->findById('001b2775-55c9-4592-ab78-d18c6b0cecdc'); //will be authenticated user
+        try { 
+            $user = $request->session()->get('user');
             $asset = $this->assetService->findbyId($request->post('id_aset'));
             $msg = $this->peminjamanService->saveData($request,$user,$asset);
             if($msg!=false){
                 $this->assetService->updateById(['status'=>1],$request->post('id_aset'));
             }
             return redirect('');
-        } catch (\Throwable $th) {
-            return response()->json(['data' => 'Err']);
+        } catch (Exception $e) {
+            return response()->json(['data' => $e]);
         }
-        
     }
     public function peminjaman_get($kode=NULL,Request $request)
     {

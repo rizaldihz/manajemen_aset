@@ -97,9 +97,13 @@ class PeminjamanService
     public function pengembalian($request)
     {
         $peminjaman = $this->findById($request->post('id')); 
-        if(!$request->session()->get('user')->id == $peminjaman->user_id || !$request->session()->get('user')->isAdmin()) return "Not Authorized";
+        if((!$request->session()->get('user')->id == $peminjaman->user_id && !$request->session()->get('user')->isAdmin()) && $peminjaman->status != 'Dipinjam') return "Not Authorized";
         $this->peminjamanRepository->updateById(['status'=>'Kembali'],$request->post('id'));
         $this->assetService->updateById(['status'=>0],$peminjaman->asset->id);
         return "Pengembalian berhasil";
+    }
+    public function newestFromAsset($data)
+    {
+        return $this->peminjamanRepository->getFirst([['asset_id','=',$data]]);
     }
 }

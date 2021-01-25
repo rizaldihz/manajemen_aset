@@ -16,7 +16,18 @@
     <div class="breadcrumb pt-4">
         <h1>Data Aset Diklat</h1>
     </div>
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <div class="form-group">
+        <label class="col-form-label">Jenis Asset</label>
+        <select class="form-control" id='select_jenis_asset'>
+            <option value="" selected disabled hidden>Choose here</option>
+            @if(!$jenis_assets->isEmpty())
+            @foreach($jenis_assets as $jenis_asset)
+            <option value='{"id":"{{$jenis_asset->id}}","tab":"{{strtolower(str_replace(" ", "",$jenis_asset->nama))}}"}' data-toggle="tab" href="#{{strtolower(str_replace(" ", "",$jenis_asset->nama))}}Basic" role="tab" aria-controls="{{strtolower(str_replace(" ", "",$jenis_asset->nama))}}Basic">{{$jenis_asset->nama}}</option>
+            @endforeach
+            @endif
+        </select>
+    </div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist" hidden>
         @if($jenis_assets->count())
         @php
         $i=0;
@@ -38,7 +49,7 @@
 <br>
 <br>
 <br>
-<div class="tab-content mt-1" id="myTabContent">
+<div class="tab-content mt-4" id="myTabContent">
     @if($jenis_assets->count())
     @php
     $i=0;
@@ -224,23 +235,16 @@
                 },
             });
     }
-    @if($jenis_assets->count())
-    load('{{$jenis_assets[0]->id}}','{{strtolower(str_replace(" ", "",$jenis_assets[0]->nama))}}');
-    @endif
-</script>
-<script>
-    // var options = {
-    //     valueNames: ['name', 'status']
-    // };
-
-    // var userList = new List('assets', options);
-</script>
-<script>
-    // var options2 = {
-    //     valueNames: ['name', 'status']
-    // };
-
-    // var userList = new List('assets2', options2);
+    $(document).ready(function(){
+        $('#select_jenis_asset').change(function(e) {
+            var val = JSON.parse(this.value);
+            load(val.id,val.tab);
+            $('#'+val.tab+'-basic-tab').tab('show');
+        });
+        @if($jenis_assets->count())
+        load('{{$jenis_assets[0]->id}}','{{strtolower(str_replace(" ", "",$jenis_assets[0]->nama))}}');
+        @endif
+    });
 </script>
     
 @endsection

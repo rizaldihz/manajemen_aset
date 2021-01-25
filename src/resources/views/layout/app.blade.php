@@ -49,7 +49,7 @@
                      <span style="font-size: 10px">Beranda</span>
                  </a>
              </li>
- 
+             @if(session()->get('user')->isAdmin())
              <li class="nav-item">
                  <a href="{{url('data-aset')}}" class="nav-link">
                      <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor"
@@ -60,7 +60,7 @@
                      <span style="font-size: 10px">Data Aset</span>
                  </a>
              </li>
- 
+             @endif
              <li class="nav-item">
                  <a href="{{url('scan')}}" class="nav-link">
                      <svg xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" fill="currentColor"
@@ -70,7 +70,7 @@
                      </svg><br>
                  </a>
              </li>
- 
+             @if(session()->get('user')->isAdmin())
              <li class="nav-item">
                  <a href="{{url('daftar-aset')}}" class="nav-link">
                      <svg xmlns="http://www.w3.org/2000/svg"width="1.5em" height="1.5em" fill="currentColor" class="bi bi-layout-text-window-reverse" viewBox="0 0 16 16">
@@ -80,7 +80,7 @@
                      <span style="font-size: 10px">Report</span>
                  </a>
              </li>
- 
+             @endif
              <li class="nav-item">
                  <a href="{{url('profile')}}" class="nav-link">
                      <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor"

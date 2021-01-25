@@ -8,6 +8,7 @@
                 </a>
                 <div class="triangle"></div>
             </li>
+            @if(session()->get('user')->isAdmin())
             <li class="nav-item" data-item="peminjaman">
                 <a class="nav-item-hold" href="#">
                     <i class="nav-icon i-Library" style="color: #c9c9c9"></i>
@@ -22,6 +23,7 @@
                 </a>
                 <div class="triangle"></div>
             </li>
+            @endif
         </ul>
     </div>
     <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar data-suppress-scroll-x="true">
@@ -45,6 +47,7 @@
                         <span class="item-name">Beranda</span>
                     </a>
                 </li>
+                @if(session()->get('user')->isAdmin())
                 <li class="nav-item">
                     <a href="{{url('data-aset')}}">
                         <i class="nav-icon i-Folder-With-Document"></i>
@@ -57,6 +60,7 @@
                         <span class="item-name">Data Report Aset</span>
                     </a>
                 </li>
+                @endif
             </ul>
         </div>
         <div class="submenu-area" data-parent="peminjaman">
@@ -74,6 +78,7 @@
                 </li>
             </ul>
         </div>
+        @if(session()->get('user')->isAdmin())
         <div class="submenu-area" data-parent="admin">
             <header>
                 <h6><strong>Menu Admin</strong></h6>
@@ -89,5 +94,6 @@
                 </li>
             </ul>
         </div>
+        @endif
     </div>
 </div>
