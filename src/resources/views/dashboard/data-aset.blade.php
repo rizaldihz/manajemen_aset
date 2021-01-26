@@ -58,11 +58,11 @@
     <div class="tab-pane fade show @if($i==0)active @endif" style="margin-bottom: 36px" id="{{strtolower(str_replace(" ", "",$jenis_asset->nama))}}Basic" role="tabpanel" aria-labelledby="{{strtolower(str_replace(" ", "-",$jenis_asset->nama))}}-tab">
         <!-- end of col-->
         <div class="annotated-list form-group mb-3" id="assets">
-            <input class="search form-control form-control-rounded" style="width: 100%; height: 3.25em;" placeholder="Search by name" />
+            {{-- <input class="search form-control form-control-rounded" style="width: 100%; height: 3.25em;" placeholder="Search by name" />
             <button class="sort btn btn-light btn-rounded btn-sm mt-1 mr-1" data-sort="name" style="font-size: 12px;">Sort by Nama
                 Aset</button>
             <button class="sort btn btn-light btn-rounded btn-sm mt-1 ml-1" data-sort="status" style="font-size: 12px;">Sort by
-                Status Aset</button>
+                Status Aset</button> --}}
 
             <div class="list" id="to-fill-{{strtolower(str_replace(" ", "",$jenis_asset->nama))}}">
             </div>
