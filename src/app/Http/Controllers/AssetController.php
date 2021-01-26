@@ -24,6 +24,11 @@ class AssetController extends BaseController
     }
     public function asset_view(Request $request)
     {
+        try {
+            $report = $this->jenisAssetService->getReport();
+        } catch (\Throwable $th) {
+            return response()->json(['data' => 'Err']);
+        }
         if ($request->ajax()) {
             try {
                 $data = $this->assetService->getAll();
@@ -44,7 +49,10 @@ class AssetController extends BaseController
                 return response()->json(['data' => 'Err']);
             }   
         }
-        return view('dashboard.daftar-aset',['jenisAssets' => $this->jenisAssetService->getAll()]);
+        return view('dashboard.daftar-aset',[
+            'jenisAssets' => $this->jenisAssetService->getAll(),
+            'reports' => $report
+        ]);
     }
     public function dashboard_view()
     {

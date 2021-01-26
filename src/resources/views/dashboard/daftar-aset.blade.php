@@ -47,22 +47,49 @@
             <button class="btn btn-success mb-1" data-toggle="modal" data-target="#modalTambahJenis">Tambah Jenis Asset</button>
         </div> --}}
         {{-- <div class="col-md-12"> --}}
-            <div class="table-responsive my-4">
-                <table class="display table table-striped table-bordered" id="asset_table" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Kode Aset</th>
-                            <th>Nama Aset</th>
-                            <th>Jenis Aset</th>
-                            <th>Lokasi</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
+        <div class="table-responsive my-4">
+            <table class="display table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Jenis Aset</th>
+                        <th>Tersedia</th>
+                        <th>Dipinjam</th>
+                        <th>Jumlah Aset Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if($reports->count())
+                    @foreach($reports as $one)
+                    <tr>
+                        <td>{{$one->nama}}</td>
+                        <td>{{$one->tersedia}}</td>
+                        <td>{{$one->dipinjam}}</td>
+                        <td>{{$one->total}}</td>
+                    </tr>
+                    @endforeach
+                    @else
+                    <p> Tidak Ada Data </p>
+                    @endif
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-responsive my-4">
+            <table class="display table table-striped table-bordered" id="asset_table" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Kode Aset</th>
+                        <th>Nama Aset</th>
+                        <th>Jenis Aset</th>
+                        <th>Lokasi</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
         {{-- </div> --}}
     </div>
     <div class="tab-pane fade mb-4" id="peminjamanBasic" role="tabpanel" aria-labelledby="peminjaman-basic-tab">

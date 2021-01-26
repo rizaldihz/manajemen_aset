@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\JenisAssetRepository;
+use App\Repositories\AssetRepository;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -11,10 +12,11 @@ use Illuminate\Support\Facades\Validator;
 
 class JenisAssetService
 {
-    protected $jenisAssetRepository;
-    public function __construct(JenisAssetRepository $jenisAssetRepository)
+    protected $jenisAssetRepository, $assetRepository;
+    public function __construct(JenisAssetRepository $jenisAssetRepository, AssetRepository $assetRepository)
     {
         $this->jenisAssetRepository = $jenisAssetRepository;
+        $this->assetRepository = $assetRepository;
     }
     public function saveData($data)
     {
@@ -25,5 +27,16 @@ class JenisAssetService
     public function getAll()
     {
         return $this->jenisAssetRepository->get();
+    }
+    public function getReport()
+    {
+        $results = $this->jenisAssetRepository->get();
+        if($results->count())
+            foreach($results as $result){
+                $result->total = $result->asset->count();
+                $result->tersedia = $this->assetRepository->get([['status','=','0'],['jenis_asset_id','=',$result->id]])->count();
+                $result->dipinjam = $this->assetRepository->get([['status','=','1'],['jenis_asset_id','=',$result->id]])->count();
+            }
+        return $results;
     }
 }
