@@ -1,11 +1,11 @@
 @extends('layout.app')
 
 @section('moreCSS')
-<link rel="stylesheet" href="{{asset('assets/css/plugins/datatables.min.css')}}" />
-<link rel="stylesheet" href="{{asset('assets/css/plugins/sweetalert2.min.css')}}" />
+<link rel="stylesheet" href="/assets/css/plugins/datatables.min.css" />
+<link rel="stylesheet" href="/assets/css/plugins/sweetalert2.min.css" />
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-<link rel="stylesheet" href="{{asset('assets/js/datepicker/themes/classic.css')}}" />
-<link rel="stylesheet" href="{{asset('assets/js/datepicker/themes/classic.date.css')}}" />
+<link rel="stylesheet" href="/assets/js/datepicker/themes/classic.css" />
+<link rel="stylesheet" href="/assets/js/datepicker/themes/classic.date.css" />
 <style>
 #qr-canvas {
   margin: auto;
@@ -47,7 +47,7 @@
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             </div>
             <form method='post' action='{{url("asset/pinjam")}}'>
-            {{ csrf_field() }}
+                @csrf
             <div class="modal-body">
                 <input id="idaset-input" type="hidden" name='id_aset'/>
                 <div class="col-12 mb-1">
@@ -93,23 +93,25 @@
 @endsection
 
 @section('moreJS')
-<script src=" {{asset('assets/js/plugins/datatables.min.js')}} "></script>
-<script src=" {{asset('assets/js/scripts/datatables.script.min.js')}} "></script>
-<script src=" {{asset('assets/js/plugins/sweetalert2.min.js')}}"></script>
-<script src=" {{asset('assets/js/scripts/sweetalert.script.min.js')}}"></script>
-<script src=" {{asset('assets/js/datepicker/picker.js')}}"></script>
-<script src=" {{asset('assets/js/datepicker/picker.date.js')}}"></script>
-<script src=" {{asset('assets/js/scripts/html5-qrcode.min.js')}}"></script>
+<script src="/assets/js/plugins/datatables.min.js"></script>
+<script src="/assets/js/scripts/datatables.script.min.js"></script>
+<script src="/assets/js/plugins/sweetalert2.min.js"></script>
+<script src="/assets/js/scripts/sweetalert.script.min.js"></script>
+<script src="/assets/js/datepicker/picker.js"></script>
+<script src="/assets/js/datepicker/picker.date.js"></script>
+<script src="/assets/js/scripts/html5-qrcode.min.js"></script>
 <script src=" https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
 <script>
     var pinjam = function(barang){
         $.ajax({
             url: '{{url("asset/get")}}',
             type: 'post',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             data: {
                 id: barang,
                 tipe: 'populate',
-                _token: "{{ csrf_token() }}",
             },
             success: function(response) {
                 $('#kode-aset-input').val(response['data']['kode_aset']);

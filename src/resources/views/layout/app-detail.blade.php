@@ -9,10 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="{{asset('assets/css/themes/lite-purple.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/css/plugins/perfect-scrollbar.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/css/plugins/datatables.min.css')}}" rel="stylesheet">
-    <link rel="icon" href="{{asset('assets/images/sim_asset.png')}}" sizes="16x16" type="image/png">
+    <link href="/assets/css/themes/lite-purple.min.css" rel="stylesheet">
+    <link href="/assets/css/plugins/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="/assets/css/plugins/datatables.min.css" rel="stylesheet">
+    <link rel="icon" href="/assets/images/sim_asset.png" sizes="16x16" type="image/png">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('moreCSS')
 </head>
 
@@ -29,23 +30,23 @@
         </div>
     </div>
 
-    <script src=" {{asset('assets/js/plugins/jquery-3.3.1.min.js')}} "></script>
-    <script src=" {{asset('assets/js/plugins/bootstrap.bundle.min.js')}} "></script>
-    <script src=" {{asset('assets/js/plugins/perfect-scrollbar.min.js')}} "></script>
-    <script src=" {{asset('assets/js/scripts/script.min.js')}} "></script>
-    <script src=" {{asset('assets/js/scripts/sidebar.compact.script.min.js')}} "></script>
-    <script src=" {{asset('assets/js/scripts/customizer.script.min.js')}} "></script>
-    <script src=" {{asset('assets/js/plugins/datatables.min.js')}} "></script>
-    <script src=" {{asset('assets/js/scripts/datatables.script.min.js')}} "></script>
-    <script src=" {{asset('assets/js/plugins/apexcharts.min.js')}} "></script>
-    <script src=" {{asset('assets/js/plugins/echarts.min.js')}} "></script>
-    <script src=" {{asset('assets/js/scripts/echart.options.min.js')}} "></script>
-    <script src=" {{asset('assets/js/scripts/dashboard.v3.script.min.js')}} "></script>
-    <script src=" {{asset('assets/js/scripts/apexcharts.min.js')}} "></script>
-    <script src=" {{asset('assets/js/scripts/card.metrics.script.min.js')}} "></script>
-    <script src=" {{asset('assets/js/scripts/widgets-statistics.min.js')}} "></script>
-    <script src=" {{asset('assets/js/scripts/apexColumnChart.script.min.js')}} "></script>
-    <script src=" {{asset('assets/js/plugins/list.min.js')}} "></script>
+    <script src=" /assets/js/plugins/jquery-3.3.1.min.js"></script>
+    <script src=" /assets/js/plugins/bootstrap.bundle.min.js"></script>
+    <script src=" /assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src=" /assets/js/scripts/script.min.js"></script>
+    <script src=" /assets/js/scripts/sidebar.compact.script.min.js"></script>
+    <script src=" /assets/js/scripts/customizer.script.min.js"></script>
+    <script src=" /assets/js/plugins/datatables.min.js"></script>
+    <script src=" /assets/js/scripts/datatables.script.min.js"></script>
+    {{-- <script src=" /assets/js/plugins/apexcharts.min.js"></script> --}}
+    {{-- <script src=" /assets/js/plugins/echarts.min.js"></script> --}}
+    {{-- <script src=" /assets/js/scripts/echart.options.min.js"></script> --}}
+    <script src=" /assets/js/scripts/dashboard.v3.script.min.js"></script>
+    {{-- <script src=" /assets/js/scripts/apexcharts.min.js"></script> --}}
+    <script src=" /assets/js/scripts/card.metrics.script.min.js"></script>
+    {{-- <script src=" /assets/js/scripts/widgets-statistics.min.js"></script> --}}
+    {{-- <script src=" /assets/js/scripts/apexColumnChart.script.min.js"></script> --}}
+    {{-- <script src=" /assets/js/plugins/list.min.js"></script> --}}
     @yield('moreJS')
 </body>
 

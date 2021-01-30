@@ -30,7 +30,7 @@
         <i class="sidebar-close i-Close" (click)="toggelSidebar()"></i>
         <header>
             <div class="logo">
-                <img src="{{asset('assets/images/logoo.png')}}" alt="" style="height: 44px;">
+                <img src="/assets/images/logoo.png" alt="" style="height: 44px;">
             </div>
         </header>
         <!-- Submenu Dashboards -->

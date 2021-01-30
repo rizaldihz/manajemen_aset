@@ -1,6 +1,6 @@
 <div class="main-header">
     <div class="logo">
-        <img src="{{asset('assets/images/logoo.png')}}" alt="" />
+        <img src="/assets/images/logoo.png" alt="" />
     </div>
     <div class="menu-toggle">
         <div></div>
@@ -9,6 +9,7 @@
     </div>
     <div class="d-flex align-items-center">
         <div>
+            <img src="/assets/images/sim_asset.png" class="img-thumbnail img-preview justify-content-center" style="max-width: 40px;" alt="Product-img" />
             <h5 style="margin-top: 12px" class="d-flex justify-content-center">
                 <strong>SIM Aset Diklat</strong>
             </h5>
@@ -113,7 +114,7 @@
         <!-- User avatar dropdown -->
         <div class="dropdown d-none d-sm-block">
             <div class="user col align-self-end">
-                <img src="{{asset('assets/images/1.jpg')}}" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="/assets/images/1.jpg" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <div class="dropdown-header">
                         <i class="i-Lock-User mr-1"></i>{{session()->get('user')->nama}}
@@ -121,7 +122,7 @@
                     <a class="dropdown-item" href="{{url('profile')}}">Profil Pengguna</a>
                     <a class="dropdown-item">
                         <form method="post" action="{{url('logout')}}">
-                            {{ csrf_field() }}
+                            @csrf
                             <button class="btn btn-primary btn-rounded text-14" type="submit">Log out</button>
                         </form>
                     </a>

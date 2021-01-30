@@ -1,16 +1,25 @@
 @extends('layout.app')
 
 @section('moreCSS')
-<link rel="stylesheet" href="{{asset('assets/css/plugins/datatables.min.css')}}" />
+<link rel="stylesheet" href="/assets/css/plugins/datatables.min.css" />
 @endsection
 
 @section('content')
+<div class="row mb-2">
+    <div class="col-12">
+        <div class="text-center d-block mb-4">
+            <img src="/assets/images/sim_asset.png" class="img-thumbnail mb-2" style="max-width: 100px;" alt="Product-img" />
+            <h2>Selamat Datang</h2>
+            <h2><strong>{{session()->get('user')->nama}}</strong></h2>
+        </div>
+    </div>
+</div>
+<br>
 <div class="breadcrumb">
     <h3>Aset yang Dipinjam</h3>
 </div>
 <div id="borrowed-card-holder">
 </div>
-<br>
 @if(session()->get('user')->isAdmin())
 <div class="breadcrumb my-4">
     <h3>Data Aset Digunakan</h3>
@@ -18,7 +27,6 @@
 <div id="all-borrowed-card-holder"> 
 </div>
 @endif
-<br>
 <br>
 <div class="breadcrumb my-4">
     <h3>Dashboard</h3>
@@ -700,16 +708,18 @@
 @endsection
 
 @section('moreJS')
-<script src=" {{asset('assets/js/plugins/datatables.min.js')}} "></script>
-<script src=" {{asset('assets/js/scripts/datatables.script.min.js')}} "></script>
+<script src="/assets/js/plugins/datatables.min.js"></script>
+<script src="/assets/js/scripts/datatables.script.min.js"></script>
 <script>
 @if(session()->get('user')->isAdmin())
 $.ajax({
         url: '{{url("peminjaman/get")}}',
         type: 'post',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
         data: {
             tipe: 'populate',
-            "_token": "{{ csrf_token() }}",
         },
         success: function(response) {
             console.log(response['data'].length);
@@ -753,10 +763,12 @@ $.ajax({
 $.ajax({
         url: '{{url("peminjaman/get")}}',
         type: 'post',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
         data: {
             uid: '{{session()->get("user")->id}}',
             tipe: 'selfborrowed',
-            "_token": "{{ csrf_token() }}",
         },
         success: function(response) {
             console.log(response['data'].length);

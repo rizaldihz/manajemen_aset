@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Services\AssetService;
 use App\Services\PeminjamanService;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\ReportExport;
+use App\Services\Plugins\Excel\IExcelExportManager;
 // use InvalidArgumentException;
 
 class ExcelService
@@ -20,7 +19,7 @@ class ExcelService
         $this->peminjamanService = $peminjamanService;
         $this->assetService = $assetService;
     }
-    public function export()
+    public function export($excelExportManager)
     {
         $asset = $this->assetService->getAll();
         $toexport=array([],[]);
@@ -57,6 +56,7 @@ class ExcelService
             ];
             array_push($toexport[1],$temp);
         }
-        return (new ReportExport($toexport[0],$toexport[1]))->download('Data Manajemen Asset.xlsx');
+        $excelExportManager->setContent($toexport);
+        return $excelExportManager->export('Data Manajemen Asset.xlsx');
     }
 }

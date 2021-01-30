@@ -1,14 +1,14 @@
 @extends('layout.app')
 
 @section('moreCSS')
-<link rel="stylesheet" href="{{asset('assets/css/plugins/datatables.min.css')}}" />
-<link rel="stylesheet" href="{{asset('assets/css/plugins/sweetalert2.min.css')}}" />
+<link rel="stylesheet" href="/assets/css/plugins/datatables.min.css" />
+<link rel="stylesheet" href="/assets/css/plugins/sweetalert2.min.css" />
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 @endsection
 
 @section('content')
 <div class="row">
-    <a href="javascript:window.history.back();" class="nav-link"><img src="{{asset('assets/images/previous.png')}}" height="20px" height="20px"></a>
+    <a href="javascript:window.history.back();" class="nav-link"><img src="/assets/images/previous.png" height="20px" height="20px"></a>
     <div class="breadcrumb pt-2 ml-2">
         <h1>Detail Aset</h1>
     </div>
@@ -107,11 +107,11 @@
 @endsection
 
 @section('moreJS')
-<script src=" {{asset('assets/js/plugins/datatables.min.js')}} "></script>
-<script src=" {{asset('assets/js/scripts/datatables.script.min.js')}} "></script>
-<script src=" {{asset('assets/js/plugins/sweetalert2.min.js')}}"></script>
-<script src=" {{asset('assets/js/scripts/sweetalert.script.min.js')}}"></script>
-<script src=" {{asset('assets/js/scripts/html5-qrcode.min.js')}}"></script>
+<script src="/assets/js/plugins/datatables.min.js"></script>
+<script src="/assets/js/scripts/datatables.script.min.js"></script>
+<script src="/assets/js/plugins/sweetalert2.min.js"></script>
+<script src="/assets/js/scripts/sweetalert.script.min.js"></script>
+<script src="/assets/js/scripts/html5-qrcode.min.js"></script>
 <script>
     function toggleCode(params) {
         // $('#modalDetailAset .modal-title').html("QR Code")

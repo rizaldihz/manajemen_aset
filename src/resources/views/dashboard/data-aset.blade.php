@@ -1,8 +1,8 @@
 @extends('layout.app')
 
 @section('moreCSS')
-<link rel="stylesheet" href="{{asset('assets/css/plugins/datatables.min.css')}}" />
-<link rel="stylesheet" href="{{asset('assets/css/plugins/sweetalert2.min.css')}}" />
+<link rel="stylesheet" href="/assets/css/plugins/datatables.min.css" />
+<link rel="stylesheet" href="/assets/css/plugins/sweetalert2.min.css" />
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 @endsection
 
@@ -19,10 +19,9 @@
     <div class="form-group">
         <label class="col-form-label">Jenis Asset</label>
         <select class="form-control" id='select_jenis_asset'>
-            <option value="" selected disabled hidden>Choose here</option>
             @if(!$jenis_assets->isEmpty())
             @foreach($jenis_assets as $jenis_asset)
-            <option value='{"id":"{{$jenis_asset->id}}","tab":"{{strtolower(str_replace(" ", "",$jenis_asset->nama))}}"}' data-toggle="tab" href="#{{strtolower(str_replace(" ", "",$jenis_asset->nama))}}Basic" role="tab" aria-controls="{{strtolower(str_replace(" ", "",$jenis_asset->nama))}}Basic">{{$jenis_asset->nama}}</option>
+            <option value='{"id":"{{$jenis_asset->id}}","tab":"{{preg_replace("/[^A-Za-z0-9 ]/", '', strtolower(str_replace(" ", "",$jenis_asset->nama)))}}"}' data-toggle="tab" href="#{{preg_replace("/[^A-Za-z0-9 ]/", '', strtolower(str_replace(" ", "",$jenis_asset->nama)))}}Basic" role="tab" aria-controls="{{preg_replace("/[^A-Za-z0-9 ]/", '', strtolower(str_replace(" ", "",$jenis_asset->nama)))}}Basic">{{$jenis_asset->nama}}</option>
             @endforeach
             @endif
         </select>
@@ -34,7 +33,7 @@
         @endphp
         @foreach ($jenis_assets as $jenis_asset)
             <li class="nav-item">
-                <a class="nav-link @if($i==0)active @endif" id="{{strtolower(str_replace(" ", "-",$jenis_asset->nama))}}-basic-tab" data-toggle="tab" href="#{{strtolower(str_replace(" ", "",$jenis_asset->nama))}}Basic" role="tab" aria-controls="{{strtolower(str_replace(" ", "",$jenis_asset->nama))}}Basic" aria-selected="true" onclick="load('{{$jenis_asset->id}}','{{strtolower(str_replace(" ", "",$jenis_asset->nama))}}')">{{$jenis_asset->nama}}</a>
+                <a class="nav-link @if($i==0)active @endif" id="{{preg_replace("/[^A-Za-z0-9 ]/", '', strtolower(str_replace(" ", "",$jenis_asset->nama)))}}-basic-tab" data-toggle="tab" href="#{{preg_replace("/[^A-Za-z0-9 ]/", '', strtolower(str_replace(" ", "",$jenis_asset->nama)))}}Basic" role="tab" aria-controls="{{preg_replace("/[^A-Za-z0-9 ]/", '', strtolower(str_replace(" ", "",$jenis_asset->nama)))}}Basic" aria-selected="true" onclick="load('{{$jenis_asset->id}}','{{preg_replace("/[^A-Za-z0-9 ]/", '', strtolower(str_replace(" ", "",$jenis_asset->nama)))}}')">{{$jenis_asset->nama}}</a>
             </li>
             @php
             $i++; 
@@ -55,7 +54,7 @@
     $i=0;
     @endphp
         @foreach ($jenis_assets as $jenis_asset)
-    <div class="tab-pane fade show @if($i==0)active @endif" style="margin-bottom: 36px" id="{{strtolower(str_replace(" ", "",$jenis_asset->nama))}}Basic" role="tabpanel" aria-labelledby="{{strtolower(str_replace(" ", "-",$jenis_asset->nama))}}-tab">
+    <div class="tab-pane fade show @if($i==0)active @endif" style="margin-bottom: 36px" id="{{preg_replace("/[^A-Za-z0-9 ]/", '', strtolower(str_replace(" ", "",$jenis_asset->nama)))}}Basic" role="tabpanel" aria-labelledby="{{preg_replace("/[^A-Za-z0-9 ]/", '', strtolower(str_replace(" ", "",$jenis_asset->nama)))}}-tab">
         <!-- end of col-->
         <div class="annotated-list form-group mb-3" id="assets">
             {{-- <input class="search form-control form-control-rounded" style="width: 100%; height: 3.25em;" placeholder="Search by name" />
@@ -64,7 +63,7 @@
             <button class="sort btn btn-light btn-rounded btn-sm mt-1 ml-1" data-sort="status" style="font-size: 12px;">Sort by
                 Status Aset</button> --}}
 
-            <div class="list" id="to-fill-{{strtolower(str_replace(" ", "",$jenis_asset->nama))}}">
+            <div class="list" id="to-fill-{{preg_replace("/[^A-Za-z0-9 ]/", '', strtolower(str_replace(" ", "",$jenis_asset->nama)))}}">
             </div>
         </div>
         <!-- end of col-->
@@ -83,10 +82,10 @@
 <div class="action" onclick="actionToggle();">
     <span>+</span>
     <ul>
-        <li><img src="{{asset('assets/images/folder.png')}}"><a data-toggle="modal" data-target="#modalTambahAset">
+        <li><img src="/assets/images/folder.png"><a data-toggle="modal" data-target="#modalTambahAset">
                 <h5 style="font-weight: 700;">Tambah Data Aset</h5>
             </a></li>
-        <li><img src="{{asset('assets/images/folderss.png')}}"><a data-toggle="modal" data-target="#modalTambahJenis">
+        <li><img src="/assets/images/folderss.png"><a data-toggle="modal" data-target="#modalTambahJenis">
                 <h5 style="font-weight: 700;">Tambah Jenis Aset</h5>
             </a></li>
     </ul>
@@ -99,7 +98,7 @@
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             </div>
             <form method='post' action='{{url("asset/create")}}' enctype="multipart/form-data">
-                {{ csrf_field() }}
+                @csrf
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="col-form-label">Kode Asset</label>
@@ -148,7 +147,7 @@
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             </div>
             <form method="post" action="{{url('jenis-asset/create')}}">
-                {{ csrf_field() }}
+                @csrf
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="col-form-label">Nama Jenis Asset</label>
@@ -169,10 +168,10 @@
 @endsection
 
 @section('moreJS')
-<script src=" {{asset('assets/js/plugins/datatables.min.js')}} "></script>
-<script src=" {{asset('assets/js/scripts/datatables.script.min.js')}} "></script>
-<script src=" {{asset('assets/js/plugins/sweetalert2.min.js')}}"></script>
-<script src=" {{asset('assets/js/scripts/sweetalert.script.min.js')}}"></script>
+<script src="/assets/js/plugins/datatables.min.js"></script>
+<script src="/assets/js/scripts/datatables.script.min.js"></script>
+<script src="/assets/js/plugins/sweetalert2.min.js"></script>
+<script src="/assets/js/scripts/sweetalert.script.min.js"></script>
 <script type="text/javascript">
     function actionToggle() {
         var action = document.querySelector('.action');
@@ -186,9 +185,11 @@
             $.ajax({
                 url: '{{url("asset/get")}}',
                 type: 'post',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 data: {
                     tipe: 'getall',
-                    "_token": "{{ csrf_token() }}",
                     id: id
                 },
                 success: function(response) {
@@ -242,7 +243,7 @@
             $('#'+val.tab+'-basic-tab').tab('show');
         });
         @if($jenis_assets->count())
-        load('{{$jenis_assets[0]->id}}','{{strtolower(str_replace(" ", "",$jenis_assets[0]->nama))}}');
+        load('{{$jenis_assets[0]->id}}','{{preg_replace("/[^A-Za-z0-9 ]/", '', strtolower(str_replace(" ", "",$jenis_assets[0]->nama)))}}');
         @endif
     });
 </script>

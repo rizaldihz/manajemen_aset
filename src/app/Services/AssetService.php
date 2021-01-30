@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Repositories\AssetRepository;
+use App\Interfaces\Repositories\IAssetRepository;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -15,28 +15,32 @@ use App\Services\PeminjamanService;
 class AssetService
 {
     protected $assetRepository, $peminjamanService;
-    public function __construct(AssetRepository $assetRepository)
+    public function __construct(IAssetRepository $assetRepository)
     {
         $this->assetRepository = $assetRepository;
     }
+    protected function storeImage($foto,$namaFile)
+    {
+        $image = $foto;
+        $name = Str::slug($namaFile).'_'.time();
+        $imageName = $namaFile.'.'.$image->getClientOriginalExtension();
+        return Storage::putFileAs('public/images', $foto, $imageName);
+    }
     public function saveData($data)
     {
-        $postData = NULL;
+        $path = '';
         if($data->has('foto')){
-            $image = $data->file('foto');
-            $name = Str::slug($data->input('nama')).'_'.time();
-            $imgName = $name.'.'.$image->getClientOriginalExtension();
-            $path = Storage::putFileAs('public/images', $data->file('foto'), $imgName);
-            $postData = [
-                'kode_aset' => $data->post('kode_aset'),
-                'nama' => $data->post('nama'),
-                'lokasi' => $data->post('lokasi'),
-                'stok' => $data->post('stok'),
-                'jenis_asset_id' => $data->post('jenis_asset'),
-                'status' => 0,
-                'foto' => $path
-            ];
+            $path = $this->storeImage($data->file('foto'),$data->post('nama'));
         }
+        $postData = [
+            'kode_aset' => $data->post('kode_aset'),
+            'nama' => $data->post('nama'),
+            'lokasi' => $data->post('lokasi'),
+            'stok' => $data->post('stok'),
+            'jenis_asset_id' => $data->post('jenis_asset'),
+            'status' => 0,
+            'foto' => $path
+        ];
         return $this->assetRepository->create($postData);
     }
     public function getAll()

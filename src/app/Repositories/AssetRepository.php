@@ -3,9 +3,10 @@
 namespace App\Repositories;
 
 use App\Models\Asset;
+use App\Interfaces\Repositories\IAssetRepository;
 use Illuminate\Support\Facades\Storage;
 
-class AssetRepository
+class AssetRepository implements IAssetRepository
 {
     protected $asset;
 
@@ -34,7 +35,10 @@ class AssetRepository
     public function delete($id)
     {
         $toDelete = $this->asset->find($id);
-        Storage::delete($toDelete->foto);
+        try {
+            Storage::delete($toDelete->foto);
+        } catch (\Throwable $th) {
+        }
         return $toDelete->delete();
     }
     

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Imports;
+namespace App\App\Services\Plugins\Excel\Maatwebsite\Imports;
 
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToModel;

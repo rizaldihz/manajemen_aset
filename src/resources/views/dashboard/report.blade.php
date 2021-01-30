@@ -1,8 +1,8 @@
 @extends('layout.app')
 
 @section('moreCSS')
-<link rel="stylesheet" href="{{asset('assets/css/plugins/datatables.min.css')}}" />
-<link rel="stylesheet" href="{{asset('assets/css/plugins/sweetalert2.min.css')}}" />
+<link rel="stylesheet" href="/assets/css/plugins/datatables.min.css" />
+<link rel="stylesheet" href="/assets/css/plugins/sweetalert2.min.css" />
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 @endsection
 
@@ -37,7 +37,7 @@
     <div class="tab-pane fade show active" style="margin-bottom: px" id="ruang1Basic" role="tabpanel" aria-labelledby="ruang1-basic-tab">
         <!-- end of col-->
         <div class="d-flex justify-content-start">
-            <button type="button" class="btn btn-success"><img src="{{asset('assets/images/excel.png')}}" style="width: 16px; height: 16px;" class="mr-2">Export Data</button>
+            <button type="button" class="btn btn-success"><img src="/assets/images/excel.png" style="width: 16px; height: 16px;" class="mr-2">Export Data</button>
         </div>
         <br>
         <div class="table-responsive">
@@ -247,10 +247,10 @@
 @endsection
 
 @section('moreJS')
-<script src=" {{asset('assets/js/plugins/datatables.min.js')}} "></script>
-<script src=" {{asset('assets/js/scripts/datatables.script.min.js')}} "></script>
-<script src=" {{asset('assets/js/plugins/sweetalert2.min.js')}}"></script>
-<script src=" {{asset('assets/js/scripts/sweetalert.script.min.js')}}"></script>
+<script src="/assets/js/plugins/datatables.min.js"></script>
+<script src="/assets/js/scripts/datatables.script.min.js"></script>
+<script src="/assets/js/plugins/sweetalert2.min.js"></script>
+<script src="/assets/js/scripts/sweetalert.script.min.js"></script>
 <script>
     var table = $('#asset_table').DataTable({
         processing: true,
@@ -291,10 +291,12 @@
             $.ajax({
                 url: '{{url("asset/get")}}',
                 type: 'post',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 data: {
                     id: params,
                     tipe: 'modal',
-                    _token: "{{ csrf_token() }}",
                 },
                 success: function(response) {
                     $('#modalDetailAset .modal-title').html("Detail Aset")
@@ -312,10 +314,12 @@
         $.ajax({
             url: '{{url("asset/delete")}}',
             type: 'post',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             data: {
                 id: params,
                 tipe: 'modal',
-                _token: "{{ csrf_token() }}",
             },
             success: function(response) {
                 swal(
@@ -330,7 +334,7 @@
 
     function toggleCode(params) {
         $('#modalDetailAset .modal-title').html("QR Code")
-        $('#modalDetailAset .modal-body').html("<div class='row'><div class='col-12'><img src='{{url('/')}}/asset/code/" + params + "'></div></div>");
+        $('#modalDetailAset .modal-body').html("<div class='row'><div class='col-12'><img src='/asset/code/" + params + "'></div></div>");
         $('#modalDetailAset').modal('show');
     }
 </script>

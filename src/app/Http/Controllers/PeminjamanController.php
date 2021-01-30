@@ -8,6 +8,7 @@ use App\Services\PeminjamanService;
 use App\Services\UserService;
 use App\Services\AssetService;
 use Datatables;
+use App\Exceptions\PeminjamanAuthException;
 
 class PeminjamanController extends BaseController
 {
@@ -34,6 +35,10 @@ class PeminjamanController extends BaseController
         try {
             $user = $request->session()->get('user');
             $asset = $this->assetService->findbyId($request->post('id_aset'));
+
+            if($asset == NULL)
+                return abort(404);
+
             $msg = $this->peminjamanService->saveData($request,$user,$asset);
             if($msg!=false){
                 $this->assetService->updateById(['status'=>1],$request->post('id_aset'));
@@ -81,7 +86,13 @@ class PeminjamanController extends BaseController
     }
     public function pengembalian_action(Request $request)
     {
-        $response = $this->peminjamanService->pengembalian($request);
-        return redirect('');
+        try {
+            $peminjaman = $this->peminjamanService->findById($request->post('id')); 
+            $response = $this->peminjamanService->pengembalian($request,$peminjaman);
+            return redirect('');
+        } catch (PeminjamanAuthException $e) {
+            report($e);
+            return response()->json(['err' => $e->getMessage()]);
+        }
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use App\Services\AssetService;
+use App\Exceptions\PeminjamanAuthException;
 // use InvalidArgumentException;
 
 class PeminjamanService
@@ -21,7 +22,7 @@ class PeminjamanService
     }
     public function saveData($request,$user,$asset)
     {
-        if($asset->status==0){
+        if($asset->status == config('static.ASSET_STATUS_TERSEDIA')){
             $data=[
                 'asset_id' => $request->post('id_aset'),
                 'lokasi' => $request->post('lokasi'),
@@ -94,13 +95,15 @@ class PeminjamanService
         if($peminjaman) $peminjaman->link = url('peminjaman/'.$peminjaman->kode_peminjaman);
         return $peminjaman;
     }
-    public function pengembalian($request)
+    public function pengembalian($request,$peminjaman)
     {
-        $peminjaman = $this->findById($request->post('id')); 
-        if((!$request->session()->get('user')->id == $peminjaman->user_id && !$request->session()->get('user')->isAdmin()) && $peminjaman->status != 'Dipinjam') return "Not Authorized";
+        if((!($request->session()->get('user')->id == $peminjaman->user_id) && !$request->session()->get('user')->isAdmin()))
+            throw new PeminjamanAuthException('Bukan user yang bersangkutan!');
+            return false;
+        if($peminjaman->status != 'Dipinjam')
+            throw new Exception('Bukan Aset yang sedang Dipinjam');
         $this->peminjamanRepository->updateById(['status'=>'Kembali'],$request->post('id'));
-        $this->assetService->updateById(['status'=>0],$peminjaman->asset->id);
-        return "Pengembalian berhasil";
+        return $this->assetService->updateById(['status'=>0],$peminjaman->asset->id);
     }
     public function newestFromAsset($data)
     {

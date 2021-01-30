@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use GoldSpecDigital\LaravelEloquentUUID\Database\Eloquent\Uuid;
 
-class PeminjamanPostRequest extends FormRequest
+class AssetCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,15 +24,18 @@ class PeminjamanPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_aset' => 'required|uuid',
+            'kode_aset' => ['required','string','regex:/^[a-zA-Z][\w-]+$/i'],
+            'nama' => 'required|string',
             'lokasi' => 'required|string',
+            'jenis_asset' => 'required|uuid',
+            'foto' => 'required|file|max:5000',
         ];
     }
     public function messages()
     {
         return [
-            'id_aset.required' => 'Aset belum dipilih, mohon coba lagi!',
-            'lokasi.required'  => 'Lokasi belum diisi, mohon coba lagi!'
+            'kode_aset.regex' => 'Kode Aset Hanya bisa diisi Alpha numerik!',
+            'nama.required'  => 'Nama Aset belum diisi, mohon coba lagi!'
         ];
     }
 }

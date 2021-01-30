@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\ExcelService;
+use App\Services\Plugins\Excel\IExcelExportManager;
+
 
 class ReportController extends BaseController
 {
@@ -16,8 +18,8 @@ class ReportController extends BaseController
     {
         return view('dashboard.report');
     }
-    public function export_excel()
+    public function export_excel(IExcelExportManager $excelExportManager)
     {
-        return $this->excelService->export();
+        return $this->excelService->export($excelExportManager);
     }
 }

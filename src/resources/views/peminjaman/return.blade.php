@@ -1,8 +1,8 @@
 @extends('layout.app')
 
 @section('moreCSS')
-<link rel="stylesheet" href="{{asset('assets/css/plugins/datatables.min.css')}}" />
-<link rel="stylesheet" href="{{asset('assets/css/plugins/sweetalert2.min.css')}}" />
+<link rel="stylesheet" href="/assets/css/plugins/datatables.min.css" />
+<link rel="stylesheet" href="/assets/css/plugins/sweetalert2.min.css" />
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 <style>
 #qr-canvas {
@@ -132,7 +132,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <form method='post' action='{{url("asset/kembalikan")}}'>
-                                        {{ csrf_field() }}
+                                            @csrf
                                         <input id="id-input" type="hidden" name='id'/>
                                         <button class="btn btn-secondary" type="button" onclick="flush()">Batal</button>
                                         <input class="btn btn-primary ml-2" type="submit" value="Kembalikan">
@@ -153,11 +153,11 @@
 @endsection
 
 @section('moreJS')
-<script src=" {{asset('assets/js/plugins/datatables.min.js')}} "></script>
-<script src=" {{asset('assets/js/scripts/datatables.script.min.js')}} "></script>
-<script src=" {{asset('assets/js/plugins/sweetalert2.min.js')}}"></script>
-<script src=" {{asset('assets/js/scripts/sweetalert.script.min.js')}}"></script>
-<script src=" {{asset('assets/js/scripts/html5-qrcode.min.js')}}"></script>
+<script src="/assets/js/plugins/datatables.min.js"></script>
+<script src="/assets/js/scripts/datatables.script.min.js"></script>
+<script src="/assets/js/plugins/sweetalert2.min.js"></script>
+<script src="/assets/js/scripts/sweetalert.script.min.js"></script>
+<script src="/assets/js/scripts/html5-qrcode.min.js"></script>
 <script src=" https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
 <script>
     function flush(){
@@ -168,10 +168,12 @@
         $.ajax({
             url: '{{url("peminjaman/get")}}',
             type: 'post',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             data: {
                 id: barang,
                 tipe: 'tobereturned',
-                _token: "{{ csrf_token() }}",
             },
             success: function(response) {
                 response = response['data'][0];

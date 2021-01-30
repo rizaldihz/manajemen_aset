@@ -1,14 +1,14 @@
 @extends('layout.app-detail')
 
 @section('moreCSS')
-<link rel="stylesheet" href="{{asset('assets/css/plugins/datatables.min.css')}}" />
-<link rel="stylesheet" href="{{asset('assets/css/plugins/sweetalert2.min.css')}}" />
+<link rel="stylesheet" href="/assets/css/plugins/datatables.min.css" />
+<link rel="stylesheet" href="/assets/css/plugins/sweetalert2.min.css" />
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 @endsection
 
 @section('content')
 <div class="row">
-    <a href="{{url('dashboard')}}" class="nav-link"><img src="{{asset('assets/images/previous.png')}}" height="20px" height="20px"></a>
+    <a href="{{url('dashboard')}}" class="nav-link"><img src="/assets/images/previous.png" height="20px" height="20px"></a>
     <div class="breadcrumb pt-2 ml-2">
         <h3>Peminjaman Aset</h3>
     </div>
@@ -23,7 +23,7 @@
                     <div class="col-lg-3">
                         <!-- Product image -->
                         <a href="javascript: void(0);" class="text-center d-block mb-4">
-                            <img src="{{asset('assets/images/qr.png')}} " class="img-thumbnail img-preview" style="max-width: 280px;" alt="Product-img" />
+                            <img src="/assets/images/qr.png" class="img-thumbnail img-preview" style="max-width: 280px;" alt="Product-img" />
                         </a>
                         <br>
                     </div>
@@ -111,11 +111,11 @@
 @endsection
 
 @section('moreJS')
-<script src=" {{asset('assets/js/plugins/datatables.min.js')}} "></script>
-<script src=" {{asset('assets/js/scripts/datatables.script.min.js')}} "></script>
-<script src=" {{asset('assets/js/plugins/sweetalert2.min.js')}}"></script>
-<script src=" {{asset('assets/js/scripts/sweetalert.script.min.js')}}"></script>
-<script src=" {{asset('assets/js/scripts/html5-qrcode.min.js')}}"></script>
+<script src="/assets/js/plugins/datatables.min.js"></script>
+<script src="/assets/js/scripts/datatables.script.min.js"></script>
+<script src="/assets/js/plugins/sweetalert2.min.js"></script>
+<script src="/assets/js/scripts/sweetalert.script.min.js"></script>
+<script src="/assets/js/scripts/html5-qrcode.min.js"></script>
 <script>
     var table = $('#asset_table').DataTable({
         processing: true,
@@ -156,10 +156,12 @@
             $.ajax({
                 url: '{{url("asset/get")}}',
                 type: 'post',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 data: {
                     id: params,
                     tipe: 'modal',
-                    _token: "{{ csrf_token() }}",
                 },
                 success: function(response) {
                     $('#modalDetailAset .modal-title').html("Detail Aset")
@@ -177,10 +179,12 @@
         $.ajax({
             url: '{{url("asset/delete")}}',
             type: 'post',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             data: {
                 id: params,
                 tipe: 'modal',
-                _token: "{{ csrf_token() }}",
             },
             success: function(response) {
                 swal(
@@ -195,7 +199,7 @@
 
     function toggleCode(params) {
         $('#modalDetailAset .modal-title').html("QR Code")
-        $('#modalDetailAset .modal-body').html("<div class='row'><div class='col-12'><img src='{{url('/')}}/asset/code/" + params + "'></div></div>");
+        $('#modalDetailAset .modal-body').html("<div class='row'><div class='col-12'><img src='/asset/code/" + params + "'></div></div>");
         $('#modalDetailAset').modal('show');
     }
 </script>

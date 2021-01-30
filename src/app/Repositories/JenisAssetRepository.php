@@ -3,8 +3,9 @@
 namespace App\Repositories;
 
 use App\Models\JenisAsset;
+use App\Interfaces\Repositories\IJenisAssetRepository;
 
-class JenisAssetRepository
+class JenisAssetRepository implements IJenisAssetRepository
 {
     protected $jenisAsset;
     public function __construct(JenisAsset $jenisAsset)

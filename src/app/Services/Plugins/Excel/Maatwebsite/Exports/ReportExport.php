@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Exports;
+namespace App\Services\Plugins\Excel\Maatwebsite\Exports;
 
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
-use App\Exports\Sheets\AssetsSheet;
-use App\Exports\Sheets\PeminjamansSheet;
+use App\Services\Plugins\Excel\Maatwebsite\Exports\Sheets\AssetsSheet;
+use App\Services\Plugins\Excel\Maatwebsite\Exports\Sheets\PeminjamansSheet;
 
 class ReportExport implements WithMultipleSheets
 {

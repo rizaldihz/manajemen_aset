@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use App\Repositories\JenisAssetRepository;
-use App\Repositories\AssetRepository;
+use App\Interfaces\Repositories\IJenisAssetRepository;
+use App\Interfaces\Repositories\IAssetRepository;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 class JenisAssetService
 {
     protected $jenisAssetRepository, $assetRepository;
-    public function __construct(JenisAssetRepository $jenisAssetRepository, AssetRepository $assetRepository)
+    public function __construct(IJenisAssetRepository $jenisAssetRepository, IAssetRepository $assetRepository)
     {
         $this->jenisAssetRepository = $jenisAssetRepository;
         $this->assetRepository = $assetRepository;
