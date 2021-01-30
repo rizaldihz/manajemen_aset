@@ -105,11 +105,7 @@ class AssetController extends BaseController
     }
     protected function get_modal_response($dataAsset)
     {
-        $statusStr = NULL;
-        if($dataAsset->status)
-            $statusStr = '<span class="badge badge-warning ">Digunakan</span>';
-        else 
-            $statusStr = '<span class="badge badge-success ">Tersedia</span>';
+        $statusStr = $dataAsset->status ? '<span class="badge badge-warning ">Digunakan</span>' : '<span class="badge badge-success ">Tersedia</span>';
         $modal = sprintf("<div class='row'><div class='col-12'><img src='%s'></div><div class='col-12'>
                 <div class='table-responsive'><table class='table table-borderless'><tbody>
                 <tr><th scope='row'>Kode Aset</th><td>:</td><td>%s</td></tr>

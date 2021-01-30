@@ -19,13 +19,6 @@ class AssetService
     {
         $this->assetRepository = $assetRepository;
     }
-    protected function storeImage($foto,$namaFile)
-    {
-        $image = $foto;
-        $name = Str::slug($namaFile).'_'.time();
-        $imageName = $namaFile.'.'.$image->getClientOriginalExtension();
-        return Storage::putFileAs('public/images', $foto, $imageName);
-    }
     public function saveData($data)
     {
         $path = '';
@@ -42,6 +35,13 @@ class AssetService
             'foto' => $path
         ];
         return $this->assetRepository->create($postData);
+    }
+    protected function storeImage($foto,$namaFile)
+    {
+        $image = $foto;
+        $name = Str::slug($namaFile).'_'.time();
+        $imageName = $namaFile.'.'.$image->getClientOriginalExtension();
+        return Storage::putFileAs('public/images', $foto, $imageName);
     }
     public function getAll()
     {
